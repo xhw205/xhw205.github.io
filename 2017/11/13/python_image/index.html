@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://coolben.top">
-  <title>爬虫制作电子书记录贴 | 勤奋的懒猫</title>
+  <title>python是爹(图片篇) | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要使用 bs4 + requests 库来进行小说的爬取，把每一个章节内容保存成 html 文件，通过软件 Sigil Ebook 制作电子书（格式为最适合阅读的 ePub 格式），ePub 格式 PC 端可使用 Calibre 浏览，移动端可使用掌阅、多看等浏览。">
-<meta name="keywords" content="python">
+  <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫制作电子书记录贴">
-<meta property="og:url" content="http://coolben.top/2018/01/28/2018-01-28-多线程python爬虫制作电子书(一)/index.html">
+<meta property="og:title" content="python是爹(图片篇)">
+<meta property="og:url" content="http://coolben.top/2017/11/13/python_image/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="主要使用 bs4 + requests 库来进行小说的爬取，把每一个章节内容保存成 html 文件，通过软件 Sigil Ebook 制作电子书（格式为最适合阅读的 ePub 格式），ePub 格式 PC 端可使用 Calibre 浏览，移动端可使用掌阅、多看等浏览。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/01/30/5a70832ada2c3.png">
-<meta property="og:image" content="https://i.loli.net/2018/01/31/5a709971bab4b.png">
-<meta property="og:updated_time" content="2018-03-06T09:02:11.452Z">
+<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
+<meta property="og:updated_time" content="2018-01-30T14:31:45.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬虫制作电子书记录贴">
-<meta name="twitter:description" content="主要使用 bs4 + requests 库来进行小说的爬取，把每一个章节内容保存成 html 文件，通过软件 Sigil Ebook 制作电子书（格式为最适合阅读的 ePub 格式），ePub 格式 PC 端可使用 Calibre 浏览，移动端可使用掌阅、多看等浏览。">
-<meta name="twitter:image" content="https://i.loli.net/2018/01/30/5a70832ada2c3.png">
+<meta name="twitter:title" content="python是爹(图片篇)">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -154,50 +150,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2018-01-28-多线程python爬虫制作电子书(一)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python_image" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      爬虫制作电子书记录贴
+      python是爹(图片篇)
     </h1>
   
 
         
-        <a href="/2018/01/28/2018-01-28-多线程python爬虫制作电子书(一)/" class="archive-article-date">
-  	<time datetime="2018-01-28T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
+        <a href="/2017/11/13/python_image/" class="archive-article-date">
+  	<time datetime="2017-11-13T01:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2018/01/30/5a70832ada2c3.png" width="400"></p>
+        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
 
-<p>主要使用 bs4 + requests 库来进行小说的爬取，把每一个章节内容保存成 html 文件，通过软件 <a href="https://github.com/Sigil-Ebook/Sigil/releases" target="_blank" rel="external">Sigil Ebook</a> 制作电子书（格式为最适合阅读的 ePub 格式），ePub 格式 PC 端可使用 <a href="https://calibre-ebook.com/download" target="_blank" rel="external">Calibre</a> 浏览，移动端可使用掌阅、多看等浏览。</p>
 <a id="more"></a>
-<p>此外，不使用 scrapy 爬虫框架的原因是被定制的感觉是不自由滴，bs4 解析库是绝对强大于这种套装框架~~~</p>
-<h3 id="需要准备的工作"><a href="#需要准备的工作" class="headerlink" title="需要准备的工作"></a>需要准备的工作</h3><ul>
-<li><p>简单的 python 语言基础</p>
-</li>
-<li><p>小说网站，我们以<a href="https://www.ybdu.com/" target="_blank" rel="external">笔趣网</a>为例子。（注意：要爬取的小说最好是已经开放的，而不是收费阅读的）</p>
-</li>
-<li><p>MongoDB数据库。因涉及数据存储，需自行安装 MongoDB（5分钟搞定，方便快捷，<a href="http://blog.csdn.net/mzbonnt/article/details/51461331" target="_blank" rel="external">安装教程请点击</a>，在很多情况下比存成 txt、json方便），</p>
-</li>
-<li><p>python 的另需安装的库。可自行使用 python 自带的 pip 工具来 install </p>
-<blockquote>
-<p>1.bs4 库 ——也就是大名鼎鼎的美丽汤 BeautifulSoup</p>
-<p>2.requests 库——–用于网页请求</p>
-<p>3.pymongo 库——–对 MongoDB 进行简单低级操作的库</p>
-</blockquote>
-</li>
-<li><p>制作 epub 电子书的工具<a href="https://github.com/Sigil-Ebook/Sigil/releases" target="_blank" rel="external">Sigil Ebook</a> </p>
-</li>
-</ul>
-<h3 id="流程介绍"><a href="#流程介绍" class="headerlink" title="流程介绍"></a>流程介绍</h3><p><img src="https://i.loli.net/2018/01/31/5a709971bab4b.png" alt="spider"></p>
+<hr>
+<pre><code>from PIL import Image  
+import shutil  
+import os  
+class Graphics:  
+  def __init__(self, infile, outfile):
+      self.infile = infile
+      self.outfile = outfile
 
+  def fixed_size(self, width, height):  
+      &quot;&quot;&quot;按照固定尺寸处理图片&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      out = im.resize((width, height),Image.ANTIALIAS)  
+      out.save(self.outfile)  
+
+
+  def resize_by_width(self, w_divide_h):  
+      &quot;&quot;&quot;按照宽度进行所需比例缩放&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size   
+      x_s = x  
+      y_s = x/w_divide_h  
+      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
+      out.save(self.outfile)  
+
+
+  def resize_by_height(self, w_divide_h):  
+      &quot;&quot;&quot;按照高度进行所需比例缩放&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size   
+      x_s = y*w_divide_h  
+      y_s = y  
+      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
+      out.save(self.outfile)  
+
+
+  def resize_by_size(self, size):  
+      &quot;&quot;&quot;按照生成图片文件大小进行处理(单位KB)&quot;&quot;&quot;  
+      size *= 1024  
+      im = Image.open(self.infile)  
+      size_tmp = os.path.getsize(self.infile)  
+      q = 100  
+      while size_tmp &gt; size and q &gt; 0:  
+          print (q)  
+          out = im.resize(im.size, Image.ANTIALIAS)  
+          out.save(self.outfile, quality=q)  
+          size_tmp = os.path.getsize(self.outfile)  
+          q -= 5  
+      if q == 100:  
+          shutil.copy(self.infile, self.outfile)  
+
+
+  def cut_by_ratio(self):  
+      &quot;&quot;&quot;
+      把图片规整成正方形
+      &quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size  
+      print (im.size)
+      if x &gt; y:  
+          print (11)
+          region = (int(x/2-y/2), 0, int(x/2+y/2), y)  
+          #裁切图片  
+          crop_img = im.crop(region)  
+          #保存裁切后的图片  
+          crop_img.save(self.outfile)             
+      elif x &lt; y:  
+          region = (0, int(y/2-x/2), x, int(y/2+x/2))
+          #裁切图片  
+          crop_img = im.crop(region)  
+          #保存裁切后的图片  
+          (x,y) = crop_img.size
+          print  (x,y)
+          fp = &quot;D:\test\min_photos&quot;
+          crop_img.save(&quot;3.jpg&quot;) #仅做test用
+
+if name == &quot;main&quot;:
+    Graphics(&quot;D:/test/photos/1.jpg&quot;).cut_by_ratio()
+</code></pre>
       
 
       
@@ -292,7 +346,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/01/28/2018-01-28-多线程python爬虫制作电子书(一)/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2017/11/13/python_image/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,9 +360,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/11/22/学习报告_17-11-22/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          17/11/22周学习小结
+        
+      </div>
+    </a>
   
-    <a href="/2017/12/17/Deeplab 系列的前世今生/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Deeplab v2</div>
+  
+    <a href="/2017/10/27/shierhuangdao/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">十二·荒岛</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -336,7 +399,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2018-01-28-多线程python爬虫制作电子书(一)" data-title="爬虫制作电子书记录贴" data-url="http://coolben.top/2018/01/28/2018-01-28-多线程python爬虫制作电子书(一)/"></div>
+	<div class="ds-thread" data-thread-key="python_image" data-title="python是爹(图片篇)" data-url="http://coolben.top/2017/11/13/python_image/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -359,8 +422,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://coolben.top/2018/01/28/2018-01-28-多线程python爬虫制作电子书(一)/", 
-    sourceId: "2018-01-28-多线程python爬虫制作电子书(一)",
+    url: "http://coolben.top/2017/11/13/python_image/", 
+    sourceId: "python_image",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
