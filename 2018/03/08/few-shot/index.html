@@ -8,22 +8,23 @@
   <link rel="dns-prefetch" href="http://coolben.top">
   <title>few shot learning | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小样本学习来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
+  <meta name="description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="few shot learning">
 <meta property="og:url" content="http://coolben.top/2018/03/08/few-shot/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="小样本学习来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
+<meta property="og:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
 <meta property="og:image" content="d:/coolben/shot.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg">
 <meta property="og:image" content="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png">
-<meta property="og:updated_time" content="2018-03-08T14:39:22.884Z">
+<meta property="og:updated_time" content="2018-03-08T15:00:15.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="few shot learning">
-<meta name="twitter:description" content="小样本学习来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
-<meta name="twitter:image" content="d:/coolben/shot.png">
+<meta name="twitter:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -175,7 +176,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="小样本学习"><a href="#小样本学习" class="headerlink" title="小样本学习"></a>小样本学习</h3><p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
+        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
+
+<p>小样本学习</p>
+<p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
 <a id="more"></a>
 <p>例如:</p>
 <ul>
@@ -192,10 +196,9 @@
 <blockquote>
 <p>注： 把每个类别 <em>yi</em> 的单个样本换成 k个样本就 变成了k-shot learning , few-shot 一般指的是 k 不超过 20。</p>
 </blockquote>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>我们是希望机器学习的系统能快速的从少量样本中去学习，因为<strong>标label耗时耗力</strong>。k-shot learning ,无论 k 是 0,1还是 few。这都是<strong>属于迁移学习的范畴</strong>。迁移学习，我们大家很熟悉了，例如我们直接使用别人训练好的 Image_net、Vgg、或者 Resnet101模型作为预训练模型，再对自己的数据进行 fine-tune.</p>
-<p>###（二）论文阅读（孪生网络）</p>
-<p>###<img src="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg" alt="img"></p>
-<p>Markdown 上结构图不太清楚。。。</p>
+<p>小结</p>
+<p>我们是希望机器学习的系统能快速的从少量样本中去学习，因为<strong>标label耗时耗力</strong>。k-shot learning ,无论 k 是 0,1还是 few。这都是<strong>属于迁移学习的范畴</strong>。迁移学习，我们大家很熟悉了，例如我们直接使用别人训练好的 Image_net、Vgg、或者 Resnet101模型作为预训练模型，再对自己的数据进行 fine-tune.</p>
+<h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p>###<img src="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg" alt="img"></p>
 <p>结构意思就是：输入两张图片到两个 CNN, 来比较两种相同类别的概率。</p>
 <p>当我们做 one-shot learning 的时候，网络可以比较 test 集 与 support 集中的每张图片，然后挑选出哪一张与它最可能是同样类别。如下图说明可以既可以理解：</p>
 <p><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png" alt="img"></p>

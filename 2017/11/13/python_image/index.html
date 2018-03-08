@@ -6,26 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://coolben.top">
-  <title>17/11/22周学习小结 | 勤奋的懒猫</title>
+  <title>python是爹(图片篇) | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="日常学习报告…">
-<meta name="keywords" content="日常学习">
+  <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="17&#x2F;11&#x2F;22周学习小结">
-<meta property="og:url" content="http://coolben.top/2017/11/22/学习报告_17-11-22/index.html">
+<meta property="og:title" content="python是爹(图片篇)">
+<meta property="og:url" content="http://coolben.top/2017/11/13/python_image/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="日常学习报告…">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2017/11/22/5a1553163981b.jpg">
-<meta property="og:image" content="https://i.loli.net/2017/11/22/5a154fd8ec365.jpg">
-<meta property="og:image" content="https://i.loli.net/2017/11/22/5a1534264edbf.jpg">
-<meta property="og:image" content="https://i.loli.net/2017/11/22/5a1550e392b23.jpg">
-<meta property="og:image" content="https://i.loli.net/2017/11/22/5a15512b16e07.jpg">
-<meta property="og:updated_time" content="2017-11-27T13:39:28.672Z">
+<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
+<meta property="og:updated_time" content="2018-01-30T14:31:45.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="17&#x2F;11&#x2F;22周学习小结">
-<meta name="twitter:description" content="日常学习报告…">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/22/5a1553163981b.jpg">
+<meta name="twitter:title" content="python是爹(图片篇)">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -157,68 +150,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-学习报告_17-11-22" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python_image" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      17/11/22周学习小结
+      python是爹(图片篇)
     </h1>
   
 
         
-        <a href="/2017/11/22/学习报告_17-11-22/" class="archive-article-date">
-  	<time datetime="2017-11-22T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+        <a href="/2017/11/13/python_image/" class="archive-article-date">
+  	<time datetime="2017-11-13T01:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2017/11/22/5a1553163981b.jpg" alt="Smile" width="400"></p>
-<p>日常学习报告…</p>
-<a id="more"></a>
-<h3 id="RCNN"><a href="#RCNN" class="headerlink" title="RCNN"></a>RCNN</h3><p>RCNN是将CNN方法引入目标检测的领域，大大提高了目标检测的效果，可以说改变了目标检测领域的主要研究思路。</p>
-<p>算法分为四个步骤：</p>
-<ul>
-<li>Selective Search生成1K~2K个候选区域</li>
-<li>对于每个候选区域，CNN提取特征</li>
-<li>特征送入每一类的SVM分类器，判断是否属于该类</li>
-<li>使用回归器精修候选框</li>
-</ul>
-<h3 id="SPPnet"><a href="#SPPnet" class="headerlink" title="SPPnet"></a>SPPnet</h3><p>rcnn存在的最大问题是重复计算，proposal的region有几千个，多数都是互相重叠，重叠部分会被多次重复提取feature。这之后何凯明提出来SPPnet</p>
-<p><img src="https://i.loli.net/2017/11/22/5a154fd8ec365.jpg" width="600"></p>
-<p>虽然总体流程还是 Selective Search得到候选区域-&gt;CNN提取ROI特征-&gt;类别判断-&gt;位置精修，但是由于所有ROI的特征直接在feature map上提取，大大减少了卷积操作，提高了效率。</p>
-<p>这会涉及到一个问题，ROI的在特征图上的对应的特征区域的维度可能会不满足全连接层的输入要求。何凯明在这提出了Spatial Pyramid Pooling(空间金字塔池化)</p>
-<p><img src="https://i.loli.net/2017/11/22/5a1534264edbf.jpg" width="600"></p>
-<h3 id="Fastrcnn"><a href="#Fastrcnn" class="headerlink" title="Fastrcnn"></a>Fastrcnn</h3><p>Fastrcnn的提出主要有两个贡献点:</p>
-<ul>
-<li>除了proposal region阶段，实现了end2end训练。</li>
-<li>提出了Roi-pooling层，把不同尺寸的ROI分为n*n块（n代表我们想要的固定尺寸），每一块求max。</li>
-</ul>
-<p>其中在fast-rcnn中有两个输出层，一个是<strong>softmax分类</strong>(不同于以前的每一类采用SVM二元分类器，论文在SVM和Softmax的对比实验中说明，SVM的优势并不明显，故直接用Softmax将整个网络整合训练更好)，另一个是<strong>Roi区域坐标的偏移优化</strong>.</p>
-<h3 id="Faster-rcnn"><a href="#Faster-rcnn" class="headerlink" title="Faster-rcnn"></a>Faster-rcnn</h3><p>其实这些年的工作，一直致力于end to end的训练，就是在fast时候候选区域还是采用selective search方法。于是何凯明提出来区域生成网络(RPN),过程本人简单叙述一下就是：</p>
-<ul>
-<li><p>先卷积得到的feature map，把每个特征点映射回映射回原图的感受野的中心点当成一个基准点</p>
-</li>
-<li><p>围绕这个基准点选取k个不同scale、aspect ratio的anchor。论文中3个scale（128,256，521），3个aspect ratio( {1:1,1:2,2:1} )</p>
-<p><img src="https://i.loli.net/2017/11/22/5a1550e392b23.jpg" width="400"></p>
-</li>
-<li><p>对anchor进行正负样本划分，无非就是于groud true box重叠比例大于或者小于一个阈值</p>
-</li>
-<li><p>这里训练RPN时候还存在一个小trick，并不是把每一副图片地anchor都去优化loss function.这是因为负样本过多可能会导致模型对正样本预测准确率低。于是作者每次随机采样256个anchors去计算一次的batch地min loss。</p>
-</li>
-</ul>
-<p>还存在一个问题是，这样看来训练RPN网络和下面的fastrcnn部分并不是endtoend啊。作者提出来集中合二为一的方法，这里不再赘述。最终采用了如下的训练方法:</p>
-<p><img src="https://i.loli.net/2017/11/22/5a15512b16e07.jpg" alt="img"></p>
-<p>简单的写了下学习的内容，现在问题还是缺乏实战经验，还是没有体会周志华教授说的调参这门art活，研一的服务器资源还是挺紧张的。下周工作：</p>
-<ul>
-<li>想跑一个GAN网络，因为我看到它最大的功能是扩充数据集，有个好玩的想法就是，自己用爬虫爬一些动漫头像裁剪好，送到GAN去训练，会不会生成一些更好玩的图像呢。</li>
-<li>待定</li>
-</ul>
+        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
 
+<a id="more"></a>
+<hr>
+<pre><code>from PIL import Image  
+import shutil  
+import os  
+class Graphics:  
+  def __init__(self, infile, outfile):
+      self.infile = infile
+      self.outfile = outfile
+
+  def fixed_size(self, width, height):  
+      &quot;&quot;&quot;按照固定尺寸处理图片&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      out = im.resize((width, height),Image.ANTIALIAS)  
+      out.save(self.outfile)  
+
+
+  def resize_by_width(self, w_divide_h):  
+      &quot;&quot;&quot;按照宽度进行所需比例缩放&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size   
+      x_s = x  
+      y_s = x/w_divide_h  
+      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
+      out.save(self.outfile)  
+
+
+  def resize_by_height(self, w_divide_h):  
+      &quot;&quot;&quot;按照高度进行所需比例缩放&quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size   
+      x_s = y*w_divide_h  
+      y_s = y  
+      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
+      out.save(self.outfile)  
+
+
+  def resize_by_size(self, size):  
+      &quot;&quot;&quot;按照生成图片文件大小进行处理(单位KB)&quot;&quot;&quot;  
+      size *= 1024  
+      im = Image.open(self.infile)  
+      size_tmp = os.path.getsize(self.infile)  
+      q = 100  
+      while size_tmp &gt; size and q &gt; 0:  
+          print (q)  
+          out = im.resize(im.size, Image.ANTIALIAS)  
+          out.save(self.outfile, quality=q)  
+          size_tmp = os.path.getsize(self.outfile)  
+          q -= 5  
+      if q == 100:  
+          shutil.copy(self.infile, self.outfile)  
+
+
+  def cut_by_ratio(self):  
+      &quot;&quot;&quot;
+      把图片规整成正方形
+      &quot;&quot;&quot;  
+      im = Image.open(self.infile)  
+      (x, y) = im.size  
+      print (im.size)
+      if x &gt; y:  
+          print (11)
+          region = (int(x/2-y/2), 0, int(x/2+y/2), y)  
+          #裁切图片  
+          crop_img = im.crop(region)  
+          #保存裁切后的图片  
+          crop_img.save(self.outfile)             
+      elif x &lt; y:  
+          region = (0, int(y/2-x/2), x, int(y/2+x/2))
+          #裁切图片  
+          crop_img = im.crop(region)  
+          #保存裁切后的图片  
+          (x,y) = crop_img.size
+          print  (x,y)
+          fp = &quot;D:\test\min_photos&quot;
+          crop_img.save(&quot;3.jpg&quot;) #仅做test用
+
+if name == &quot;main&quot;:
+    Graphics(&quot;D:/test/photos/1.jpg&quot;).cut_by_ratio()
+</code></pre>
       
 
       
@@ -257,7 +290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -313,7 +346,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2017/11/22/学习报告_17-11-22/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2017/11/13/python_image/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +360,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/27/Autoencoder by Forest/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/22/学习报告_17-11-22/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          《Autoencoder by Forest》论文阅读
+          17/11/22周学习小结
         
       </div>
     </a>
   
   
-    <a href="/2017/11/13/python_image/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python是爹(图片篇)</div>
+    <a href="/2017/10/27/shierhuangdao/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">十二·荒岛</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +399,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="学习报告_17-11-22" data-title="17/11/22周学习小结" data-url="http://coolben.top/2017/11/22/学习报告_17-11-22/"></div>
+	<div class="ds-thread" data-thread-key="python_image" data-title="python是爹(图片篇)" data-url="http://coolben.top/2017/11/13/python_image/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -389,8 +422,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://coolben.top/2017/11/22/学习报告_17-11-22/", 
-    sourceId: "学习报告_17-11-22",
+    url: "http://coolben.top/2017/11/13/python_image/", 
+    sourceId: "python_image",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
