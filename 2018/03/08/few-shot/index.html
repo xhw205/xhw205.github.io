@@ -17,10 +17,10 @@
 <meta property="og:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
-<meta property="og:image" content="d:/coolben/shot.png">
+<meta property="og:image" content="https://i.loli.net/2018/03/08/5aa1508d73354.png">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg">
 <meta property="og:image" content="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png">
-<meta property="og:updated_time" content="2018-03-08T15:00:15.977Z">
+<meta property="og:updated_time" content="2018-03-08T15:03:43.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="few shot learning">
 <meta name="twitter:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
@@ -191,14 +191,14 @@
 </li>
 </ul>
 <p>经过我上边的介绍，可以对小样本学习做个定义:</p>
-<p><img src="D:\coolben\shot.png" alt="shot"></p>
+<p><img src="https://i.loli.net/2018/03/08/5aa1508d73354.png" alt="shot.png"></p>
 <p>自己的话解释一下就是: 模型只有少量的有 label 的训练样本 S ，S 中包括 N 个样本，yi 代表各样本的 label。因为样本集中每个样本都有一个正确的类别，我们希望，再来新的待分类的测试样本 x’‘ 时候，正确预测出 x’’ 的标签是 y’’ 。</p>
 <blockquote>
 <p>注： 把每个类别 <em>yi</em> 的单个样本换成 k个样本就 变成了k-shot learning , few-shot 一般指的是 k 不超过 20。</p>
 </blockquote>
 <p>小结</p>
 <p>我们是希望机器学习的系统能快速的从少量样本中去学习，因为<strong>标label耗时耗力</strong>。k-shot learning ,无论 k 是 0,1还是 few。这都是<strong>属于迁移学习的范畴</strong>。迁移学习，我们大家很熟悉了，例如我们直接使用别人训练好的 Image_net、Vgg、或者 Resnet101模型作为预训练模型，再对自己的数据进行 fine-tune.</p>
-<h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p>###<img src="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg" alt="img"></p>
+<h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p><img src="https://pic4.zhimg.com/80/v2-bf8d105da90f04e9a2ab894229b3eef3_hd.jpg" alt="img"></p>
 <p>结构意思就是：输入两张图片到两个 CNN, 来比较两种相同类别的概率。</p>
 <p>当我们做 one-shot learning 的时候，网络可以比较 test 集 与 support 集中的每张图片，然后挑选出哪一张与它最可能是同样类别。如下图说明可以既可以理解：</p>
 <p><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png" alt="img"></p>
