@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://coolben.top">
-  <title>python是爹(图片篇) | 勤奋的懒猫</title>
+  <title>Archives: 2018/3 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python是爹(图片篇)">
-<meta property="og:url" content="http://coolben.top/2017/11/13/python_image/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="勤奋的懒猫">
+<meta property="og:url" content="http://coolben.top/archives/2018/03/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
-<meta property="og:updated_time" content="2018-01-30T14:31:45.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python是爹(图片篇)">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
+<meta name="twitter:title" content="勤奋的懒猫">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -150,292 +146,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python_image" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      python是爹(图片篇)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/03/08/few-shot/" class="archive-article-date">
+  	<time datetime="2018-03-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/03/08/few-shot/">few shot learning</a>
     </h1>
   
 
-        
-        <a href="/2017/11/13/python_image/" class="archive-article-date">
-  	<time datetime="2017-11-13T01:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
-
-<a id="more"></a>
-<hr>
-<pre><code>from PIL import Image  
-import shutil  
-import os  
-class Graphics:  
-  def __init__(self, infile, outfile):
-      self.infile = infile
-      self.outfile = outfile
-
-  def fixed_size(self, width, height):  
-      &quot;&quot;&quot;按照固定尺寸处理图片&quot;&quot;&quot;  
-      im = Image.open(self.infile)  
-      out = im.resize((width, height),Image.ANTIALIAS)  
-      out.save(self.outfile)  
-
-
-  def resize_by_width(self, w_divide_h):  
-      &quot;&quot;&quot;按照宽度进行所需比例缩放&quot;&quot;&quot;  
-      im = Image.open(self.infile)  
-      (x, y) = im.size   
-      x_s = x  
-      y_s = x/w_divide_h  
-      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
-      out.save(self.outfile)  
-
-
-  def resize_by_height(self, w_divide_h):  
-      &quot;&quot;&quot;按照高度进行所需比例缩放&quot;&quot;&quot;  
-      im = Image.open(self.infile)  
-      (x, y) = im.size   
-      x_s = y*w_divide_h  
-      y_s = y  
-      out = im.resize((x_s, y_s), Image.ANTIALIAS)   
-      out.save(self.outfile)  
-
-
-  def resize_by_size(self, size):  
-      &quot;&quot;&quot;按照生成图片文件大小进行处理(单位KB)&quot;&quot;&quot;  
-      size *= 1024  
-      im = Image.open(self.infile)  
-      size_tmp = os.path.getsize(self.infile)  
-      q = 100  
-      while size_tmp &gt; size and q &gt; 0:  
-          print (q)  
-          out = im.resize(im.size, Image.ANTIALIAS)  
-          out.save(self.outfile, quality=q)  
-          size_tmp = os.path.getsize(self.outfile)  
-          q -= 5  
-      if q == 100:  
-          shutil.copy(self.infile, self.outfile)  
-
-
-  def cut_by_ratio(self):  
-      &quot;&quot;&quot;
-      把图片规整成正方形
-      &quot;&quot;&quot;  
-      im = Image.open(self.infile)  
-      (x, y) = im.size  
-      print (im.size)
-      if x &gt; y:  
-          print (11)
-          region = (int(x/2-y/2), 0, int(x/2+y/2), y)  
-          #裁切图片  
-          crop_img = im.crop(region)  
-          #保存裁切后的图片  
-          crop_img.save(self.outfile)             
-      elif x &lt; y:  
-          region = (0, int(y/2-x/2), x, int(y/2+x/2))
-          #裁切图片  
-          crop_img = im.crop(region)  
-          #保存裁切后的图片  
-          (x,y) = crop_img.size
-          print  (x,y)
-          fp = &quot;D:\test\min_photos&quot;
-          crop_img.save(&quot;3.jpg&quot;) #仅做test用
-
-if name == &quot;main&quot;:
-    Graphics(&quot;D:/test/photos/1.jpg&quot;).cut_by_ratio()
-</code></pre>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/ali.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2017/11/13/python_image/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/22/学习报告_17-11-22/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          17/11/22周学习小结
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/27/shierhuangdao/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">十二·荒岛</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="python_image" data-title="python是爹(图片篇)" data-url="http://coolben.top/2017/11/13/python_image/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://coolben.top/2017/11/13/python_image/", 
-    sourceId: "python_image",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -456,8 +220,8 @@ if name == &quot;main&quot;:
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -594,7 +358,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://geoch.top" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Sorry_OUC</a>
+              <a href="https://geoch.top" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Geoch</a>
             </li>
           
             <li class="search-li">
@@ -602,7 +366,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接</a>
+              <a href="https://llpspark.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>大师兄</a>
             </li>
           
         </ul>
@@ -613,7 +377,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">深度学习小白/Maybe读博</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">静下心，做点事。</div>
   	  	
     	</section>
     

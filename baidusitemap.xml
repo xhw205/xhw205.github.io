@@ -5,13 +5,30 @@
     
   <url>
     <loc>http://coolben.top/2018/01/28/spyder_sigil/</loc>
-    <lastmod>2018-03-06T09:02:11.452Z</lastmod>
+    <lastmod>2018-03-08T14:53:25.636Z</lastmod>
     <data>
         <display>
-        <title>爬虫制作电子书记录贴</title>
+        <title>爬虫制作电子书记录贴（一）</title>
         <pubTime>2018-01-28T09:36:00.000Z</pubTime>
         
         <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://coolben.top/2018/03/08/few-shot/</loc>
+    <lastmod>2018-03-08T14:39:22.884Z</lastmod>
+    <data>
+        <display>
+        <title>few shot learning</title>
+        <pubTime>2018-03-08T09:36:00.000Z</pubTime>
+        
+        <tag>日常学习</tag>
          
          
            
@@ -29,23 +46,6 @@
         <pubTime>2017-12-17T09:36:00.000Z</pubTime>
         
         <tag>Semantic Segmentation</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://coolben.top/2017/11/13/python_image/</loc>
-    <lastmod>2018-01-30T14:31:45.621Z</lastmod>
-    <data>
-        <display>
-        <title>python是爹(图片篇)</title>
-        <pubTime>2017-11-13T01:00:57.000Z</pubTime>
-        
-        <tag>python</tag>
          
          
            
