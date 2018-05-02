@@ -168,40 +168,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg" width="400"></p>
+        <p><img src="https://i.loli.net/2018/05/02/5ae97a1cef22b.png" width="400"></p>
 
 
 
-<p>这是发表在谷歌 DeepMind 团队的16 年的论文。</p>
-<p>结构图如下：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg" alt="雨霖铃" width="500"></p>
-<p>核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$ </p>
-<ul>
-<li>其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$</li>
-<li>其中 $a(\hat{x},x_i)$ =  $e^{c(f(\hat{x},g(x<em>i))}/\sum</em>{j=1}^ke^{c(f(\hat{x},g(x_j))}$<ul>
-<li>其中$c( )$是计算经过 $f,g$ 神经网络编码后的 cosine 距离</li>
-</ul>
-</li>
-</ul>
-<p>作者做了一个很重要的操作：他认为<strong>支持集的样本除了能优化 $g$ 网络，也应该可以优化用于编码测试样本的 $f$ 网络，并且要使支持集样本之间信息互通</strong>，作者称为—<strong>Full Context Embeddings</strong>，操作如下：</p>
-<ul>
-<li><p>对训练集进行编码（$g$）</p>
-<p> $g$ 的结构是双向 LSTM，输入是 支持集的各样本经过 CNN (如：VGG）编码后的向量 $g ‘(x_i)$</p>
-<p> $g(x_i,S) = \stackrel{\leftarrow}{h_i} +  \stackrel{\rightarrow}{h_i}+g’(x_i)$</p>
-<p> 其中， $\stackrel{\leftarrow}{h_i}, \stackrel{\leftarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\leftarrow}{h</em>{i-1}},\stackrel{\leftarrow}{c_{i-1}}) $  ,  $\stackrel{\rightarrow}{h_i}, \stackrel{\rightarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\rightarrow}{h</em>{i-1}},\stackrel{\rightarrow}{c_{i+1}}) $</p>
-<p> <strong>这表示支持集的样本之间是相互作用的，而不像其他的相似度度量时候都是样本间互相独立！</strong></p>
-</li>
-<li><p>对测试集进行编码（$f$）</p>
-<p>$f$ 的用的是 attention-LSTM ，输入是经过测试集的各样本经过 CNN 编码后的向量 $f’(x_i)$</p>
-<p>$f(\hat{x},S) = \mathbf{attLSTM}(f’(\hat{x}),g(S),K)$</p>
-<blockquote>
-<p> attlstm 是 ICLR 2016 的一篇论文</p>
-</blockquote>
-<p>其中$f’(\hat{x})$代表测试样本经过CNN后原始的编码，$g(S)$表示支持集的编码，<strong>代表支持集样本也能优化 $f$ 网络。</strong></p>
-</li>
-</ul>
-<p>总体思想就是还是和关系网络、孪生网络类似。只不过加 LSTM 来让信息流动起来，让支持集样本并不是孤立的。</p>
-
+<p>这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。</p>
+        
+          <a class="article-more-a" href="/2018/05/02/Matching networks/#more">more >></a>
+        
       
 
       

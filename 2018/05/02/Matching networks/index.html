@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://coolben.top">
   <title>Matching Networks for one shot learning | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
+  <meta name="description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matching Networks for one shot learning">
 <meta property="og:url" content="http://coolben.top/2018/05/02/Matching networks/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
+<meta property="og:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/05/02/5ae97a1cef22b.png">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg">
-<meta property="og:updated_time" content="2018-05-02T08:40:49.519Z">
+<meta property="og:updated_time" content="2018-05-02T08:56:01.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matching Networks for one shot learning">
-<meta name="twitter:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
-<meta name="twitter:image" content="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg">
+<meta name="twitter:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/02/5ae97a1cef22b.png">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -174,11 +174,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg" width="400"></p>
+        <p><img src="https://i.loli.net/2018/05/02/5ae97a1cef22b.png" width="400"></p>
 
 
 
-<p>这是发表在谷歌 DeepMind 团队的16 年的论文。</p>
+<p>这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。</p>
+<a id="more"></a>
 <p>结构图如下：</p>
 <p><img src="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg" alt="雨霖铃" width="500"></p>
 <p>核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$ </p>
@@ -201,12 +202,12 @@
 <p>$f$ 的用的是 attention-LSTM ，输入是经过测试集的各样本经过 CNN 编码后的向量 $f’(x_i)$</p>
 <p>$f(\hat{x},S) = \mathbf{attLSTM}(f’(\hat{x}),g(S),K)$</p>
 <blockquote>
-<p> attlstm 是 ICLR 2016 的一篇论文</p>
+<p> attlstm 的结构用到的是 ICLR2016 的 Order matters: Sequence to sequence for sets.</p>
 </blockquote>
 <p>其中$f’(\hat{x})$代表测试样本经过CNN后原始的编码，$g(S)$表示支持集的编码，<strong>代表支持集样本也能优化 $f$ 网络。</strong></p>
 </li>
 </ul>
-<p>总体思想就是还是和关系网络、孪生网络类似。只不过加 LSTM 来让信息流动起来，让支持集样本并不是孤立的。</p>
+<p>总体思想就是还是和孪生网络类似。只不过加 LSTM 来让信息流动起来，让支持集样本并不是孤立的。</p>
 
       
 
