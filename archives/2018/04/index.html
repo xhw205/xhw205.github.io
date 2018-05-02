@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://coolben.top">
-  <title>few shot learning | 勤奋的懒猫</title>
+  <title>Archives: 2018/4 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
-<meta name="keywords" content="日常学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="few shot learning">
-<meta property="og:url" content="http://coolben.top/2018/03/08/few-shot/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="勤奋的懒猫">
+<meta property="og:url" content="http://coolben.top/archives/2018/04/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
-<meta property="og:image" content="https://i.loli.net/2018/03/08/5aa1508d73354.png">
-<meta property="og:image" content="https://i.loli.net/2018/03/08/5aa153b1ab2c3.jpg">
-<meta property="og:image" content="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png">
-<meta property="og:updated_time" content="2018-03-08T15:19:26.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="few shot learning">
-<meta name="twitter:description" content="小样本学习 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
+<meta name="twitter:title" content="勤奋的懒猫">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -156,86 +146,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-few-shot" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      few shot learning
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/08/fewshot-learning/" class="archive-article-date">
+  	<time datetime="2018-04-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/08/fewshot-learning/">few shot learning</a>
     </h1>
   
 
-        
-        <a href="/2018/03/08/few-shot/" class="archive-article-date">
-  	<time datetime="2018-03-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
-
-<p>小样本学习</p>
-<p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
-<a id="more"></a>
-<p>例如:</p>
-<ul>
-<li><p>我们从未见到过“澳大利亚的鸭嘴兽”，给我们了一张鸭嘴兽的照片后，我们就认识了！</p>
-<p>对应我们机器模型，该任务就成了<strong>识别新的类</strong>，例如：我们想让模型识别新的类—–狗，于是新来了一张标好 label 的样本（如  label是狗，样本是田园土狗）用来泛化模型，那么再来 test 样本时候（如：无label，样本是哈士奇），我们就可以把这个 哈士奇的样本 label 标出来，达到分类的目的。这种学习叫做 one-shot learning，即单样本学习；同样的，如果刚才来的是一堆标好 label 的样本（除了田园土狗，可能还有京巴、吉娃娃、泰迪等），这种学习叫做 few-shot learning，即小样本学习。</p>
-</li>
-<li><p>我们从未见过熊猫，但是听别人说特征是：两只耳朵，黑眼圈，吃竹子。当我们见符合特征的动物时候，可能就猜到：这是熊猫！。</p>
-<p>对应与我们机器模型，就相当于 只听说过（类似特征），无样本，这种学习叫做 zero-shot learning，不做讨论。</p>
-</li>
-</ul>
-<p>经过我上边的介绍，可以对小样本学习做个定义:</p>
-<p><img src="https://i.loli.net/2018/03/08/5aa1508d73354.png" alt="shot.png"></p>
-<p>自己的话解释一下就是: 模型只有少量的有 label 的训练样本 S ，S 中包括 N 个样本，yi 代表各样本的 label。因为样本集中每个样本都有一个正确的类别，我们希望，再来新的待分类的测试样本 x’‘ 时候，正确预测出 x’’ 的标签是 y’’ 。</p>
-<blockquote>
-<p>注： 把每个类别 <em>yi</em> 的单个样本换成 k个样本就 变成了k-shot learning , few-shot 一般指的是 k 不超过 20。</p>
-</blockquote>
-<p>小结</p>
-<p>我们是希望机器学习的系统能快速的从少量样本中去学习，因为<strong>标label耗时耗力</strong>。k-shot learning ,无论 k 是 0,1还是 few。这都是<strong>属于迁移学习的范畴</strong>。迁移学习，我们大家很熟悉了，例如我们直接使用别人训练好的 Image_net、Vgg、或者 Resnet101模型作为预训练模型，再对自己的数据进行 fine-tune.</p>
-<h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p><img src="https://i.loli.net/2018/03/08/5aa153b1ab2c3.jpg" width="600"></p>
-<p>结构意思就是：输入两张图片到两个 CNN, 来比较两种相同类别的概率。</p>
-<p>当我们做 one-shot learning 的时候，网络可以比较 test 集 与 support 集中的每张图片，然后挑选出哪一张与它最可能是同样类别。如下图说明可以既可以理解：</p>
-<p><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/8434de11fe362b5b6773267c4ce03122.png" alt="img"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/ali.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -247,137 +187,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/03/08/few-shot/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2018/01/28/spyder_sigil/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">爬虫制作电子书记录贴（一）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="few-shot" data-title="few shot learning" data-url="http://coolben.top/2018/03/08/few-shot/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://coolben.top/2018/03/08/few-shot/", 
-    sourceId: "few-shot",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -398,8 +220,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
