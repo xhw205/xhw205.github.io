@@ -148,6 +148,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Matching networks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/02/Matching networks/">Matching Networks for one shot learning</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/02/Matching networks/" class="archive-article-date">
+  	<time datetime="2018-05-02T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg" width="400"></p>
+
+
+
+<p>这是发表在谷歌 DeepMind 团队的16 年的论文。</p>
+<p>结构图如下：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg" alt="雨霖铃" width="500"></p>
+<p>核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$ </p>
+<ul>
+<li>其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$</li>
+<li>其中 $a(\hat{x},x_i)$ =  $e^{c(f(\hat{x},g(x<em>i))}/\sum</em>{j=1}^ke^{c(f(\hat{x},g(x_j))}$<ul>
+<li>其中$c( )$是计算经过 $f,g$ 神经网络编码后的 cosine 距离</li>
+</ul>
+</li>
+</ul>
+<p>作者做了一个很重要的操作：他认为<strong>支持集的样本除了能优化 $g$ 网络，也应该可以优化用于编码测试样本的 $f$ 网络，并且要使支持集样本之间信息互通</strong>，作者称为—<strong>Full Context Embeddings</strong>，操作如下：</p>
+<ul>
+<li><p>对训练集进行编码（$g$）</p>
+<p> $g$ 的结构是双向 LSTM，输入是 支持集的各样本经过 CNN (如：VGG）编码后的向量 $g ‘(x_i)$</p>
+<p> $g(x_i,S) = \stackrel{\leftarrow}{h_i} +  \stackrel{\rightarrow}{h_i}+g’(x_i)$</p>
+<p> 其中， $\stackrel{\leftarrow}{h_i}, \stackrel{\leftarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\leftarrow}{h</em>{i-1}},\stackrel{\leftarrow}{c_{i-1}}) $  ,  $\stackrel{\rightarrow}{h_i}, \stackrel{\rightarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\rightarrow}{h</em>{i-1}},\stackrel{\rightarrow}{c_{i+1}}) $</p>
+<p> <strong>这表示支持集的样本之间是相互作用的，而不像其他的相似度度量时候都是样本间互相独立！</strong></p>
+</li>
+<li><p>对测试集进行编码（$f$）</p>
+<p>$f$ 的用的是 attention-LSTM ，输入是经过测试集的各样本经过 CNN 编码后的向量 $f’(x_i)$</p>
+<p>$f(\hat{x},S) = \mathbf{attLSTM}(f’(\hat{x}),g(S),K)$</p>
+<blockquote>
+<p> attlstm 是 ICLR 2016 的一篇论文</p>
+</blockquote>
+<p>其中$f’(\hat{x})$代表测试样本经过CNN后原始的编码，$g(S)$表示支持集的编码，<strong>代表支持集样本也能优化 $f$ 网络。</strong></p>
+</li>
+</ul>
+<p>总体思想就是还是和关系网络、孪生网络类似。只不过加 LSTM 来让信息流动起来，让支持集样本并不是孤立的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/02/Matching networks/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fewshot-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,6 +276,7 @@
       
         <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
 
+<p>同时发表在 <a href="https://blog.csdn.net/xhw205/article/details/79491649" target="_blank" rel="external">CSDN博客</a></p>
 <p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
         
           <a class="article-more-a" href="/2018/04/08/fewshot-learning/#more">more >></a>
@@ -546,86 +653,10 @@
 
 
   
-    <article id="post-new-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/new-world/">美丽新世界</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/26/new-world/" class="archive-article-date">
-  	<time datetime="2017-10-26T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28949128&auto=0&height=66" style="margin-left: -10px;"></iframe>
-
-<p>痛仰有一首歌，叫《美丽新世界》，它其实是向80年前赫胥黎的同名小说致敬。<br>歌里唱道：<br><strong>“这是一个离奇的梦也是冒险者的乐园<br>不在乎你在不在乎新的世界依旧美丽…”</strong></p>
-<p>乌托邦如此美好，但在那里，幸福的人们全都是“被幸福的”。<br>你的在乎与否无关紧要，只需要按照秩序继续漫步。</p>
-<p>把<a href="https://movie.douban.com/subject/2338055/" target="_blank" rel="external">《西部世界》</a>看完，它的一些设定，也很容易看出致敬小说的意思，却又带来了另外的惊喜。<br>片尾Dolores的惊艳一枪尘埃落定，现在已经过去一段时间，花哨的剪辑褪出了印象，细微的东西反而更加深刻了。<br>还是想谈一谈这部作品。(含剧透…)</p>
-        
-          <a class="article-more-a" href="/2017/10/26/new-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/new-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

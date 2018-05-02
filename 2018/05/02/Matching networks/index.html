@@ -6,26 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://coolben.top">
-  <title>few shot learning | 勤奋的懒猫</title>
+  <title>Matching Networks for one shot learning | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同时发表在 CSDN博客 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
+  <meta name="description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="few shot learning">
-<meta property="og:url" content="http://coolben.top/2018/04/08/fewshot-learning/index.html">
+<meta property="og:title" content="Matching Networks for one shot learning">
+<meta property="og:url" content="http://coolben.top/2018/05/02/Matching networks/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="同时发表在 CSDN博客 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
+<meta property="og:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
-<meta property="og:image" content="https://static-blog.csdn.net/xheditor/xheditor_emot/default/tongue.gif">
-<meta property="og:image" content="https://i.loli.net/2018/03/08/5aa1508d73354.png">
-<meta property="og:image" content="http://img.blog.csdn.net/20180308232451881">
-<meta property="og:image" content="https://sorenbouma.github.io/images/alphabets/Greek.png">
-<meta property="og:updated_time" content="2018-05-02T08:30:12.642Z">
+<meta property="og:image" content="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg">
+<meta property="og:updated_time" content="2018-05-02T08:40:49.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="few shot learning">
-<meta name="twitter:description" content="同时发表在 CSDN博客 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
-<meta name="twitter:image" content="https://i.loli.net/2017/11/13/5a090b83773c8.jpg">
+<meta name="twitter:title" content="Matching Networks for one shot learning">
+<meta name="twitter:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。 结构图如下：  核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$   其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$ 其中 $a(\hat{x">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -157,90 +154,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-fewshot-learning" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Matching networks" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      few shot learning
+      Matching Networks for one shot learning
     </h1>
   
 
         
-        <a href="/2018/04/08/fewshot-learning/" class="archive-article-date">
-  	<time datetime="2018-04-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
+        <a href="/2018/05/02/Matching networks/" class="archive-article-date">
+  	<time datetime="2018-05-02T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
+        <p><img src="https://i.loli.net/2018/05/02/5ae978516ce3f.jpg" width="400"></p>
 
-<p>同时发表在 <a href="https://blog.csdn.net/xhw205/article/details/79491649" target="_blank" rel="external">CSDN博客</a></p>
-<p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
-<a id="more"></a>
-<p>首先需要声明的是，小样本学习属于迁移学习。接着，举个例子详细阐述。</p>
-<p>人类从未见到过“澳大利亚的鸭嘴兽”，给我们一张鸭嘴兽的照片后，人类就认识了！</p>
-<p>有的朋友可能会想，为什么我们人类总是能快速的学习到未知的事物？简单的说，是因为人类生活中各种知识的积累以及人类天生的思考能力（如：类比能力）。知识的积累意味着我们是存在各种知识的先验的，天生的思考能力意味着我们拥有强大的类比能力、强大的大脑算力。</p>
-<p>以“<strong>人类从未见到过“澳大利亚的鸭嘴兽”，给我们一张鸭嘴兽的照片后，人类就认识了！</strong>”这句话为例。鸭嘴兽就代表未知的事物（new class），而我们生活中已经见到过的鸭子、狸猫、鱼等动物就代表知识的先验，我们把这种知识的先验称为 元知识(Meta Knowledge)，我们大脑的能快速的把从未见过的鸭嘴兽与这些元知识快速的类比（可能还存在一些其他脑力活动，如视觉提取物体的特征），得出结论：这个长得像鸭子嘴，还能像鱼一样游泳、身形扁扁的新动物就是鸭嘴兽。</p>
-<p>这里有的朋友可能会疑问了，如果你是一个刚学会走路的孩子，什么都没见过，是否还存在这种快速的样本学习能力呢？可以这么想，人生来都是初始化的，装备全靠打，IQ 高的元知识积累的就快，IQ 低的元知识积累的就慢。<img src="https://static-blog.csdn.net/xheditor/xheditor_emot/default/tongue.gif" alt="吐舌头"></p>
-<p>机器学习目前都是类比人类的智能来做的，那么对应我们的机器模型，few-shot learning 又是怎么样的呢？</p>
-<p>对应我们的机器模型，few-shot learning 的核心任务可以当成识别新的类。</p>
-<p>例如：我们已经通过些许动物（狗除外）的样本训练出来了模型，我们想让模型识别新的类—–狗。显然，这就是要把源知识（source）迁移到包含狗的知识领域来（target）。显然这正是迁移学习的范畴。这时候我们需要识别新的类——狗，比较简单的解决方案是什么呢？绝大部分同学会想到，把源模型当做预训练模型，修改全连接层，进行 fine-tune。需要注意的是：</p>
-<ol>
-<li>源模型是需要大量带 label 的样本训练的，一般的如 Imagenet上预训练模型</li>
-<li>fine-tune 也是需要样本量的支持的，不然 retrain 全连接层时很容易过拟合。 </li>
-</ol>
-<p><strong>fine-tune 本质还是依赖深度学习 big data 喂餐的策略，仿佛与我们的小样本学习背道而驰。</strong></p>
-<p><strong>我们来看看真正的 few shot 吧~</strong></p>
-<p>为了完成识别新类（狗）的问题，于是需要新来一张标好 label 的样本（如 ：有 label，样本是田园土狗， 称作 sample set 或 support set）用来泛化模型，那么再来 test 样本时候（如：无 label，样本是哈士奇，称作 query set 或者 test set），我们就可以把这个 哈士奇的样本 label 标出来，达到分类的目的。这种学习叫做 one-shot learning，即单样本学习。</p>
-<p>同样的，如果刚才来的是一堆标好 label 的样本（除了田园土狗，可能还有京巴、吉娃娃、泰迪等做 support set），这种学习叫做 few-shot learning，即小样本学习，一般 few 不会大于 20。</p>
-<p>经过我上边的介绍，可以对小样本学习做个定义:</p>
-<p><img src="https://i.loli.net/2018/03/08/5aa1508d73354.png" alt="img"></p>
-<p>自己的话解释一下就是: 模型只有少量的有 label 的训练样本 S ，S 中包括 N 个样本，yi 代表各样本的 label。因为测试样本集中每个样本都有一个正确的类别，我们希望，再来新的待分类的测试样本 x’ 时候，正确预测出 x’ 标签是 y’。</p>
+
+
+<p>这是发表在谷歌 DeepMind 团队的16 年的论文。</p>
+<p>结构图如下：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-d96878965905a5de3b4a91a5710f59e7_hd.jpg" alt="雨霖铃" width="500"></p>
+<p>核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$ </p>
+<ul>
+<li>其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$</li>
+<li>其中 $a(\hat{x},x_i)$ =  $e^{c(f(\hat{x},g(x<em>i))}/\sum</em>{j=1}^ke^{c(f(\hat{x},g(x_j))}$<ul>
+<li>其中$c( )$是计算经过 $f,g$ 神经网络编码后的 cosine 距离</li>
+</ul>
+</li>
+</ul>
+<p>作者做了一个很重要的操作：他认为<strong>支持集的样本除了能优化 $g$ 网络，也应该可以优化用于编码测试样本的 $f$ 网络，并且要使支持集样本之间信息互通</strong>，作者称为—<strong>Full Context Embeddings</strong>，操作如下：</p>
+<ul>
+<li><p>对训练集进行编码（$g$）</p>
+<p> $g$ 的结构是双向 LSTM，输入是 支持集的各样本经过 CNN (如：VGG）编码后的向量 $g ‘(x_i)$</p>
+<p> $g(x_i,S) = \stackrel{\leftarrow}{h_i} +  \stackrel{\rightarrow}{h_i}+g’(x_i)$</p>
+<p> 其中， $\stackrel{\leftarrow}{h_i}, \stackrel{\leftarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\leftarrow}{h</em>{i-1}},\stackrel{\leftarrow}{c_{i-1}}) $  ,  $\stackrel{\rightarrow}{h_i}, \stackrel{\rightarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\rightarrow}{h</em>{i-1}},\stackrel{\rightarrow}{c_{i+1}}) $</p>
+<p> <strong>这表示支持集的样本之间是相互作用的，而不像其他的相似度度量时候都是样本间互相独立！</strong></p>
+</li>
+<li><p>对测试集进行编码（$f$）</p>
+<p>$f$ 的用的是 attention-LSTM ，输入是经过测试集的各样本经过 CNN 编码后的向量 $f’(x_i)$</p>
+<p>$f(\hat{x},S) = \mathbf{attLSTM}(f’(\hat{x}),g(S),K)$</p>
 <blockquote>
-<p>注： 把每个类别 yi 的单个样本换成 k个样本就 变成了k-shot learning , few-shot 一般指的是 k 不超过 20。</p>
+<p> attlstm 是 ICLR 2016 的一篇论文</p>
 </blockquote>
-<h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p><img src="http://img.blog.csdn.net/20180308232451881" alt="img"></p>
-<p>结构意思就是：输入两张图片到两个 CNN, 来比较两种相同类别的概率。具体可查看 <a href="https://sorenbouma.github.io/blog/oneshot/" target="_blank" rel="external">https://sorenbouma.github.io/blog/oneshot/</a></p>
-<p>如下图简单理解一下小样本的训练方式：</p>
-<table>
-<thead>
-<tr>
-<th>Training（训练模型）</th>
-<th>Sample Set</th>
-<th>Query Set</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Testing（测试模型）</td>
-<td>Support Set</td>
-<td>Test Set (无label)</td>
-</tr>
-</tbody>
-</table>
-<p>训练和测试过程是相似的，拿 Omniglot 数据集为例。</p>
-<ul>
-<li>此数据集可以认为是小样本学习的一个基准数据集。</li>
-<li>它一共包含1623 类手写体，每一类中包含20 个样本。其中这 1623 个手写体类来自 50 个不同地区（或文明）的 alphabets，如：Latin 文明包含 26 个alphabets，Greek 包含 24 个alphabets。<br>一般用于训练的是 964 类（30个地区的字母），用于测试的是 659 类 （20个地区的字母）。<br>训练的目的就是，用 964 个类来训练模型，识别 659 个新的类。</li>
-<li>如下图的 24个 希腊字母，代表 Greek 文明下的 24 个类，每个字母只有 20 个样本。</li>
+<p>其中$f’(\hat{x})$代表测试样本经过CNN后原始的编码，$g(S)$表示支持集的编码，<strong>代表支持集样本也能优化 $f$ 网络。</strong></p>
+</li>
 </ul>
-<p><img src="https://sorenbouma.github.io/images/alphabets/Greek.png" alt="img"></p>
-<p>Training：</p>
-<ul>
-<li>每次 iteration 从 964 个类中随机的选择 20 个类，从每个类中的 20 个样本采样 5 个作为 support set，5 个 作为 query set。（选择的这个数目可以自行改变）。<br>以孪生网络为例，就是 query set 中的图片不断的于 support set 的图片成对组合，训练模型，确定模型参数。</li>
-</ul>
-<p>Testing：</p>
-<ul>
-<li>测试过程，对 659 个类中随机选择 m 个类，每个类提供 k 个样本作为 Support Set 来泛化模型。称为 m-way k-shot。<br>以孪生网络为例，在 m 个类中，若 Support Set 每类都为单样本（即 m 个样本），送进来的 Query Set ( 同样的是 m 个类 )不断的与 Support Set 成对相似度量，若相似，则归于该类。</li>
-</ul>
-<p>关于其他的论文一些方法，如 Prototypical Networks 可以参照该大神博客</p>
-<p><a href="https://blog.csdn.net/mao_feng/article/details/78939864" target="_blank" rel="external">https://blog.csdn.net/mao_feng/article/details/78939864</a>。</p>
-<p>最后，说明一点是，Omniglot 数据集的 分类 baseline 都在 99%+了，但是对如 miniImageNet 这种数据集上分类效果还是比较差的。博主以后还会继续关注，该领域的一些论文，及时的整理 最新的 paper。</p>
+<p>总体思想就是还是和关系网络、孪生网络类似。只不过加 LSTM 来让信息流动起来，让支持集样本并不是孤立的。</p>
 
       
 
@@ -336,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/04/08/fewshot-learning/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/05/02/Matching networks/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,18 +316,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/02/Matching networks/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Matching Networks for one shot learning
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/28/spyder_sigil/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">爬虫制作电子书记录贴（一）</div>
+    <a href="/2018/04/08/fewshot-learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">few shot learning</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -389,7 +346,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="fewshot-learning" data-title="few shot learning" data-url="http://coolben.top/2018/04/08/fewshot-learning/"></div>
+	<div class="ds-thread" data-thread-key="Matching networks" data-title="Matching Networks for one shot learning" data-url="http://coolben.top/2018/05/02/Matching networks/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -412,8 +369,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://coolben.top/2018/04/08/fewshot-learning/", 
-    sourceId: "fewshot-learning",
+    url: "http://coolben.top/2018/05/02/Matching networks/", 
+    sourceId: "Matching networks",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
