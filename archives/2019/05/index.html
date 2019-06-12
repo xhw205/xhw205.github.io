@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>《Autoencoder by Forest》论文阅读 | 勤奋的懒猫</title>
+  <title>Archives: 2019/5 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通常，自编码这个任务都是通过CNN,MLP等神经网络来实现。周志华教授在论文中表示，他们提出了一种算法可以使森林能够利用决策树决策路径(decision paths)定义的等效类别来进行反向重构(backward reconstruction)，并且证明了这种算法在监督学习和无监督学习的可行性。">
-<meta name="keywords" content="日常学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="《Autoencoder by Forest》论文阅读">
-<meta property="og:url" content="xhw205.github.io/2017/11/27/Autoencoder by Forest/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="勤奋的懒猫">
+<meta property="og:url" content="xhw205.github.io/archives/2019/05/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="通常，自编码这个任务都是通过CNN,MLP等神经网络来实现。周志华教授在论文中表示，他们提出了一种算法可以使森林能够利用决策树决策路径(decision paths)定义的等效类别来进行反向重构(backward reconstruction)，并且证明了这种算法在监督学习和无监督学习的可行性。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ufldl.stanford.edu/wiki/images/thumb/f/f9/Autoencoder636.png/400px-Autoencoder636.png">
-<meta property="og:image" content="https://i.loli.net/2017/11/27/5a1bcdc6e5e8e.png">
-<meta property="og:image" content="https://i.loli.net/2017/11/27/5a1bd44150ed3.png">
-<meta property="og:image" content="https://i.loli.net/2017/11/27/5a1c204b94b3a.png">
-<meta property="og:updated_time" content="2019-06-12T13:56:54.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Autoencoder by Forest》论文阅读">
-<meta name="twitter:description" content="通常，自编码这个任务都是通过CNN,MLP等神经网络来实现。周志华教授在论文中表示，他们提出了一种算法可以使森林能够利用决策树决策路径(decision paths)定义的等效类别来进行反向重构(backward reconstruction)，并且证明了这种算法在监督学习和无监督学习的可行性。">
-<meta name="twitter:image" content="http://ufldl.stanford.edu/wiki/images/thumb/f/f9/Autoencoder636.png/400px-Autoencoder636.png">
+<meta name="twitter:title" content="勤奋的懒猫">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -156,86 +146,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Autoencoder by Forest" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      《Autoencoder by Forest》论文阅读
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/05/27/FAFS/" class="archive-article-date">
+  	<time datetime="2019-05-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-27</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/05/27/FAFS/">《FSAF》论文阅读</a>
     </h1>
   
 
-        
-        <a href="/2017/11/27/Autoencoder by Forest/" class="archive-article-date">
-  	<time datetime="2017-11-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通常，自编码这个任务都是通过CNN,MLP等神经网络来实现。周志华教授在论文中表示，他们提出了一种算法可以使森林能够利用决策树决策路径(decision paths)定义的等效类别来进行反向重构(backward reconstruction)，并且证明了这种算法在监督学习和无监督学习的可行性。</p>
-<a id="more"></a>
-<h3 id="简单介绍一下什么是Autoencoder"><a href="#简单介绍一下什么是Autoencoder" class="headerlink" title="简单介绍一下什么是Autoencoder"></a>简单介绍一下什么是Autoencoder</h3><p>网络结构：对于所有的自编码器来说，目标都是样本重构。</p>
-<p>自编码器首先通过encoder(编码层)把高维空间中的向量x，压缩成低维向量z(中间向量或潜向量)，然后通过解码层把低维向量解压重构出x。如下图所示:</p>
-<p><img src="http://ufldl.stanford.edu/wiki/images/thumb/f/f9/Autoencoder636.png/400px-Autoencoder636.png" width="400"></p>
-<p>如图标准的autoencoder，目标仅仅是降维，重构样本，最后使用训练好的中间层(可以连接softmax用作分类等)，这种ae包括稀疏自编码、栈式自编码、去噪自编码。</p>
-<p>变分自编码器(VAE):不一样的autoencoder，用作生成数据。</p>
-<p>我们想一下普通的AE可以生成数据吗？回答必然是肯定的，但是这种数据只不过是隐向量解码得到与原图对应的图(并不能任意生成！！！)，也就是说我们不知道Z服从什么样的分布函数，并不能生成新的样本。那么我们可否自己去构造隐藏向量? 于是，聪明的人类发明出<a href="http://blog.csdn.net/hjimce/article/details/54096472" target="_blank" rel="external">VAE</a>.</p>
-<blockquote>
-<p>原理:在编码过程中给它进行一些限制，迫使生成的隐含向量能够粗略的遵循一个高斯分布，<strong>这也是与一般的autoencoder最大的不同</strong></p>
-</blockquote>
-<p>这样我们生成一张新的图片就很简单了，我们只需要给它一个标准正态分布的随机隐含变量。这样一旦我们网络训练完毕后，我们就可以从高斯分布中采样一个样本解码生成样本。</p>
-<p>与GAN对比:</p>
-<ul>
-<li>由于它们所遵循的是一种 编码-解码 模式，我们能直接把生成的图像同原始图像进行对比，这在使用GAN时是不可能的。</li>
-<li>由于它是直接采用均方误差而非对抗网络，其神经网络倾向于生成更为模糊的图像。</li>
-</ul>
-<h2 id="Eforest"><a href="#Eforest" class="headerlink" title="Eforest"></a>Eforest</h2><p>对于森林来说，编码是没有困难的，因为至少叶节点信息就可以被认为是一种编码方式，并不用说路径分支，节点的子集等都能提供更多的编码信息。</p>
-<p><strong>Eforest编码过程</strong>:</p>
-<p><img src="https://i.loli.net/2017/11/27/5a1bcdc6e5e8e.png" alt="encoder.png"></p>
-<p>编码过程并不复杂，一旦遍历完所有的树，就会返回T维向量，其中for循环中的每个元素i都是对应树的叶节点的整数索引</p>
-<p><strong>解码过程</strong>:</p>
-<p><img src="https://i.loli.net/2017/11/27/5a1bd44150ed3.png" alt="decode"></p>
-<p>解码过程就不那么明显了，实际上，森林通常从树的根节点到叶子节点前向预测，而反过来重建规则就不是很清楚了。例如:如何通过叶子获得的信息合成原始的样本。</p>
-<p>假设我们正处于四个属性的二元分类。第一个和第二个属性是数字属性，第三个是布尔属性，值为YES或者NO；第四个为颜色属性分别为:RED、BLUE、GREEN。给定一个对象x，令xi表示x的第i个属性的值。</p>
-<p>假如编码步骤中，我们生成了上图Tree1，2，…这种森林。现在<strong>我们只知道对象x所在叶节点即红色节点</strong>，我们希望重构x。周志华教授提出了一个有效并且简单的向后重建策略。</p>
-<blockquote>
-<p>首先每个叶节点都对应一个来自根节点的路径，在上图中，识别出来的路径用红色突出显示(随机)。每个路径对应以下规则集:</p>
-<p>RULE1:(x1≥0)∧(x2≥1.5)∧┐(x3==RED)∧┐(x1≥2.7)∧┐(x4==NO)</p>
-<p>RULE2:(x3==GREEN)∧┐(x2≥5)∧(x1≥0.5)∧┐(x2≥2)</p>
-<p>…</p>
-<p>RULEn: (x4==YES)∧┐(x2≥8)∧┐(x1≥1.6)</p>
-<p>化为更一般的形式:</p>
-<p>RULE1’: (2.7≥x1≥0)∧(x2≥1.5)∧┐(x3==RED)∧(x4==YES)</p>
-<p>RULE2’: (x1≥0.5)∧┐(x2≥2)∧(x3==GREEN)</p>
-<p>…</p>
-<p>RULEn’: ┐(x1≥1.6)∧┐(x2≥8)∧(x4==YES)</p>
-</blockquote>
-<p>然后就可以推导出最大相容规则MCR。MCR规定:每个成员的覆盖范围都不能被放大，否则就会发生不兼容问题。</p>
-<blockquote>
-<p>RULE1…RULEn这种规则集可以的得到MCR规则：(1.6≥x1≥0.5)∧(2≥x2≥1.5)∧(x3==GREEN)∧(x4==YES)</p>
-</blockquote>
-<p>在获得MCR以后，我们才开始重建原始样本。对于x3,x4的属性MCR必须取这些值中之一；对于数值属性，我们可以选择其中具有代表性的值，如(2,1.5)中的平均值（也可以选择中值，最大值，最小值）。</p>
-<p>因此重建以后的属性就是x=[1.05,1.75,GREEN,YES]</p>
-<p>于是我们eFoerst的解码过程如下所示:</p>
-<ul>
-<li>给定一个训练好的T棵树的森林具体来说，，同时对一个特定数据，有 RT（T 为上标）中的前向编码 xenc（enc 为下标）。</li>
-<li>后向解码将首先通过 xenc 中的每个元素定位单个叶节点，然后对于对应的决策路径，获得相应的 T 个决策规则。 </li>
-<li>计算 MCR，我们可以将 xenc 返回给输入区域中的 xdec。算法3中给出了具体的算法。</li>
-</ul>
-<p><img src="https://i.loli.net/2017/11/27/5a1c204b94b3a.png" alt="decoder"></p>
-<p>这篇文章eforest结构到这就结束了。经过<strong>实验证明(<a href="https://arxiv.org/pdf/1709.09018.pdf" target="_blank" rel="external">原文链接</a>)，eForest 除了在精度和速度方面都表现良好，以及具备一定的鲁棒性之外，还能够重复使用。需要特别指出的是，在重建文本数据时，仅仅需要 10% 的输入位（input bits），该模型依然能够以很高的精度重建原始数据。</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -243,150 +183,27 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2017/11/27/Autoencoder by Forest/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/17/Deeplab_v2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Deeplab v2
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/27/shierhuangdao/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">十二·荒岛</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Autoencoder by Forest" data-title="《Autoencoder by Forest》论文阅读" data-url="xhw205.github.io/2017/11/27/Autoencoder by Forest/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "xhw205.github.io/2017/11/27/Autoencoder by Forest/", 
-    sourceId: "Autoencoder by Forest",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -407,8 +224,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

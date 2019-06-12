@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>xhw205.github.io/2017/12/17/Deeplab_v2/</loc>
+    
+    <lastmod>2019-06-12T13:57:44.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>xhw205.github.io/2019/05/27/FAFS/</loc>
+    
+    <lastmod>2019-06-12T13:57:14.761Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>xhw205.github.io/2017/11/27/Autoencoder%20by%20Forest/</loc>
+    
+    <lastmod>2019-06-12T13:56:54.768Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>xhw205.github.io/2019/02/21/DANET/</loc>
     
     <lastmod>2019-06-12T13:49:37.130Z</lastmod>
@@ -16,30 +37,9 @@
   </url>
   
   <url>
-    <loc>xhw205.github.io/2017/12/17/Deeplab_v2/</loc>
-    
-    <lastmod>2019-06-12T13:37:34.416Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>xhw205.github.io/2018/09/02/find_similarity_area/</loc>
     
     <lastmod>2019-06-12T13:37:28.317Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>xhw205.github.io/2017/11/27/Autoencoder%20by%20Forest/</loc>
-    
-    <lastmod>2019-06-12T13:20:54.358Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>xhw205.github.io/2019/04/27/FAFS/</loc>
-    
-    <lastmod>2019-06-12T13:06:52.965Z</lastmod>
     
   </url>
   
@@ -79,21 +79,14 @@
   </url>
   
   <url>
-    <loc>xhw205.github.io/assets/demo/hack_demo.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>xhw205.github.io/assets/demo/border1px.html</loc>
-    
-    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>xhw205.github.io/assets/demo/jiugongge_demo.html</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>xhw205.github.io/assets/demo/hack_demo.html</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -107,7 +100,7 @@
   </url>
   
   <url>
-    <loc>xhw205.github.io/assets/demo/coffee_pc_demo/pro-con.html</loc>
+    <loc>xhw205.github.io/assets/demo/pre_css3_demo/demo.html</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -115,6 +108,13 @@
   
   <url>
     <loc>xhw205.github.io/assets/demo/gift/index.html</loc>
+    
+    <lastmod>2017-07-28T18:51:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>xhw205.github.io/assets/demo/coffee_pc_demo/pro-con.html</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>xhw205.github.io/assets/demo/pre_css3_demo/demo.html</loc>
+    <loc>xhw205.github.io/assets/demo/border1px.html</loc>
     
     <lastmod>2017-07-28T18:51:08.000Z</lastmod>
     
