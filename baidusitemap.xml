@@ -4,12 +4,29 @@
 
     
   <url>
-    <loc>xhw205.github.io/2018/09/02/find_similarity_area/</loc>
-    <lastmod>2019-06-12T13:30:05.522Z</lastmod>
+    <loc>xhw205.github.io/2019/02/21/DANET/</loc>
+    <lastmod>2019-06-12T13:49:37.130Z</lastmod>
     <data>
         <display>
-        <title>Visualizing Deep Similarity Networks</title>
-        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        <title>《DANET》《CCNet》</title>
+        <pubTime>2019-02-21T09:36:00.000Z</pubTime>
+        
+        <tag>日常学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>xhw205.github.io/2019/02/02/Weighted%20Channel%20Dropout%20for%20Regularization%20of%20CNN/</loc>
+    <lastmod>2019-06-12T13:41:35.013Z</lastmod>
+    <data>
+        <display>
+        <title>Weighted Channel Dropout for Regularization of CNN</title>
+        <pubTime>2019-02-01T16:00:00.000Z</pubTime>
         
         <tag>日常学习</tag>
          
@@ -22,13 +39,28 @@
     
   <url>
     <loc>xhw205.github.io/2017/12/17/Deeplab_v2/</loc>
-    <lastmod>2019-06-12T13:29:49.077Z</lastmod>
+    <lastmod>2019-06-12T13:37:34.416Z</lastmod>
     <data>
         <display>
         <title>Deeplab v2</title>
         <pubTime>2017-12-17T09:36:00.000Z</pubTime>
         
-        <tag>Semantic Segmentation</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>xhw205.github.io/2018/09/02/find_similarity_area/</loc>
+    <lastmod>2019-06-12T13:37:28.317Z</lastmod>
+    <data>
+        <display>
+        <title>Visualizing Deep Similarity Networks</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>日常学习</tag>
          
          
            
@@ -47,23 +79,6 @@
         
         <tag>论文阅读</tag>
          
-        <tag>日常学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>xhw205.github.io/2018/05/02/Matching%20networks/</loc>
-    <lastmod>2019-06-12T13:11:10.284Z</lastmod>
-    <data>
-        <display>
-        <title>Matching Networks for one shot learning</title>
-        <pubTime>2018-05-02T09:36:00.000Z</pubTime>
-        
         <tag>日常学习</tag>
          
          

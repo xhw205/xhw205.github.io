@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>Tag: Semantic Segmentation | 勤奋的懒猫</title>
+  <title>《DANET》《CCNet》 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/tags/Semantic-Segmentation/index.html">
+  <meta name="description" content="两篇文章都是将self-attention机制应用到分割当中，扩大感受野。第二篇文章采用了更巧妙的方法来减少参数。">
+<meta name="keywords" content="日常学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《DANET》《CCNet》">
+<meta property="og:url" content="xhw205.github.io/2019/02/21/DANET/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
+<meta property="og:description" content="两篇文章都是将self-attention机制应用到分割当中，扩大感受野。第二篇文章采用了更巧妙的方法来减少参数。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7876/47150971342_b5b5fcaef6_b.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/02/25/5c73485641635.png">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7896/40180410623_4f9679fd0e_c.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7855/33269146498_d88d65fa1c.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7834/46421141234_df4a92107c_o.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/25/5c734f3259325.png">
+<meta property="og:updated_time" content="2019-06-12T13:49:37.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
+<meta name="twitter:title" content="《DANET》《CCNet》">
+<meta name="twitter:description" content="两篇文章都是将self-attention机制应用到分割当中，扩大感受野。第二篇文章采用了更巧妙的方法来减少参数。">
+<meta name="twitter:image" content="https://c2.staticflickr.com/8/7876/47150971342_b5b5fcaef6_b.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -146,60 +158,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DANET" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/17/Deeplab_v2/" class="archive-article-date">
-  	<time datetime="2017-12-17T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/17/Deeplab_v2/">Deeplab v2</a>
+    <h1 class="article-title" itemprop="name">
+      《DANET》《CCNet》
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/02/21/DANET/" class="archive-article-date">
+  	<time datetime="2019-02-21T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><img src="https://c2.staticflickr.com/8/7876/47150971342_b5b5fcaef6_b.jpg" alt="四月是你的谎言" width="800"></p>
+<p>两篇文章都是将self-attention机制应用到分割当中，扩大感受野。第二篇文章采用了更巧妙的方法来减少参数。<br><a id="more"></a></p>
+<h2 id="DANet"><a href="#DANet" class="headerlink" title="DANet"></a>DANet</h2><p><a href="https://arxiv.org/abs/1809.02983" target="_blank" rel="external">Dual Attention Network for Scene Segmentation</a></p>
+<p>self-attention在分割中应用的大致思想是：特征图与特征图的转置进行矩阵相乘，由于特征图有channel维度，相当于是每个像素与另外每个元素都进行点乘操作，而向量的点乘几何意义为计算两个向量的<strong>相似度</strong>，两个向量越相似，它们点乘越大。看下图，特征图转置与特征图矩阵相乘后用softmax进行归一化就得到了Attention map S。S再与特征图的转置进行矩阵相乘，这个操作把相关性信息重新分布到原始特征图上，最后再将这个信息与特征图A相加，得到最终输出，这个输出结合了整张图的相关性结果。</p>
+<p><img src="https://i.loli.net/2019/02/25/5c73485641635.png" alt="attention"></p>
+<p>整个网络的框架如下图：非常简单，<strong><em>特征提取-&gt;attention module-&gt;上采样得到分割图</em></strong></p>
+<p><img src="https://c2.staticflickr.com/8/7896/40180410623_4f9679fd0e_c.jpg" alt="structure"></p>
+<p>除了上面说的那一部分attention，作者还加了蓝色channel attention，在这里计算特征图与特征图转置矩阵相乘操作时，相乘的顺序调换了一下，这相当于是让channel与channel之间进行点乘操作，计算channel之间的相似性，在这里我认为每张channel map代表了不同类别，这样让类别与类别计算距离，来进行辅助。作者并没有解释为什么这么做，估计这也是论文不中的原因之一。</p>
+<p>实验结果在cityscapes，PASCAL Context，COCO Stuff上都达到了SOTA。</p>
+<h2 id="CCNet"><a href="#CCNet" class="headerlink" title="CCNet"></a>CCNet</h2><p><a href="https://arxiv.org/abs/1811.11721" target="_blank" rel="external">CCNet: Criss-Cross Attention for Semantic Segmentation</a></p>
+<p>本篇文章的亮点在于用了巧妙的方法减少了参数量。在上面的DANet中，attention map计算的是所有像素与所有像素之间的相似性，空间复杂度为(HxW)x(HxW)，而本文采用了criss-cross思想，只计算每个像素与其同行同列即十字上的像素的相似性，通过进行循环(两次相同操作)，间接计算到每个像素与每个像素的相似性，将空间复杂度降为(HxW)x(H+W-1)，以图为例为下：</p>
+<p><img src="https://c2.staticflickr.com/8/7855/33269146498_d88d65fa1c.jpg" alt="Criss-Cross"></p>
+<p>整个网络的架构与DANet相同，只不过attention模块有所不同，如下图：在计算矩阵相乘时每个像素只抽取特征图中对应十字位置的像素进行点乘，计算相似度。</p>
+<p><img src="https://c2.staticflickr.com/8/7834/46421141234_df4a92107c_o.png" alt="attention"></p>
+<p>经过一轮此attention计算得到的attention map如下图R1所示，对于每个元素只有十字上的相似性，而通过两轮此计算，对于每个元素就会得到整张图的相似性，如R2。</p>
+<p><img src="https://i.loli.net/2019/02/25/5c734f3259325.png" alt="result"></p>
+<p>得到此结果的原因如下图，经过一轮计算，每个像素可以得到在其十字上的相似性，对于不同列不同行(不在其十字上)的像素是没有相似性的，但是这个不同行不同列像素同样也进行了相似性计算，计算了在其十字上的相似性，那么两个十字必有相交，在第二次attention计算的时候，通过交点，相当于是间接计算了这两个不同列不同行像素之间的相似性。</p>
+<p>实验结果达到了SOTA水平，但没有计算全部像素的attention方法准确率高。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Semantic Segmentation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/02/21/DANET/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/04/27/FAFS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          《FSAF》论文阅读
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Weighted Channel Dropout for Regularization of CNN</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="DANET" data-title="《DANET》《CCNet》" data-url="xhw205.github.io/2019/02/21/DANET/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "xhw205.github.io/2019/02/21/DANET/", 
+    sourceId: "DANET",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -220,9 +376,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
