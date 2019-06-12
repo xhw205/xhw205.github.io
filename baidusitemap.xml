@@ -4,6 +4,59 @@
 
     
   <url>
+    <loc>xhw205.github.io/2018/09/02/find_similarity_area/</loc>
+    <lastmod>2019-06-12T13:30:05.522Z</lastmod>
+    <data>
+        <display>
+        <title>Visualizing Deep Similarity Networks</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>日常学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>xhw205.github.io/2017/12/17/Deeplab_v2/</loc>
+    <lastmod>2019-06-12T13:29:49.077Z</lastmod>
+    <data>
+        <display>
+        <title>Deeplab v2</title>
+        <pubTime>2017-12-17T09:36:00.000Z</pubTime>
+        
+        <tag>Semantic Segmentation</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>xhw205.github.io/2017/11/27/Autoencoder%20by%20Forest/</loc>
+    <lastmod>2019-06-12T13:20:54.358Z</lastmod>
+    <data>
+        <display>
+        <title>《Autoencoder by Forest》论文阅读</title>
+        <pubTime>2017-11-27T09:36:00.000Z</pubTime>
+        
+        <tag>论文阅读</tag>
+         
+        <tag>日常学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>xhw205.github.io/2018/05/02/Matching%20networks/</loc>
     <lastmod>2019-06-12T13:11:10.284Z</lastmod>
     <data>
@@ -56,40 +109,6 @@
     </url>
 
     
-  <url>
-    <loc>xhw205.github.io/2018/01/28/spyder_sigil/</loc>
-    <lastmod>2018-03-08T14:53:25.636Z</lastmod>
-    <data>
-        <display>
-        <title>爬虫制作电子书记录贴（一）</title>
-        <pubTime>2018-01-28T09:36:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>xhw205.github.io/2017/12/17/Deeplab_v2/</loc>
-    <lastmod>2018-03-06T09:01:41.029Z</lastmod>
-    <data>
-        <display>
-        <title>Deeplab v2</title>
-        <pubTime>2017-12-17T09:36:00.000Z</pubTime>
-        
-        <tag>Semantic Segmentation</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
     
   <url>
     <loc>xhw205.github.io/2017/10/27/shierhuangdao/</loc>
@@ -100,25 +119,6 @@
         <pubTime>2017-10-27T01:00:57.000Z</pubTime>
         
         <tag>杂谈</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>xhw205.github.io/2017/11/27/Autoencoder%20by%20Forest/</loc>
-    <lastmod>2017-11-27T14:26:41.216Z</lastmod>
-    <data>
-        <display>
-        <title>《Autoencoder by Forest》论文阅读</title>
-        <pubTime>2017-11-27T09:36:00.000Z</pubTime>
-        
-        <tag>论文阅读</tag>
-         
-        <tag>日常学习</tag>
          
          
            
