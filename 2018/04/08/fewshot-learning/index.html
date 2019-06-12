@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://coolben.top">
+  <link rel="dns-prefetch" href="xhw205.github.io">
   <title>few shot learning | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="同时发表在 CSDN博客 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="few shot learning">
-<meta property="og:url" content="http://coolben.top/2018/04/08/fewshot-learning/index.html">
+<meta property="og:url" content="xhw205.github.io/2018/04/08/fewshot-learning/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
 <meta property="og:description" content="同时发表在 CSDN博客 来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。">
 <meta property="og:locale" content="zh-CN">
@@ -38,7 +38,7 @@
     #container.show {
       background: linear-gradient(200deg,#a0cfe4,#e8c37e);
     }
-  </style>
+  </style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
   
@@ -46,7 +46,7 @@
 </head>
 
 <body>
-  <div id="container" q-class="show:isCtnShow">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -189,7 +189,7 @@
 <p>这里有的朋友可能会疑问了，如果你是一个刚学会走路的孩子，什么都没见过，是否还存在这种快速的样本学习能力呢？可以这么想，人生来都是初始化的，装备全靠打，IQ 高的元知识积累的就快，IQ 低的元知识积累的就慢。<img src="https://static-blog.csdn.net/xheditor/xheditor_emot/default/tongue.gif" alt="吐舌头"></p>
 <p>机器学习目前都是类比人类的智能来做的，那么对应我们的机器模型，few-shot learning 又是怎么样的呢？</p>
 <p>对应我们的机器模型，few-shot learning 的核心任务可以当成识别新的类。</p>
-<p>例如：我们已经通过些许动物（狗除外）的样本训练出来了模型，我们想让模型识别新的类—–狗。显然，这就是要把源知识（source）迁移到包含狗的知识领域来（target）。显然这正是迁移学习的范畴。这时候我们需要识别新的类——狗，比较简单的解决方案是什么呢？绝大部分同学会想到，把源模型当做预训练模型，修改全连接层，进行 fine-tune。需要注意的是：</p>
+<p>例如：我们已经通过些许动物（狗除外）的样本训练出来了模型，我们想让模型识别新的类——-狗。显然，这就是要把源知识（source）迁移到包含狗的知识领域来（target）。显然这正是迁移学习的范畴。这时候我们需要识别新的类———狗，比较简单的解决方案是什么呢？绝大部分同学会想到，把源模型当做预训练模型，修改全连接层，进行 fine-tune。需要注意的是：</p>
 <ol>
 <li>源模型是需要大量带 label 的样本训练的，一般的如 Imagenet上预训练模型</li>
 <li>fine-tune 也是需要样本量的支持的，不然 retrain 全连接层时很容易过拟合。 </li>
@@ -207,6 +207,7 @@
 <h4 id="解决小样本问题的一种模型（孪生网络）"><a href="#解决小样本问题的一种模型（孪生网络）" class="headerlink" title="解决小样本问题的一种模型（孪生网络）"></a>解决小样本问题的一种模型（孪生网络）</h4><p><img src="http://img.blog.csdn.net/20180308232451881" alt="img"></p>
 <p>结构意思就是：输入两张图片到两个 CNN, 来比较两种相同类别的概率。具体可查看 <a href="https://sorenbouma.github.io/blog/oneshot/" target="_blank" rel="external">https://sorenbouma.github.io/blog/oneshot/</a></p>
 <p>如下图简单理解一下小样本的训练方式：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -223,6 +224,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>训练和测试过程是相似的，拿 Omniglot 数据集为例。</p>
 <ul>
 <li>此数据集可以认为是小样本学习的一个基准数据集。</li>
@@ -336,7 +338,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/04/08/fewshot-learning/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2018/04/08/fewshot-learning/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -389,7 +391,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="fewshot-learning" data-title="few shot learning" data-url="http://coolben.top/2018/04/08/fewshot-learning/"></div>
+	<div class="ds-thread" data-thread-key="fewshot-learning" data-title="few shot learning" data-url="xhw205.github.io/2018/04/08/fewshot-learning/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -412,7 +414,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://coolben.top/2018/04/08/fewshot-learning/", 
+    url: "xhw205.github.io/2018/04/08/fewshot-learning/", 
     sourceId: "fewshot-learning",
     productKey: "true",
     target: "cloud-tie-wrapper"
@@ -435,7 +437,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-mid">
-    		&copy; 2018 Coolben
+    		&copy; 2019 Coolben
     	</div>
    
     </div>
@@ -676,6 +678,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     </div>
 
 </div>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

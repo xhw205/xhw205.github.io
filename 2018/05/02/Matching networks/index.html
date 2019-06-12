@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://coolben.top">
+  <link rel="dns-prefetch" href="xhw205.github.io">
   <title>Matching Networks for one shot learning | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matching Networks for one shot learning">
-<meta property="og:url" content="http://coolben.top/2018/05/02/Matching networks/index.html">
+<meta property="og:url" content="xhw205.github.io/2018/05/02/Matching networks/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
 <meta property="og:description" content="这是发表在谷歌 DeepMind 团队的16 年的论文。针对小样本学习的。">
 <meta property="og:locale" content="zh-CN">
@@ -35,7 +35,7 @@
     #container.show {
       background: linear-gradient(200deg,#a0cfe4,#e8c37e);
     }
-  </style>
+  </style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
   
@@ -43,7 +43,7 @@
 </head>
 
 <body>
-  <div id="container" q-class="show:isCtnShow">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
@@ -185,17 +185,17 @@
 <p>核心公式：  $\hat{y} = \sum\limits_{i=1}^n a(\hat{x},x_i)y_i\quad(公式1)$ </p>
 <ul>
 <li>其中$\hat{x}、\hat{y} 代表测试的图片和待预测的 label$，$x_i 、y_i代表支持集的图片和对应的label（左边五个不同类的狗）$</li>
-<li>其中 $a(\hat{x},x_i)$ =  $e^{c(f(\hat{x},g(x<em>i))}/\sum</em>{j=1}^ke^{c(f(\hat{x},g(x_j))}$<ul>
+<li>其中 $a(\hat{x},x<em>i)$ =  $e^{c(f(\hat{x},g(x_i))}/\sum</em>{j=1}^ke^{c(f(\hat{x},g(x_j))}$<ul>
 <li>其中$c( )$是计算经过 $f,g$ 神经网络编码后的 cosine 距离</li>
 </ul>
 </li>
 </ul>
-<p>作者做了一个很重要的操作：他认为<strong>支持集的样本除了能优化 $g$ 网络，也应该可以优化用于编码测试样本的 $f$ 网络，并且要使支持集样本之间信息互通</strong>，作者称为—<strong>Full Context Embeddings</strong>，操作如下：</p>
+<p>作者做了一个很重要的操作：他认为<strong>支持集的样本除了能优化 $g$ 网络，也应该可以优化用于编码测试样本的 $f$ 网络，并且要使支持集样本之间信息互通</strong>，作者称为—-<strong>Full Context Embeddings</strong>，操作如下：</p>
 <ul>
 <li><p>对训练集进行编码（$g$）</p>
 <p> $g$ 的结构是双向 LSTM，输入是 支持集的各样本经过 CNN (如：VGG）编码后的向量 $g ‘(x_i)$</p>
 <p> $g(x_i,S) = \stackrel{\leftarrow}{h_i} +  \stackrel{\rightarrow}{h_i}+g’(x_i)$</p>
-<p> 其中， $\stackrel{\leftarrow}{h_i}, \stackrel{\leftarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\leftarrow}{h</em>{i-1}},\stackrel{\leftarrow}{c_{i-1}}) $  ,  $\stackrel{\rightarrow}{h_i}, \stackrel{\rightarrow}{c_i} = \mathbf{LSTM}（g’(x<em>i), \stackrel{\rightarrow}{h</em>{i-1}},\stackrel{\rightarrow}{c_{i+1}}) $</p>
+<p> 其中， $\stackrel{\leftarrow}{h<em>i}, \stackrel{\leftarrow}{c_i} = \mathbf{LSTM}（g’(x_i), \stackrel{\leftarrow}{h</em>{i-1}},\stackrel{\leftarrow}{c<em>{i-1}}) $  ,  $\stackrel{\rightarrow}{h_i}, \stackrel{\rightarrow}{c_i} = \mathbf{LSTM}（g’(x_i), \stackrel{\rightarrow}{h</em>{i-1}},\stackrel{\rightarrow}{c_{i+1}}) $</p>
 <p> <strong>这表示支持集的样本之间是相互作用的，而不像其他的相似度度量时候都是样本间互相独立！</strong></p>
 </li>
 <li><p>对测试集进行编码（$f$）</p>
@@ -303,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://coolben.top/2018/05/02/Matching networks/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2018/05/02/Matching networks/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,6 +316,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/04/27/FAFS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          《Autoencoder by Forest》论文阅读
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/08/fewshot-learning/" id="article-nav-older" class="article-nav-link-wrap">
@@ -347,7 +356,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Matching networks" data-title="Matching Networks for one shot learning" data-url="http://coolben.top/2018/05/02/Matching networks/"></div>
+	<div class="ds-thread" data-thread-key="Matching networks" data-title="Matching Networks for one shot learning" data-url="xhw205.github.io/2018/05/02/Matching networks/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -370,7 +379,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://coolben.top/2018/05/02/Matching networks/", 
+    url: "xhw205.github.io/2018/05/02/Matching networks/", 
     sourceId: "Matching networks",
     productKey: "true",
     target: "cloud-tie-wrapper"
@@ -393,7 +402,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-mid">
-    		&copy; 2018 Coolben
+    		&copy; 2019 Coolben
     	</div>
    
     </div>
@@ -634,6 +643,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     </div>
 
 </div>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
