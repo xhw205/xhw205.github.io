@@ -6,14 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>勤奋的懒猫</title>
+  <title>Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456layout: posttitle: Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记date: 2019-06-15 15:00:00mathjax: truetags: 	- 日常学习 Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检">
+  <meta name="description" content="Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检测中常用的特征金字塔网络 （FPN） 所存在的一些易被忽视的问题。">
+<meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/2019/06/14/FSAF/index.html">
+<meta property="og:title" content="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记">
+<meta property="og:url" content="xhw205.github.io/2019/06/15/FSAF/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="123456layout: posttitle: Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记date: 2019-06-15 15:00:00mathjax: truetags: 	- 日常学习 Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检">
+<meta property="og:description" content="Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检测中常用的特征金字塔网络 （FPN） 所存在的一些易被忽视的问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/06/14/5d034a337cb7b16013.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/14/5d034eef14a3188056.png">
@@ -21,10 +22,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/14/5d03538ed62da23957.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/14/5d03564d434bd42240.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/14/5d0357285742c53857.png">
-<meta property="og:updated_time" content="2019-06-14T09:50:35.851Z">
+<meta property="og:updated_time" content="2019-06-14T09:54:26.510Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
-<meta name="twitter:description" content="123456layout: posttitle: Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记date: 2019-06-15 15:00:00mathjax: truetags: 	- 日常学习 Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检">
+<meta name="twitter:title" content="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记">
+<meta name="twitter:description" content="Author: xhw 这是一篇来自 CVPR 2019 的论文，作者来自 CMU。 旨在解决 目标检测中常用的特征金字塔网络 （FPN） 所存在的一些易被忽视的问题。">
 <meta name="twitter:image" content="https://i.loli.net/2019/06/14/5d034a337cb7b16013.png">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
@@ -160,10 +161,24 @@
             <article id="post-FSAF" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记
+    </h1>
+  
+
+        
+        <a href="/2019/06/15/FSAF/" class="archive-article-date">
+  	<time datetime="2019-06-15T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">layout: post</div><div class="line">title: Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记</div><div class="line">date: 2019<span class="string">-06</span><span class="string">-15</span> 15:00:00</div><div class="line">mathjax: true</div><div class="line"><span class="keyword">tags:</span> </div><div class="line">	- 日常学习</div></pre></td></tr></table></figure>
-<p><em>Author: xhw</em></p>
+        <p><em>Author: xhw</em></p>
 <p>这是一篇来自 CVPR 2019 的论文，作者来自 CMU。</p>
 <p>旨在解决 目标检测中常用的特征金字塔网络 （FPN） 所存在的一些易被忽视的问题。</p>
 <a id="more"></a>
@@ -199,6 +214,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/06/14/FSAF/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/06/15/FSAF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,7 +319,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="FSAF" data-title="" data-url="xhw205.github.io/2019/06/14/FSAF/"></div>
+	<div class="ds-thread" data-thread-key="FSAF" data-title="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记" data-url="xhw205.github.io/2019/06/15/FSAF/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -316,7 +342,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "xhw205.github.io/2019/06/14/FSAF/", 
+    url: "xhw205.github.io/2019/06/15/FSAF/", 
     sourceId: "FSAF",
     productKey: "true",
     target: "cloud-tie-wrapper"
