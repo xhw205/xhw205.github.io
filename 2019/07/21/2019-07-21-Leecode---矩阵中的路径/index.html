@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>Tag: 日常学习 | 勤奋的懒猫</title>
+  <title>Leecode---矩阵中的路径 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/tags/日常学习/index.html">
+  <meta name="description" content="题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a d e e 这样的3 X 4 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串">
+<meta name="keywords" content="leecode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leecode---矩阵中的路径">
+<meta property="og:url" content="xhw205.github.io/2019/07/21/2019-07-21-Leecode---矩阵中的路径/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
+<meta property="og:description" content="题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a d e e 这样的3 X 4 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-27T00:18:45.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
+<meta name="twitter:title" content="Leecode---矩阵中的路径">
+<meta name="twitter:description" content="题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a d e e 这样的3 X 4 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -146,263 +151,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-07-21-Leecode---矩阵中的路径" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leecode---矩阵中的路径
+    </h1>
+  
+
+        
+        <a href="/2019/07/21/2019-07-21-Leecode---矩阵中的路径/" class="archive-article-date">
+  	<time datetime="2019-07-21T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a d e e 这样的3 X 4 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</p>
+<a id="more"></a>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> <span class="selector-tag">b</span> c e</div><div class="line">s f c s</div><div class="line"><span class="selector-tag">a</span> d e e</div></pre></td></tr></table></figure>
+<p>采用深度优先遍历（dfs），从每个节点开始走，走的方向记为： <strong>上右下左</strong>。走过的元素要屏蔽掉，防止再次进入。如果走的过程中一旦与查询字符串 “bcced”  不同就 break 掉。</p>
+<ul>
+<li>例如从 a 开始走，与 “bcced” 第一个字符不同，直接break</li>
+<li>再从 b 开始走，上右下左，只有右能走通，b =&gt; c</li>
+<li>然后 c 再上右下左，只能下方向走通 b=&gt;c=&gt;c </li>
+<li>以此类推，注意上右下左走的时候<ol>
+<li>数组要有越界判断</li>
+<li>已经走过的字符要屏蔽掉</li>
+</ol>
+</li>
+</ul>
+<h4 id="C-代码"><a href="#C-代码" class="headerlink" title="C++ 代码"></a>C++ 代码</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	bool hasPath(<span class="keyword">char</span> *matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">char</span> *<span class="keyword">str</span>)</div><div class="line">	&#123;	</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++)</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)</div><div class="line">				<span class="keyword">if</span>(dfs(matrix, <span class="keyword">str</span>, <span class="number">0</span>, i, j, rows, cols)) <span class="comment">//从第 0 个字符开始对比</span></div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	bool dfs(<span class="keyword">char</span> *matrix, <span class="keyword">char</span> *<span class="keyword">str</span>, <span class="keyword">int</span> u, <span class="keyword">int</span> x , <span class="keyword">int</span> y, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols) <span class="comment">//u--当前第几个字符</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(matrix[x*cols+y]!=<span class="keyword">str</span>[u]) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		<span class="keyword">if</span>(u==strlen(<span class="keyword">str</span>)<span class="number">-1</span>) <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//u移动到字符串的长度还没停止，说明查找到</span></div><div class="line">		<span class="keyword">int</span> t = matrix[x*cols+y];</div><div class="line">		matrix[x*cols+y] = <span class="string">'*'</span>; <span class="comment">//屏蔽掉已经走过的字符</span></div><div class="line">		<span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;; <span class="comment">//四个方向上右下左x坐标的变化</span></div><div class="line">		<span class="keyword">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;; <span class="comment">//四个方向上右下左y坐标的变化</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</div><div class="line">			<span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</div><div class="line">			<span class="keyword">if</span>(a&gt;=<span class="number">0</span> &amp;&amp; a&lt;rows &amp;&amp; b&gt;=<span class="number">0</span> &amp;&amp; b&lt;cols)</div><div class="line">				<span class="keyword">if</span>(dfs(matrix, <span class="keyword">str</span>, u+<span class="number">1</span>, a, b, rows, cols))</div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		matrix[x*cols+y] = t;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/15/FSAF/" class="archive-article-date">
-  	<time datetime="2019-06-15T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/15/FSAF/">Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">leecode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/27/olos/" class="archive-article-date">
-  	<time datetime="2019-05-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/27/olos/">《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/21/DANET/" class="archive-article-date">
-  	<time datetime="2019-02-21T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/21/DANET/">《DANET》《CCNet》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/" class="archive-article-date">
-  	<time datetime="2019-02-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/">Weighted Channel Dropout for Regularization of CNN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/02/find_similarity_area/" class="archive-article-date">
-  	<time datetime="2018-09-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/02/find_similarity_area/">Visualizing Deep Similarity Networks</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/21/2019-07-21-Leecode---矩阵中的路径/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/08/fewshot-learning/" class="archive-article-date">
-  	<time datetime="2018-04-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/15/FSAF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/08/fewshot-learning/">few shot learning</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-07-21-Leecode---矩阵中的路径" data-title="Leecode---矩阵中的路径" data-url="xhw205.github.io/2019/07/21/2019-07-21-Leecode---矩阵中的路径/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "xhw205.github.io/2019/07/21/2019-07-21-Leecode---矩阵中的路径/", 
+    sourceId: "2019-07-21-Leecode---矩阵中的路径",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/日常学习/page/2/">2</a><a class="extend next" rel="next" href="/tags/日常学习/page/2/">Next &raquo;</a>
-    </nav>
+  
+
   
 
 
@@ -424,9 +356,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
