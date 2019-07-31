@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>勤奋的懒猫</title>
+  <title>Leecode---二叉搜索树的后序遍历序列 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/page/2/index.html">
+  <meta name="description" content="题目描述输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。">
+<meta name="keywords" content="leecode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leecode---二叉搜索树的后序遍历序列">
+<meta property="og:url" content="xhw205.github.io/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
+<meta property="og:description" content="题目描述输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-31T03:20:35.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
+<meta name="twitter:title" content="Leecode---二叉搜索树的后序遍历序列">
+<meta name="twitter:description" content="题目描述输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -146,34 +151,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-DANET" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-2019-07-24-Leecode---二叉搜索树的后序遍历序列" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/21/DANET/">《DANET》《CCNet》</a>
+    <h1 class="article-title" itemprop="name">
+      Leecode---二叉搜索树的后序遍历序列
     </h1>
   
 
         
-        <a href="/2019/02/21/DANET/" class="archive-article-date">
-  	<time datetime="2019-02-21T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
+        <a href="/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/" class="archive-article-date">
+  	<time datetime="2019-07-24T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p><img src="https://c2.staticflickr.com/8/7876/47150971342_b5b5fcaef6_b.jpg" alt="四月是你的谎言" width="800"></p>
-<p>两篇文章都是将self-attention机制应用到分割当中，扩大感受野。第二篇文章采用了更巧妙的方法来减少参数。<br>
-        
-          <a class="article-more-a" href="/2019/02/21/DANET/#more">more >></a>
-        
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
+<a id="more"></a>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>一说到 <strong>二叉搜索树</strong> 一定要想到，<strong>左子树的值 &lt; root 结点的值 &lt; 右子树的值</strong></p>
+<p>对于二叉树</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="number">8</span></div><div class="line">   / \</div><div class="line">  <span class="number">6</span>   <span class="number">10</span></div><div class="line"> / \  / \</div><div class="line"><span class="number">5</span>  <span class="number">7</span> <span class="number">9</span>  <span class="number">11</span></div></pre></td></tr></table></figure>
+<p>判断后序遍历（左-右-根） { 5,7,6,9,11,10,8 } 是不是正确？</p>
+<ul>
+<li>元素 8 一定为 root 结点，<strong>从前往后找到第一个比 8 大的元素 a，a 的左侧即为  root 的左子树</strong>。这里的 a 就是 9， 也就是说 9 之前的 {5,7,6 } 是左子树</li>
+<li>然后从 a 开始，往右遍历到 root 结点，判断右子树的值是不是都大于 root 结点的值，若不是，return false。这里的 9 之后 {11,10} 都大于 8 。</li>
+<li>将 a 的左侧部分 和 右侧部分分别做上两步的递归</li>
+</ul>
+<h4 id="C-代码"><a href="#C-代码" class="headerlink" title="C++ 代码"></a>C++ 代码</h4><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class <span class="type">Solution</span>&#123;</div><div class="line">public:</div><div class="line">	 <span class="built_in">bool</span> <span class="type">VerifySquenceOfBST</span>(vector&lt;<span class="built_in">int</span>&gt; <span class="built_in">seq</span>) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">seq</span>.empty()) <span class="keyword">return</span> <span class="literal">false</span>; //空的，返回<span class="literal">false</span></div><div class="line">        <span class="keyword">return</span> judge(<span class="built_in">seq</span>, <span class="number">0</span>, <span class="built_in">seq</span>.size() - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">bool</span> judge(vector&lt;<span class="built_in">int</span>&gt; &amp;<span class="built_in">seq</span>, <span class="built_in">int</span> l, <span class="built_in">int</span> r)</div><div class="line">    &#123;</div><div class="line">    	<span class="built_in">int</span> root = <span class="built_in">seq</span>[r]; </div><div class="line">    	<span class="built_in">int</span> k = l;</div><div class="line">    	<span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    	<span class="keyword">while</span>(k &lt; r &amp;&amp; <span class="built_in">seq</span>[k] &lt; root)</div><div class="line">    		k++;</div><div class="line">    	<span class="keyword">for</span>(<span class="built_in">int</span> i = k; i &lt; r; i++)&#123;</div><div class="line">    		<span class="keyword">if</span>(<span class="built_in">seq</span>[i] &lt; root)</div><div class="line">    			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    	&#125;</div><div class="line">		<span class="keyword">return</span> judge(<span class="built_in">seq</span>, l, k-<span class="number">1</span>) &amp;&amp; judge(<span class="built_in">seq</span>, k, r-<span class="number">1</span>);    </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
       
 
       
@@ -186,7 +196,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">leecode</a>
         		</li>
       		
 		</ul>
@@ -195,16 +205,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/21/DANET/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/23/2019-07-23-Leecode---从上往下打印二叉树/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leecode---从上往下打印二叉树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -224,401 +293,45 @@
 
 
 
-
   
-    <article id="post-Weighted Channel Dropout for Regularization of CNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/">Weighted Channel Dropout for Regularization of CNN</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/" class="archive-article-date">
-  	<time datetime="2019-02-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2019/02/28/5c773c247b1a2.jpg" width="800"></p>
-
-<p>这篇论文是发表在 AAAI 2019 上，作者是来自中科大的王一磊。</p>
-        
-          <a class="article-more-a" href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-find_similarity_area" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/02/find_similarity_area/">Visualizing Deep Similarity Networks</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/02/find_similarity_area/" class="archive-article-date">
-  	<time datetime="2018-09-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2019/01/11/5c3834868dbe6.jpg" alt=""></p>
-<p><em>Author: 许宏伟</em></p>
-<p>这篇论文是发表在 WACV2019 上，A类会议。</p>
-<p>从论文题目就可知，本文做的是 相似网络的可视化工作。相似网络可以直接理解为孪生网络。</p>
-<p>在以前做 focus area 区域的任务有：cam, gradcam, gradcam++等，但是这些网络针对是单分类网络。这篇论文作者另辟蹊径，瞄上了孪生网络这种结构，可以对成对图像中寻找相似的关注区域。</p>
-        
-          <a class="article-more-a" href="/2018/09/02/find_similarity_area/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/02/find_similarity_area/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fewshot-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/08/fewshot-learning/">few shot learning</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/08/fewshot-learning/" class="archive-article-date">
-  	<time datetime="2018-04-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/11/13/5a090b83773c8.jpg" width="400"></p>
-
-<p>同时发表在 <a href="https://blog.csdn.net/xhw205/article/details/79491649" target="_blank" rel="external">CSDN博客</a></p>
-<p>来源：我们人类是具有快速从少量（单）样本中快速学习能力的，其实在我们学习的过程中，人类的大脑将对象和类别组成有用的信息将之分类。</p>
-        
-          <a class="article-more-a" href="/2018/04/08/fewshot-learning/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/08/fewshot-learning/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Deeplab_v2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/17/Deeplab_v2/">Deeplab v2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/17/Deeplab_v2/" class="archive-article-date">
-  	<time datetime="2017-12-17T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2017/12/17/5a36578603b5d.jpg" alt="四月是你的谎言" width="400"></p>
-        
-          <a class="article-more-a" href="/2017/12/17/Deeplab_v2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/17/Deeplab_v2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Autoencoder by Forest" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/27/Autoencoder by Forest/">《Autoencoder by Forest》论文阅读</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/27/Autoencoder by Forest/" class="archive-article-date">
-  	<time datetime="2017-11-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通常，自编码这个任务都是通过CNN,MLP等神经网络来实现。周志华教授在论文中表示，他们提出了一种算法可以使森林能够利用决策树决策路径(decision paths)定义的等效类别来进行反向重构(backward reconstruction)，并且证明了这种算法在监督学习和无监督学习的可行性。</p>
-        
-          <a class="article-more-a" href="/2017/11/27/Autoencoder by Forest/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/27/Autoencoder by Forest/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-07-24-Leecode---二叉搜索树的后序遍历序列" data-title="Leecode---二叉搜索树的后序遍历序列" data-url="xhw205.github.io/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "xhw205.github.io/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/", 
+    sourceId: "2019-07-24-Leecode---二叉搜索树的后序遍历序列",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+
+  
+
   
 
 
@@ -639,8 +352,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
