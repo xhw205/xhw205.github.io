@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="xhw205.github.io">
   <title>算法职位面试经01---LR相关 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="线性回归和逻辑回归区别线性回归： $f(x) = wx^T+b$ 逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$  线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作分类，而不是回归。  线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood) Cost =">
+  <meta name="description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法职位面试经01---LR相关">
 <meta property="og:url" content="xhw205.github.io/2019/07/25/2019-07-25算法职位面试经01---LR相关/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="线性回归和逻辑回归区别线性回归： $f(x) = wx^T+b$ 逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$  线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作分类，而不是回归。  线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood) Cost =">
+<meta property="og:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-09T11:35:43.745Z">
+<meta property="og:updated_time" content="2019-08-10T02:59:31.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法职位面试经01---LR相关">
-<meta name="twitter:description" content="线性回归和逻辑回归区别线性回归： $f(x) = wx^T+b$ 逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$  线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作分类，而不是回归。  线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood) Cost =">
+<meta name="twitter:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -171,14 +171,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="线性回归和逻辑回归区别"><a href="#线性回归和逻辑回归区别" class="headerlink" title="线性回归和逻辑回归区别"></a>线性回归和逻辑回归区别</h3><p>线性回归： $f(x) = wx^T+b$</p>
-<p>逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$</p>
-<ul>
-<li><p>线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作<strong>分类</strong>，而不是回归。</p>
-</li>
-<li><p>线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood)</p>
-<script type="math/tex; mode=display">Cost =</script></li>
+        <h3 id="介绍下逻辑回归"><a href="#介绍下逻辑回归" class="headerlink" title="介绍下逻辑回归"></a>介绍下逻辑回归</h3><p>逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。</p>
+<a id="more"></a>
+<h3 id="介绍下线性回归"><a href="#介绍下线性回归" class="headerlink" title="介绍下线性回归"></a>介绍下线性回归</h3><ul>
+<li>线性回归 <strong>拟合样本特征与标记之间的线性关系</strong>， $y = w*x + b$</li>
+<li>求解方式 $w, b$ 是均方误差最小化 (最小二乘法)</li>
+<li>因为线性回归是凸优化问题，只需要让关于 $(w,b)$ 的凸函数导数都为 0 。</li>
 </ul>
+<h3 id="线性回归和逻辑回归区别"><a href="#线性回归和逻辑回归区别" class="headerlink" title="线性回归和逻辑回归区别"></a>线性回归和逻辑回归区别</h3><p>线性回归： $f(x) = wx^T+b$</p>
+<p>逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$ </p>
+<ul>
+<li>线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作<strong>分类</strong>，而不是回归。</li>
+<li>线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood)</li>
+</ul>
+<h3 id="为什么逻辑回归代价函数用极大似然估计"><a href="#为什么逻辑回归代价函数用极大似然估计" class="headerlink" title="为什么逻辑回归代价函数用极大似然估计"></a>为什么逻辑回归代价函数用极大似然估计</h3><p>极大似然估计即模型已定，参数未知。利用已知的样本数据，反推出最具可能 导致这些样本结果的参数值。</p>
+<p>既然逻辑回归模型已定：$h_\theta(x) = \frac{1}{1+e^{- \boldsymbol{\theta^T} \boldsymbol{x}}}$, $\boldsymbol{\theta^T}\boldsymbol{x} =  \begin{pmatrix}<br>\theta\ b  \end{pmatrix} \left( x,1\right)$.</p>
+<p>我们给出二分类似然概率的分布： $P(y=1|x;\theta) = h_{\theta}(x)$  $P(y=0|x;\theta) = 1-h_{\theta}(x)$</p>
+<p>写成一般概率形式：$P(y|x;\theta) = h_{\theta}(x)^y(1-h_\theta(x))^{1-y}$</p>
+<p><strong>我们令每一个样本属于真实标记的概率越大越好</strong> 因此采用最大似然估计</p>
+<p>$L(\theta) = \prod_{i=1}^m h_{\theta}(x_i^{y_{i}}(1-h_\theta(x_{i}))^{1-y_{i}}$ （各个样本假设相互独立）</p>
+<h3 id="为什么逻辑回归不用平方差损失"><a href="#为什么逻辑回归不用平方差损失" class="headerlink" title="为什么逻辑回归不用平方差损失"></a>为什么逻辑回归不用平方差损失</h3><p>$E_{w,b} = \sum(y_i - \frac{1}{1+e^{w^x+b}}) ^2$  非凸，容易局部最优</p>
+<h3 id="为什么要使用sigmoid函数作为假设？"><a href="#为什么要使用sigmoid函数作为假设？" class="headerlink" title="为什么要使用sigmoid函数作为假设？"></a>为什么要使用sigmoid函数作为假设？</h3><p>因为线性回归模型的预测值为实数，而样本的类标记为（0,1），<strong>我们需要将分类任务的真实标记y与线性回归模型的预测值联系起来</strong>。如果选择单位阶跃函数的话，它是不连续的不可微。而如果选择sigmoid函数，它是连续的，而且能够将z转化为一个接近0或1的值</p>
 
       
 
@@ -261,6 +274,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/26/2019-07-26算法职位面试经02---SVM/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法职位面试经02---SVM
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/" id="article-nav-older" class="article-nav-link-wrap">
