@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>Tag: 面试 | 勤奋的懒猫</title>
+  <title>Leecode---01背包问题 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/tags/面试/index.html">
+  <meta name="description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
+<meta name="keywords" content="leecode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leecode---01背包问题">
+<meta property="og:url" content="xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
+<meta property="og:description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T03:56:54.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
+<meta name="twitter:title" content="Leecode---01背包问题">
+<meta name="twitter:description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -146,98 +151,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-08-01-Leecode---01背包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/26/2019-07-26算法职位面试经02---SVM/" class="archive-article-date">
-  	<time datetime="2019-07-26T04:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/26/2019-07-26算法职位面试经02---SVM/">算法职位面试经02---svm</a>
+    <h1 class="article-title" itemprop="name">
+      Leecode---01背包问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/01/2019-08-01-Leecode---01背包/" class="archive-article-date">
+  	<time datetime="2019-08-01T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。</p>
+<p>第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。</p>
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。<br>输出最大价值。</p>
+<a id="more"></a>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行两个整数，$N(0-1000)$，$V(0-1000)$，用空格隔开，分别表示物品数量和背包容积。</p>
+<p>接下来有 $N$ 行，每行两个整数 $v_i$,$w_i$，用空格隔开，分别表示第 $i$ 件物品的体积和价值。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最大价值。</p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">4 </span><span class="number">5</span></div><div class="line"><span class="symbol">1 </span><span class="number">2</span></div><div class="line"><span class="symbol">2 </span><span class="number">4</span></div><div class="line"><span class="symbol">3 </span><span class="number">4</span></div><div class="line"><span class="symbol">4 </span><span class="number">5</span></div></pre></td></tr></table></figure>
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">8</span></div></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h4 id="该动态规划的状态转移方程"><a href="#该动态规划的状态转移方程" class="headerlink" title="该动态规划的状态转移方程"></a>该动态规划的状态转移方程</h4><p>$f[i][j]$ 表示前$i$个物品，在背包容量 $j$ 下的最优解</p>
+<p>此时讨论：</p>
+<ul>
+<li><p>当前背包容量不够：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v<span class="string">[i]</span> &lt; j :</div><div class="line">	f<span class="string">[i]</span><span class="string">[j]</span> = f<span class="string">[i-1]</span><span class="string">[j]</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>当前背包容量够：</p>
+<ul>
+<li><p>选取第 i 件 </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f[<span class="string">i</span>][<span class="symbol">j</span>] = f[<span class="string">i-1</span>][<span class="symbol">j-v[i</span>]] + w[i]</div><div class="line">// 前 i-1 的状态f[<span class="string">i-1</span>][<span class="symbol">j-v[i</span>]] 再加上第 i 件物品的价值 w[i]</div></pre></td></tr></table></figure>
+</li>
+<li><p>不选取第 i 件</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f[<span class="string">i</span>][<span class="symbol">j</span>] = f[<span class="string">i-1</span>][<span class="symbol">j</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1005</span>;</div><div class="line"><span class="keyword">int</span> v[M]; <span class="comment">// 容积</span></div><div class="line"><span class="keyword">int</span> w[M]; <span class="comment">// 价值</span></div><div class="line"><span class="keyword">int</span> f[M][M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">int</span> m, n;</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n; <span class="comment">//m是个数, n是背包容积</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++)</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; v[i] &gt;&gt; w[i];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=m; i++)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) </div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(j &lt; v[i]) </div><div class="line">				f[i][j] = f[i<span class="number">-1</span>][j];</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				f[i][j] = max(f[i<span class="number">-1</span>][j], f[i<span class="number">-1</span>][j-v[i]] + w[i]);</div><div class="line">			&#125;				</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; f[m][n] &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">leecode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/25/2019-07-25算法职位面试经01---LR相关/" class="archive-article-date">
-  	<time datetime="2019-07-25T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/26/2019-07-26算法职位面试经02---SVM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法职位面试经02---svm</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/25/2019-07-25算法职位面试经01---LR相关/">算法职位面试经01---LR相关</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-08-01-Leecode---01背包" data-title="Leecode---01背包问题" data-url="xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/", 
+    sourceId: "2019-08-01-Leecode---01背包",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -258,9 +368,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
