@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>Leecode---01背包问题 | 勤奋的懒猫</title>
+  <title>算法面03---BatchNormalization | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
-<meta name="keywords" content="leecode">
+  <meta name="description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leecode---01背包问题">
-<meta property="og:url" content="xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/index.html">
+<meta property="og:title" content="算法面03---BatchNormalization">
+<meta property="og:url" content="xhw205.github.io/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
+<meta property="og:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T03:56:54.709Z">
+<meta property="og:updated_time" content="2019-08-17T02:09:19.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leecode---01背包问题">
-<meta name="twitter:description" content="题目描述有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。 第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。">
+<meta name="twitter:title" content="算法面03---BatchNormalization">
+<meta name="twitter:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -151,53 +151,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-08-01-Leecode---01背包" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2019-07-27算法职位面试经03---BatchNormalization" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Leecode---01背包问题
+      算法面03---BatchNormalization
     </h1>
   
 
         
-        <a href="/2019/08/01/2019-08-01-Leecode---01背包/" class="archive-article-date">
-  	<time datetime="2019-08-01T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+        <a href="/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/" class="archive-article-date">
+  	<time datetime="2019-07-27T04:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有 $N$ 件物品和一个容量是 $W$ 的背包。每件物品只能使用一次。</p>
-<p>第 $i$ 件物品的体积是 $v_i$, 价值是 $w_i$。</p>
-<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。<br>输出最大价值。</p>
+        <h3 id="介绍一下-BN-层"><a href="#介绍一下-BN-层" class="headerlink" title="介绍一下 BN 层"></a>介绍一下 BN 层</h3><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。</p>
 <a id="more"></a>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行两个整数，$N(0-1000)$，$V(0-1000)$，用空格隔开，分别表示物品数量和背包容积。</p>
-<p>接下来有 $N$ 行，每行两个整数 $v_i$,$w_i$，用空格隔开，分别表示第 $i$ 件物品的体积和价值。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最大价值。</p>
-<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">4 </span><span class="number">5</span></div><div class="line"><span class="symbol">1 </span><span class="number">2</span></div><div class="line"><span class="symbol">2 </span><span class="number">4</span></div><div class="line"><span class="symbol">3 </span><span class="number">4</span></div><div class="line"><span class="symbol">4 </span><span class="number">5</span></div></pre></td></tr></table></figure>
-<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">8</span></div></pre></td></tr></table></figure>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h4 id="该动态规划的状态转移方程"><a href="#该动态规划的状态转移方程" class="headerlink" title="该动态规划的状态转移方程"></a>该动态规划的状态转移方程</h4><p>$f[i][j]$ 表示前$i$个物品，在背包容量 $j$ 下的最优解</p>
-<p>此时讨论：</p>
+<blockquote>
+<p>ICS 宏观上看正是源域与目标域的数据分布不一致，也就是说网络每一层输入数据都不再是 “独立同分布”了。每一层的参数更新会导致上层的输入数据分布发生变化，通过层层叠加，高层的输入分布变化会非常剧烈，<strong>这就使得高层需要不断去适应底层的参数更新。</strong> </p>
+</blockquote>
+<p>BN流程：</p>
+<p>输入： $B={x_1,…,x_m}$, 参数 $\gamma$ 和 $\beta$.</p>
+<p>均值：$u = \frac{1}{m}\sum x_i$</p>
+<p>方差：$\sigma^2 = \frac{1}{m} \sum{(x_i-u)^2}$</p>
+<p>norm到均值 0 方差 1：$\hat{x_i} = \frac{x_i - u}{\sqrt{\sigma^2 + \epsilon }}$</p>
+<p>缩放偏移：$y_i = \gamma \hat{x_i}  + \beta$</p>
 <ul>
-<li><p>当前背包容量不够：</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v<span class="string">[i]</span> &lt; j :</div><div class="line">	f<span class="string">[i]</span><span class="string">[j]</span> = f<span class="string">[i-1]</span><span class="string">[j]</span></div></pre></td></tr></table></figure>
+<li><p>BN 在每一层输入的时候，先做一个归一化层（均值为 0, 方差为 1 的）高斯分布。（解决同分布）</p>
+<blockquote>
+<p>灵感来源于 PCA 白化。但是白化计算复杂度高，特别是我们还希望白化操作是可微的，</p>
+</blockquote>
 </li>
-<li><p>当前背包容量够：</p>
-<ul>
-<li><p>选取第 i 件 </p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f[<span class="string">i</span>][<span class="symbol">j</span>] = f[<span class="string">i-1</span>][<span class="symbol">j-v[i</span>]] + w[i]</div><div class="line">// 前 i-1 的状态f[<span class="string">i-1</span>][<span class="symbol">j-v[i</span>]] 再加上第 i 件物品的价值 w[i]</div></pre></td></tr></table></figure>
+<li><p>每一层都是标准正太分布，导致完全学习不到输入数据的真实特征分布。因此我们引入可学习重构参数 $\gamma$ 和 $\beta$</p>
 </li>
-<li><p>不选取第 i 件</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f[<span class="string">i</span>][<span class="symbol">j</span>] = f[<span class="string">i-1</span>][<span class="symbol">j</span>]</div></pre></td></tr></table></figure>
+<li><p>当 $\gamma = \sqrt{\sigma^2 + \epsilon}$ , $\beta = u$ 时候重构出 原始输入$x_i$ 保留原始输入的分布 ，提升了我们模型的 capacity。</p>
 </li>
 </ul>
-</li>
+<h3 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h3><ul>
+<li>解决了梯度消失，爆炸问题</li>
+<li>对模型中参数不那么敏感，加快网络训练</li>
+<li>对一些饱和函数（sigmoid，tanh）改变他们分布，使得输入落在非饱和区域</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1005</span>;</div><div class="line"><span class="keyword">int</span> v[M]; <span class="comment">// 容积</span></div><div class="line"><span class="keyword">int</span> w[M]; <span class="comment">// 价值</span></div><div class="line"><span class="keyword">int</span> f[M][M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">int</span> m, n;</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n; <span class="comment">//m是个数, n是背包容积</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++)</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; v[i] &gt;&gt; w[i];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=m; i++)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) </div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(j &lt; v[i]) </div><div class="line">				f[i][j] = f[i<span class="number">-1</span>][j];</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				f[i][j] = max(f[i<span class="number">-1</span>][j], f[i<span class="number">-1</span>][j-v[i]] + w[i]);</div><div class="line">			&#125;				</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; f[m][n] &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -211,7 +211,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">leecode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -267,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,9 +281,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/08/01/2019-08-01-Leecode---01背包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Leecode---01背包问题
+        
+      </div>
+    </a>
   
-    <a href="/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法面03---BatchNormalization</div>
+  
+    <a href="/2019/07/26/2019-07-26算法职位面试经02---SVM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法面02---svm</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -311,7 +320,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-08-01-Leecode---01背包" data-title="Leecode---01背包问题" data-url="xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/"></div>
+	<div class="ds-thread" data-thread-key="2019-07-27算法职位面试经03---BatchNormalization" data-title="算法面03---BatchNormalization" data-url="xhw205.github.io/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -334,8 +343,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "xhw205.github.io/2019/08/01/2019-08-01-Leecode---01背包/", 
-    sourceId: "2019-08-01-Leecode---01背包",
+    url: "xhw205.github.io/2019/07/27/2019-07-27算法职位面试经03---BatchNormalization/", 
+    sourceId: "2019-07-27算法职位面试经03---BatchNormalization",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
