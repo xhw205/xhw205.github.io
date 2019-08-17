@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="勤奋的懒猫">
 <meta property="og:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-17T02:09:19.057Z">
+<meta property="og:updated_time" content="2019-08-17T02:44:00.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法面03---BatchNormalization">
 <meta name="twitter:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。">
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍一下-BN-层"><a href="#介绍一下-BN-层" class="headerlink" title="介绍一下 BN 层"></a>介绍一下 BN 层</h3><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。</p>
+        <h4 id="介绍一下-BN-层"><a href="#介绍一下-BN-层" class="headerlink" title="介绍一下 BN 层"></a>介绍一下 BN 层</h4><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题。</p>
 <a id="more"></a>
 <blockquote>
 <p>ICS 宏观上看正是源域与目标域的数据分布不一致，也就是说网络每一层输入数据都不再是 “独立同分布”了。每一层的参数更新会导致上层的输入数据分布发生变化，通过层层叠加，高层的输入分布变化会非常剧烈，<strong>这就使得高层需要不断去适应底层的参数更新。</strong> </p>
@@ -193,7 +193,7 @@
 <li><p>当 $\gamma = \sqrt{\sigma^2 + \epsilon}$ , $\beta = u$ 时候重构出 原始输入$x_i$ 保留原始输入的分布 ，提升了我们模型的 capacity。</p>
 </li>
 </ul>
-<h3 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h3><ul>
+<h4 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h4><ul>
 <li>解决了梯度消失，爆炸问题</li>
 <li>对模型中参数不那么敏感，加快网络训练</li>
 <li>对一些饱和函数（sigmoid，tanh）改变他们分布，使得输入落在非饱和区域</li>
