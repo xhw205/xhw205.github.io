@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>算法面02---svm | 勤奋的懒猫</title>
+  <title>Deeplab v2 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="请推导SVMSVM为什么要转成对偶问题">
-<meta name="keywords" content="面试">
+  <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法面02---svm">
-<meta property="og:url" content="xhw205.github.io/2019/07/26/2019-07-26算法职位面试经02---SVM/index.html">
+<meta property="og:title" content="Deeplab v2">
+<meta property="og:url" content="xhw205.github.io/2017/12/17/Deeplab_v2/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="请推导SVMSVM为什么要转成对偶问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-17T02:44:25.742Z">
+<meta property="og:image" content="https://i.loli.net/2017/12/17/5a36578603b5d.jpg">
+<meta property="og:image" content="https://i.loli.net/2017/12/17/5a365dc3a59d2.png">
+<meta property="og:image" content="https://i.loli.net/2017/12/17/5a365b2b8f457.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20170816163211345">
+<meta property="og:image" content="https://i.loli.net/2017/12/17/5a365d3f5ac0b.png">
+<meta property="og:image" content="https://i.loli.net/2017/12/17/5a365efc3083e.png">
+<meta property="og:updated_time" content="2019-06-12T13:57:44.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法面02---svm">
-<meta name="twitter:description" content="请推导SVMSVM为什么要转成对偶问题">
+<meta name="twitter:title" content="Deeplab v2">
+<meta name="twitter:image" content="https://i.loli.net/2017/12/17/5a36578603b5d.jpg">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -151,28 +155,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-07-26算法职位面试经02---SVM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Deeplab_v2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法面02---svm
+      Deeplab v2
     </h1>
   
 
         
-        <a href="/2019/07/26/2019-07-26算法职位面试经02---SVM/" class="archive-article-date">
-  	<time datetime="2019-07-26T04:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+        <a href="/2017/12/17/Deeplab_v2/" class="archive-article-date">
+  	<time datetime="2017-12-17T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h4 id="请推导SVM"><a href="#请推导SVM" class="headerlink" title="请推导SVM"></a>请推导SVM</h4><h4 id="SVM为什么要转成对偶问题"><a href="#SVM为什么要转成对偶问题" class="headerlink" title="SVM为什么要转成对偶问题"></a>SVM为什么要转成对偶问题</h4>
+        <p><img src="https://i.loli.net/2017/12/17/5a36578603b5d.jpg" alt="四月是你的谎言" width="400"></p>
+<a id="more"></a>
+<p>Semantic Segmenation: 为每个像素打上一个 class，要求我们的模型可以 end-to-end 的 dense prediction，也就是说模型要有像素级别的密集预测能力。</p>
+<p>Deeplab 作为 voc2012 排行榜前甲的算法，其中最新的 Deeplab v3 名列榜首，下面简单介绍一些 Segmentation 的发展历程。 </p>
+<h3 id="传统的基于-CNN-的分割方法"><a href="#传统的基于-CNN-的分割方法" class="headerlink" title="传统的基于 CNN 的分割方法"></a>传统的基于 CNN 的分割方法</h3><p>对一个像素分类，使用该像素周围的一个图像块作为 CNN 的输入用于训练和预测。</p>
+<p>这种方法存在的缺点：</p>
+<ul>
+<li>存储开销很大。例如对每个像素使用的图像块的大小为15x15，然后不断滑动窗口，每次滑动的窗口给CNN进行判别分类，因此则所需的存储空间根据滑动窗口的次数和大小急剧上升。</li>
+<li>二是计算效率低下。相邻像素块很多都重复了，这种重复计算我们是不可以接受的。</li>
+<li>分类网络中存在全连接层，需要固定大小的输入向量，也就是说需要固定大小的 patch 块</li>
+</ul>
+<h3 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h3><p>针对以上缺点，改进发明出 FCN 算法，即全卷积网络。这里的全卷积并不代表广义上的全卷积，而特指《Fully Convolutional Networks for Semantic Segmentation》 这篇论文提出的方法。</p>
+<p>网络结构如下：</p>
+<p><img src="https://i.loli.net/2017/12/17/5a365dc3a59d2.png" alt="FCN"></p>
+<p>FCN 实现了 pixel-to-pixel, 去掉了全连接层，可以输入任意大小的图像。而且使用了反卷积进行上采样，提出了跳跃链接改善上采样的粗糙程度。</p>
+<p>这里我们需要再次明确全卷积网络的概念和用途，这是至关重要的。这与物体分类这种任务(图像级别)是截然不同的，许多场景下需要我们进行像素级别的分类结果。</p>
+<blockquote>
+<p>1）语义级别图像分割(semantic image segmentation), 最终要得到对应位置每个像素的分类结果。</p>
+<p>2） 边缘检测, 相当于对每个像素做一次二分类（是边缘或不是边缘）</p>
+</blockquote>
+<p><strong>FCN开创了语义分割 pixel2pixel 的先河</strong>。其重要意义类似于目标识别领域的Region-CNN(RCNN)，以后一系列算法的改进都将基于此。</p>
+<p>按照paper published的时间排序，Segmentation较为重要的论文有: </p>
+<p>FCN -&gt; SegNet -&gt; 空洞卷积 -&gt; Deeplab v1 -&gt; Deelab v2 -&gt; RefineNet -&gt; PSPNet -&gt;Deeplab v3 </p>
+<h3 id="Deeplab-v1-2"><a href="#Deeplab-v1-2" class="headerlink" title="Deeplab v1,2"></a>Deeplab v1,2</h3><p>Deeplab v2，3是一个成熟优雅的结构，以至于是当前领域最为火热的网络结构。其结构可以分成三块。其中 v1与 FCN的区别仅仅是空洞卷积+全连接条件随机场。</p>
+<h4 id="Feature-map-resolution"><a href="#Feature-map-resolution" class="headerlink" title="Feature map resolution"></a>Feature map resolution</h4><p>首先，我们必须指出FCN存在的粗糙之处：为了保证卷积池化以后得到的 heatmap 不至于太小，作者直接对原图加了100的 padding !!! 这个操作很粗暴。</p>
+<p>我们首先想到方法就是减少pooling层，这么做务必会带来一些不妥。我们知道pooling 层的作用是对卷积得到的 feature map 聚合统计，最关键的一点是一旦减少 pooling 层我们就不能用以前的结构参数 fine-tuning 了，这无疑了原先可用的结构(vgg-net16)，是得不偿失的。</p>
+<p>Deeplab 在这里使用的方法是: 将 pooling 的 步长设为1，再加上1 padding。<strong>这样这样池化后的图片尺寸并未减小，并且依然保留了池化整合特征的特性</strong>。</p>
+<p>pooling层变化，后面卷积层的感受野也对减小了。Deeplab提出了一种新的卷积方式，Atrous Convolution 带孔卷积。具体的如下图:</p>
+<p><img src="https://i.loli.net/2017/12/17/5a365b2b8f457.png" alt="AC"></p>
+<p>这样呢，我们得到 feature map 更加 dense (通俗说不至于那么小了)了，而且不影响感受野的大小。</p>
+<h4 id="MULTI-SCALE-PREDICTION"><a href="#MULTI-SCALE-PREDICTION" class="headerlink" title="MULTI-SCALE PREDICTION"></a>MULTI-SCALE PREDICTION</h4><p>由于一张图像中的 object 是存在不同大小的，v2 版本借鉴了何凯明 SPP-NET的思想，把不同尺度的空洞卷积放在pooling 5层后的 feature map上，来提取不同尺度的特征，ASPP使用多种孔洞率的卷积核对相同特征图同时处理，然后将最后结果融合在一起，获得了良好的效果。</p>
+<p><img src="http://img.blog.csdn.net/20170816163211345" alt="ASPP"></p>
+<p>在V1版本中，作者采用的是在不同的 pooling层后加上 MLP来获得多尺度的预测，同时候也补足了后面的 pooling 层的空间位置信息 ,这一点和FCN结构类似。</p>
+<p><img src="https://i.loli.net/2017/12/17/5a365d3f5ac0b.png" alt=""></p>
+<p>最后v1, v2都会在 end2end训练完后，加上全连接条件随机场做图像的后处理过程。我们可以看到，加不加 CRF区别还是很大的。</p>
+<p><img src="https://i.loli.net/2017/12/17/5a365efc3083e.png" alt=""></p>
+
       
 
       
@@ -185,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
       		
 		</ul>
@@ -241,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/26/2019-07-26算法职位面试经02---SVM/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2017/12/17/Deeplab_v2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -255,9 +294,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/04/08/fewshot-learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          few shot learning
+        
+      </div>
+    </a>
   
-    <a href="/2019/07/25/2019-07-25算法职位面试经01---LR相关/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法面01---LR相关</div>
+  
+    <a href="/2017/11/27/Autoencoder by Forest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《Autoencoder by Forest》论文阅读</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -285,7 +333,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-07-26算法职位面试经02---SVM" data-title="算法面02---svm" data-url="xhw205.github.io/2019/07/26/2019-07-26算法职位面试经02---SVM/"></div>
+	<div class="ds-thread" data-thread-key="Deeplab_v2" data-title="Deeplab v2" data-url="xhw205.github.io/2017/12/17/Deeplab_v2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -308,8 +356,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "xhw205.github.io/2019/07/26/2019-07-26算法职位面试经02---SVM/", 
-    sourceId: "2019-07-26算法职位面试经02---SVM",
+    url: "xhw205.github.io/2017/12/17/Deeplab_v2/", 
+    sourceId: "Deeplab_v2",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -437,6 +485,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日常学习</a>
               </li>
              
@@ -445,7 +497,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
             
             <div class="clearfix"></div>
