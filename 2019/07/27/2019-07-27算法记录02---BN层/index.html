@@ -6,27 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读 | 勤奋的懒猫</title>
+  <title>算法记录02---BN层 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Author: 许宏伟 这篇论文是发表在 ACM MM 2019 上，作者是来自北京大学的博导彭宇新。也是我在valse 2019合肥行听到的一篇论文">
-<meta name="keywords" content="日常学习">
+  <meta name="description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
+<meta name="keywords" content="记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读">
-<meta property="og:url" content="xhw205.github.io/2019/05/27/olos/index.html">
+<meta property="og:title" content="算法记录02---BN层">
+<meta property="og:url" content="xhw205.github.io/2019/07/27/2019-07-27算法记录02---BN层/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="Author: 许宏伟 这篇论文是发表在 ACM MM 2019 上，作者是来自北京大学的博导彭宇新。也是我在valse 2019合肥行听到的一篇论文">
+<meta property="og:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/06/14/5d033cdf8bbc684330.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/25/5c4a7ceef28c7.png">
-<meta property="og:image" content="https://i.loli.net/2019/01/25/5c4a7e89a6a17.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/25/5c4a7f255e7c8.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/25/5c4a8106c4cc1.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/01/25/5c4a815370da6.jpg">
-<meta property="og:updated_time" content="2019-06-14T06:23:04.994Z">
+<meta property="og:updated_time" content="2019-08-19T06:43:32.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读">
-<meta name="twitter:description" content="Author: 许宏伟 这篇论文是发表在 ACM MM 2019 上，作者是来自北京大学的博导彭宇新。也是我在valse 2019合肥行听到的一篇论文">
-<meta name="twitter:image" content="https://i.loli.net/2019/06/14/5d033cdf8bbc684330.jpg">
+<meta name="twitter:title" content="算法记录02---BN层">
+<meta name="twitter:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -158,61 +151,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-olos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2019-07-27算法记录02---BN层" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读
+      算法记录02---BN层
     </h1>
   
 
         
-        <a href="/2019/05/27/olos/" class="archive-article-date">
-  	<time datetime="2019-05-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-27</time>
+        <a href="/2019/07/27/2019-07-27算法记录02---BN层/" class="archive-article-date">
+  	<time datetime="2019-07-27T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>Author: 许宏伟</em></p>
-<p>这篇论文是发表在 ACM MM 2019 上，作者是来自北京大学的博导彭宇新。也是我在valse 2019合肥行听到的一篇论文</p>
-<p><img src="https://i.loli.net/2019/06/14/5d033cdf8bbc684330.jpg" alt=""></p>
+        <h4 id="介绍一下-BN-层"><a href="#介绍一下-BN-层" class="headerlink" title="介绍一下 BN 层"></a>介绍一下 BN 层</h4><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题</p>
 <a id="more"></a>
-<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>背景方面，就是围绕着<strong>细粒度</strong>和<strong>单训练样本</strong>来做数据增广。只用一个样本进行数据增广，作者也是煞费苦心。</p>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>结构图可知道，作者分为了四个步骤，我们分别来看一下。</p>
-<h3 id="Data-Proposal"><a href="#Data-Proposal" class="headerlink" title="Data Proposal"></a>Data Proposal</h3><p>这一步作者是想，这一张训练样本怎么在其本身做个扩充呢。我们最常用的方法是 RandomCrop , 作者做的 是用 Selective   search 来生成一些与图片中 object 相关的 image patch。</p>
 <blockquote>
-<p>selective search 在目标检测中经常用到，先把图片分成许多小块，寻找具有相似区域（颜色，纹理等）的进行合并，然后提取的 proposal 便是合并的 外切矩形。</p>
+<p>ICS 宏观上看正是源域与目标域的数据分布不一致，也就是说网络每一层输入数据都不再是 “独立同分布”了。每一层的参数更新会导致上层的输入数据分布发生变化，通过层层叠加，高层的输入分布变化会非常剧烈，<strong>这就使得高层需要不断去适应底层的参数更新。</strong> </p>
 </blockquote>
-<p>我这里放了一张效果图：</p>
-<p><img src="https://i.loli.net/2019/01/25/5c4a7ceef28c7.png" alt="ss"></p>
-<p>可以看到，不同于 randomcrop ， ss 生成的区域是无固定尺寸大小的。</p>
-<p>经过 ss ，作者认为就得到 多尺度，多视角的鸟的扩充样本</p>
-<h3 id="Data-Filtering"><a href="#Data-Filtering" class="headerlink" title="Data Filtering"></a>Data Filtering</h3><p>这一步是对 ss 生成的 patch 进行过滤，去掉只包含背景的 patch 块。</p>
-<p>步骤:</p>
+<p>BN流程：</p>
+<p>输入： $B={x_1,…,x_m}$, 参数 $\gamma$ 和 $\beta$.</p>
+<p>均值：$u = \frac{1}{m}\sum x_i$</p>
+<p>方差：$\sigma^2 = \frac{1}{m} \sum{(x_i-u)^2}$</p>
+<p>norm到均值 0 方差 1：$\hat{x_i} = \frac{x_i - u}{\sqrt{\sigma^2 + \epsilon }}$</p>
+<p>缩放偏移：$y_i = \gamma \hat{x_i}  + \beta$</p>
 <ul>
-<li>仅有单样本做训练 CNN ，记为 模型 M1</li>
-<li>然后 M1 对这些 patch 块进行分类，如果正确，则保留。</li>
-</ul>
-<p>这样就能过滤掉一些 仅有 background 的 image patch。</p>
-<h3 id="Data-Re-selection"><a href="#Data-Re-selection" class="headerlink" title="Data  Re-selection"></a>Data  Re-selection</h3><p>上一步的过滤实际上并不能完全去除</p>
-<p>如下图:</p>
-<p><img src="https://i.loli.net/2019/01/25/5c4a7e89a6a17.jpg" alt=""></p>
-<p>标记为 × 号的图片，本来应该是去掉。但是由于 CNN 在这个单样本训练的过程中，反而有时对背景太过敏感。使得全是背景的图片也可能会被分类正确。那我们怎么去掉它呢？？？</p>
-<p><img src="https://i.loli.net/2019/01/25/5c4a7f255e7c8.jpg" alt=""></p>
-<p>作者引入了一个叫做 多示例学习的东西。他把所有的待 re-selection 的样本记为 positive Bags， 其余类的样本统统为 Negative Bags。 而 positive Bags 要求至少包含一个 正样本（包含鸟的 patch 就可以称为正样本， 只有背景的叫做负样本）。通过训练 用多示例学习的 SVM，就能把Positive Bags 里边的 负样本去掉。N 个类，要训练 N-1 个 SVM。</p>
+<li><p>BN 在每一层输入的时候，先做一个归一化层（均值为 0, 方差为 1 的）高斯分布。（解决同分布）</p>
 <blockquote>
-<p>这一块大体思想是这样，具体细节作者没介绍，网上对多示例学习内容十分少。所以具体原理不再介绍</p>
+<p>灵感来源于 PCA 白化。但是白化计算复杂度高，特别是我们还希望白化操作是可微的，</p>
 </blockquote>
-<h3 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h3><p>最后一步，保留剩下的 patch 块，训练 DCGAN，同时引入文本描述 (eg.鸟的头是黄色的) 作为 条件（条件-DCGAN）。</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p><img src="https://i.loli.net/2019/01/25/5c4a8106c4cc1.jpg" alt=""></p>
-<p>上边是只用 一张样本训练的 GAN，下边是 用了前边三个操作后的。</p>
-<p><img src="https://i.loli.net/2019/01/25/5c4a815370da6.jpg" alt=""></p>
-<p>这个表对不同阶段进行实验。结果要高于 Baseline 2 % 。</p>
+</li>
+<li><p>每一层都是标准正太分布，导致完全学习不到输入数据的真实特征分布。因此我们引入可学习重构参数 $\gamma$ 和 $\beta$</p>
+</li>
+<li><p>当 $\gamma = \sqrt{\sigma^2 + \epsilon}$ , $\beta = u$ 时候重构出 原始输入$x_i$ 保留原始输入的分布 ，提升了我们模型的 capacity。</p>
+</li>
+</ul>
+<h4 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h4><ul>
+<li>解决了梯度消失，爆炸问题</li>
+<li>对模型中参数不那么敏感，加快网络训练</li>
+<li>对一些饱和函数（sigmoid，tanh）改变他们分布，使得输入落在非饱和区域</li>
+</ul>
 
       
 
@@ -226,7 +211,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
         		</li>
       		
 		</ul>
@@ -282,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/05/27/olos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/27/2019-07-27算法记录02---BN层/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +281,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/15/FSAF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/01/Group Normalization/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记</div>
+    <a href="/2019/07/27/2019-08-01算法记录03---softmax/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法记录02---BN层</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +311,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="olos" data-title="《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读" data-url="xhw205.github.io/2019/05/27/olos/"></div>
+	<div class="ds-thread" data-thread-key="2019-07-27算法记录02---BN层" data-title="算法记录02---BN层" data-url="xhw205.github.io/2019/07/27/2019-07-27算法记录02---BN层/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -358,8 +334,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "xhw205.github.io/2019/05/27/olos/", 
-    sourceId: "olos",
+    url: "xhw205.github.io/2019/07/27/2019-07-27算法记录02---BN层/", 
+    sourceId: "2019-07-27算法记录02---BN层",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

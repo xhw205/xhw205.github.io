@@ -6,20 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>算法记录01---LR相关 | 勤奋的懒猫</title>
+  <title>Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
-<meta name="keywords" content="面试">
+  <meta name="description" content="本文是何凯明团队发表，ECCV 2018最佳论文提名奖。在训练中我们为了规范隐层输入的分布避免Internal Covariate Shift问题使用Batch Normalization的方式解决（但在之后的论文被证明Batch Norm没有解决Internal Covariate Shift问题，而是优化问题的解空间更加平滑易于收敛）。Group Normalization是Batch Nor">
+<meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法记录01---LR相关">
-<meta property="og:url" content="xhw205.github.io/2019/07/25/2019-07-25算法职位面试经01---LR相关/index.html">
+<meta property="og:title" content="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记">
+<meta property="og:url" content="xhw205.github.io/2019/04/01/Group Normalization/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
+<meta property="og:description" content="本文是何凯明团队发表，ECCV 2018最佳论文提名奖。在训练中我们为了规范隐层输入的分布避免Internal Covariate Shift问题使用Batch Normalization的方式解决（但在之后的论文被证明Batch Norm没有解决Internal Covariate Shift问题，而是优化问题的解空间更加平滑易于收敛）。Group Normalization是Batch Nor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-19T06:38:06.172Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/18/5c6a1a3d3eb39.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6baaabf3d41.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bab77271ed.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bb0597be7a.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bb4db5cfc3.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bb9f14fdf1.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bb9f179b6b.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bb9f1a5234.bmp">
+<meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bc5d72b5cf.bmp">
+<meta property="og:updated_time" content="2019-08-22T06:41:38.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法记录01---LR相关">
-<meta name="twitter:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
+<meta name="twitter:title" content="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记">
+<meta name="twitter:description" content="本文是何凯明团队发表，ECCV 2018最佳论文提名奖。在训练中我们为了规范隐层输入的分布避免Internal Covariate Shift问题使用Batch Normalization的方式解决（但在之后的论文被证明Batch Norm没有解决Internal Covariate Shift问题，而是优化问题的解空间更加平滑易于收敛）。Group Normalization是Batch Nor">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/18/5c6a1a3d3eb39.bmp">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -151,47 +161,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-07-25算法职位面试经01---LR相关" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Group Normalization" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法记录01---LR相关
+      Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记
     </h1>
   
 
         
-        <a href="/2019/07/25/2019-07-25算法职位面试经01---LR相关/" class="archive-article-date">
-  	<time datetime="2019-07-25T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+        <a href="/2019/04/01/Group Normalization/" class="archive-article-date">
+  	<time datetime="2019-04-01T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="介绍下逻辑回归"><a href="#介绍下逻辑回归" class="headerlink" title="介绍下逻辑回归"></a>介绍下逻辑回归</h4><p>逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。</p>
+        <p>本文是何凯明团队发表，ECCV 2018最佳论文提名奖。在训练中我们为了规范隐层输入的分布避免Internal Covariate Shift问题使用Batch Normalization的方式解决（但在之后的论文被证明Batch Norm没有解决Internal Covariate Shift问题，而是优化问题的解空间更加平滑易于收敛）。Group Normalization是Batch Normalization的改进版，主要克服的是Batch Norm在过小的批量训练上误差会增大的弊端。</p>
 <a id="more"></a>
-<h4 id="介绍下线性回归"><a href="#介绍下线性回归" class="headerlink" title="介绍下线性回归"></a>介绍下线性回归</h4><ul>
-<li>线性回归 <strong>拟合样本特征与标记之间的线性关系</strong>， $y = w*x + b$</li>
-<li>求解方式 $w, b$ 是均方误差最小化 (最小二乘法)</li>
-<li>因为线性回归是凸优化问题，只需要让关于 $(w,b)$ 的凸函数导数都为 0 。</li>
-</ul>
-<h4 id="线性回归和逻辑回归区别"><a href="#线性回归和逻辑回归区别" class="headerlink" title="线性回归和逻辑回归区别"></a>线性回归和逻辑回归区别</h4><p>线性回归： $f(x) = wx^T+b$</p>
-<p>逻辑回归：$z(x) = \frac{1}{1+e^{-f(x)}}$ </p>
-<ul>
-<li>线性回归输出值是连续的；逻辑回归输出是 0-1 ，大于一个阈值被分为一类，小于阈值被分为另一类，因此逻辑回归被用作<strong>分类</strong>，而不是回归。</li>
-<li>线性回归的代价函数是均方误差，逻辑回归的是代价函数是对数似然损失（log-likehood)</li>
-</ul>
-<h4 id="为什么逻辑回归代价函数用极大似然估计"><a href="#为什么逻辑回归代价函数用极大似然估计" class="headerlink" title="为什么逻辑回归代价函数用极大似然估计"></a>为什么逻辑回归代价函数用极大似然估计</h4><p>极大似然估计即模型已定，参数未知。利用已知的样本数据，反推出最具可能 导致这些样本结果的参数值。</p>
-<p>既然逻辑回归模型已定：$h_\theta(x) = \frac{1}{1+e^{- \boldsymbol{\theta^T} \boldsymbol{x}}}$, $\boldsymbol{\theta^T}\boldsymbol{x} =  \begin{pmatrix}<br>\theta\ b  \end{pmatrix} \left( x,1\right)$.</p>
-<p>我们给出二分类似然概率的分布： $P(y=1|x;\theta) = h_{\theta}(x)$  $P(y=0|x;\theta) = 1-h_{\theta}(x)$</p>
-<p>写成一般概率形式：$P(y|x;\theta) = h_{\theta}(x)^y(1-h_\theta(x))^{1-y}$</p>
-<p><strong>我们令每一个样本属于真实标记的概率越大越好</strong> 因此采用最大似然估计</p>
-<p>$L(\theta) = \prod_{i=1}^m h_{\theta}(x_i^{y_{i}}(1-h_\theta(x_{i}))^{1-y_{i}}$ （各个样本假设相互独立）</p>
-<h4 id="为什么逻辑回归不用平方差损失"><a href="#为什么逻辑回归不用平方差损失" class="headerlink" title="为什么逻辑回归不用平方差损失"></a>为什么逻辑回归不用平方差损失</h4><p>$E_{w,b} = \sum(y_i - \frac{1}{1+e^{w^x+b}}) ^2$  非凸，容易局部最优</p>
-<h4 id="为什么要使用sigmoid函数作为假设？"><a href="#为什么要使用sigmoid函数作为假设？" class="headerlink" title="为什么要使用sigmoid函数作为假设？"></a>为什么要使用sigmoid函数作为假设？</h4><p>因为线性回归模型的预测值为实数，而样本的类标记为（0,1），<strong>我们需要将分类任务的真实标记y与线性回归模型的预测值联系起来</strong>。如果选择单位阶跃函数的话，它是不连续的不可微。而如果选择sigmoid函数，它是连续的，而且能够将z转化为一个接近0或1的值</p>
+<h1 id="Group-Normalization"><a href="#Group-Normalization" class="headerlink" title="Group Normalization"></a>Group Normalization</h1><h6 id="论文地址"><a href="#论文地址" class="headerlink" title="论文地址"></a><a href="https://arxiv.org/abs/1803.08494" target="_blank" rel="external"><strong>论文地址</strong></a></h6><h3 id="1、Background"><a href="#1、Background" class="headerlink" title="1、Background"></a>1、Background</h3><p>Batch Norm的来源在于之前的研究表明如果在图像处理中对输入图像进行白化操作（即对输入数据分布变换到0均值，单位方差的正态分布），神经网络会较快收敛，于是推论：图像是深度神经网络的输入层，做白化能加快收敛，那么其实对于神经网络来说，其中某个隐层的神经元是下一层的输入，即如果我们将神经网络的隐层分割开来，每一个隐层都是输入层，可以对其逆向白化操作。</p>
+<p>Batch Norm的基本思想其实相当直观，因为深层神经网络在做非线性变换前的激活输入值随着网络加深或者训练过程中，其分布逐渐发生变动，之所以训练收敛慢，一般是整体分布逐渐往非线性函数的取值区间的上下限两端靠近（对于Sigmoid函数来说，意味着激活输入值WU+B是大的负值或正值），所以这导致反向传播时低层神经网络的梯度消失，这也是在训练时深层神经网络收敛逐渐变慢的原因。Batch Norm实现了将偏移的分布变换为比较标准的分布，使得输入值能落在非线性函数对输入敏感的区域，让梯度变大，加速深度学习。最后Batch Norm还有一步操作（y=scale*x+shift），每个神经元增加了两个参数，通过训练学习得到。可能原因是经过Batch Norm后非线性获得下降，通过超参找到一个线性和非线性合适的平衡点。</p>
+<p>然而Batch Norm的均值和方差是在一个mini-batch内计算的，有一定的随机性，显然随机性会受mini-batch的大小影响。如图1所示在ImageNet数据集上使用ResNet-50训练Batch Norm和Group Norm方法的错误率随batch size的变化。</p>
+<p><img src="https://i.loli.net/2019/02/18/5c6a1a3d3eb39.bmp" alt="图1"></p>
+<h3 id="2、Group-Norm"><a href="#2、Group-Norm" class="headerlink" title="2、Group Norm"></a>2、Group Norm</h3><p>然而因为受显存大小限制，处理图像或视频等领域问题时，很难使batch size很大。何恺明团队提出Group Norm作为替代Batch Norm的方法。他们注意到许多经典的经典的特征（如SIFT和HOG）使group-wise特征，即特征分组和组内正则化。于是本文提出将channels分组并在组内进行特征的正则化，而不是将每个通道正则化。我们可以从图一中看出即使在batch size为2的时候，Group Norm方式的错误率依然能比Batch Norm低10.6%。图2所示的就是各种正则化的方法，N是batch轴，C是channel轴，（H，W）空间的范围。蓝色方块表示的是通过聚合这些方块的值来使用相同的均值和方差进行正则化。Group Normalization定义如下，</p>
+<script type="math/tex; mode=display">
+S_{i} = \left \{ k|k_{N}=i_{N},\left \lfloor \frac {k_{C}}{C/G} \right \rfloor = \left \lfloor \frac {i_{C}}{C/G} \right \rfloor\right \}.</script><p>G是组数，是一个超参默认为32；C/G是每组中通道的个数；$\left \lfloor · \right \rfloor$是向下取整操作，$\left \lfloor \frac {k_{C}}{C/G} \right \rfloor = \left \lfloor \frac {i_{C}}{C/G} \right \rfloor$意思是索引i和k是在同一组中的通道，并假设每组通道沿C轴按顺序存储。</p>
+<p>Group Norm沿着（H，W）轴和组内通道计算$\mu$和$\sigma$，图示中分组数为2。</p>
+<h3 id="3、Implementation"><a href="#3、Implementation" class="headerlink" title="3、Implementation"></a>3、Implementation</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">GroupNorm</span><span class="params">(x, gamma, beta, G, eps=<span class="number">1</span>e−<span class="number">5</span>)</span>:</span> </div><div class="line">    <span class="comment"># x: input features with shape [N,C,H,W] </span></div><div class="line">    <span class="comment"># gamma, beta: scale and offset, with shape [1,C,1,1] </span></div><div class="line">    <span class="comment"># G: number of groups for GN </span></div><div class="line">    N, C, H, W = x.shape </div><div class="line">    x = tf.reshape(x, [N, G, C // G, H, W]) </div><div class="line">    mean, var = tf.nn.moments(x, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], keep dims=<span class="keyword">True</span>) </div><div class="line">    x = (x − mean) / tf.sqrt(var + eps) </div><div class="line">    x = tf.reshape(x, [N, C, H, W]) </div><div class="line">    <span class="keyword">return</span> x ∗ gamma + beta</div></pre></td></tr></table></figure>
+<p>文中给出了基于TensorFlow的实现。</p>
+<h3 id="4、Experiments"><a href="#4、Experiments" class="headerlink" title="4、Experiments"></a>4、Experiments</h3><p>论文在ImageNet数据集上进行了图片分类实验。图3比较了在相同batch size（32）的情况下测试集和验证集的错误率，训练模型是ResNet-50。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6baaabf3d41.bmp" alt="图3"></p>
+<p>图4展示了Batch Norm和Group Norm在batch size是32、16、8、4和2的ResNet-50验证集的错误率，而图1是对两种方法ResNet-50在ImageNet验证集错误率的可视化。 </p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bab77271ed.bmp" alt="图4"></p>
+<p>图5展示了展示了VGG-16第五个卷积块的第三个卷积层输出的特征分布演变，右侧的表格展示了在ImageNet验证集的错误率，batch size是32。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bb0597be7a.bmp" alt="图5"></p>
+<p>图6展示了不同组的划分在ImageNet数据集ResNet50的验证机错误率。顶端是组的数量，当组数为1时即与Layer Norm相同；底端是确定组内通道数量，当通道数等于1时即与Instance  Norm相同。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bb4db5cfc3.bmp" alt="图6"></p>
+<p>在COCO数据集上进行了目标检测和分割实验.</p>
+<p>文中以Mask R-CNN进行比较，需要注意的是：使用ImageNet的与训练网络时，要frozen Batch Norm层，否则结果反而会恶化，而Group Norm不会出现这个问题。保持特征网络的Batch Norm冻结，只在Head部分使用Group Norm会提升效果，但是如果将backbone也替换为Group Norm训练效果会更好。图7所示在COCO2017数据集上使用ResNet-50 C4的检测和分割消融结果。BN^*^指Batch Norm冻结。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bb9f14fdf1.bmp" alt="图7"></p>
+<p>其次使用Batch Norm的准确率模型性能已经无法随着迭代次数增加，而Group Norm可能会随着迭代的增加性能有一定提升。图8所示在COCO2017数据集上使用ResNet-50 FPN和一个4conv1fc bounding box head的检测和分割消融结果。图9结果中Group Norm被应用与backbone、box head和mask head上。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bb9f179b6b.bmp" alt="图8"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bb9f1a5234.bmp" alt="图9">最后不适用于训练模型，Group Norm仍然可以达到compared的性能，但是BN会出现结果的恶化。本文也提供了<a href="https://github.com/facebookresearch/Detectron/tree/master/projects/GN" target="_blank" rel="external">实验代码</a>。</p>
+<p>在Kinetics数据集上进行视频分类实验，使用ResNet-50 I3D，如图10所示。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6bc5d72b5cf.bmp" alt="图9"></p>
+<h3 id="5、Switchable-Normalization"><a href="#5、Switchable-Normalization" class="headerlink" title="5、Switchable Normalization"></a>5、Switchable Normalization</h3><p>对于现有Batch Norm、Layer Norm、Instance Norm、Group Norm，针对不同任务使用合适的正则化方式。但我们不难看出这些结构都采用同一种规范化形式，那么是否存在一个操作能够统一这些规范化技术呢，香港中文大学多媒体实验室和商汤科技研究院的研究者从这点出发，提出了Switchable Normalization【2】来解决这个问题，并开源了<a href="https://github.com/switchablenorms" target="_blank" rel="external">代码</a>。</p>
+<p>假设每一个像素表示为$h_{ncij}$，$n,c,i,j$为上述四个维度的下标。Switchable Norm对$h_{ncij}$进行归一化操作，并输出归一化后的像素值$\hat{h}_{ncij}$。Switchable Norm的计算公式如下：</p>
+<script type="math/tex; mode=display">
+\hat{h}_{ncij} = \gamma \frac{h_{ncij} - \Sigma _{k \in \Omega  }\omega_{k}\mu_{k}}{\sqrt{\Sigma _{k \in \Omega  }{\omega}'_{k}\sigma _{2}^{k}}} + \beta</script><p>上述定义与Batch Norm、Instance Norm和Layer Norm的定义相似。他们都学习了缩放系数$\gamma$和偏移系数$\beta$。与其之前正则化方法的主要区别在于SN的统计信息（即均值$\mu$和方差$\sigma^{2}$），不像Instance Norm只在一个通道中计算的，也不像Layer Norm只是在一个层中计算，而是在一个集合$\Omega$当中选择合适的归一化方法来加权平均的。这个集合定义为$\Omega = bn,in,ln$。$\omega _{k}$和${\omega}’_{k}$则为相应统计量对应的权重系数。在Switchable中，均值的加权系数$\omega_{k}$的计算方法如下：</p>
+<script type="math/tex; mode=display">
+\omega_{k} = \frac{e^{\lambda _{k}}}{\Sigma_{z\in in,ln,bn}e^{\lambda_{z}}}, k \in bn,in,ln</script><p>$\lambda_{k}$为三个维度统计量对应的参数。为了与网络参数（如卷积核）区分，这些参数称为控制参数。这些控制参数均初始为1，在反向传播时进行优化学习。该计算公式即利用softmax函数对优化参数$\lambda_{k}$进行归一化，计算统计量最终的加权系数$w_{k}$ 。因此，所有加权系数$w_{k}$ 的和为1，每个加权系数$w_{k}$的值都在0和1之间。类似的，${w}’_{k}$可以由另外的三个参数${\lambda}’_{bn}$  ，${\lambda}’_{in}$，和${\lambda}’_{ln}$计算得出，且$\Sigma_{k\in\Omega}w_k^\prime=1$ , $\forall w_k^\prime\in[0,1]$。因此，相对于BN，SN只额外增加了 $\lambda_{bn}$ ,$\lambda_{in}$,$\lambda_{ln}$和 $\lambda’_{bn}$ ,$\lambda’_{in}$,$\lambda’_{ln}$6个控制参数。</p>
+<h3 id="6、How-does-batch-normalization-help-optimization"><a href="#6、How-does-batch-normalization-help-optimization" class="headerlink" title="6、How does batch normalization help optimization?"></a>6、How does batch normalization help optimization?</h3><p>Batch Norm目前被广泛采用，也被认为是减少了“Internal Covariate Shift”。但是在2018年的一篇论文【1】证明了Batch Norm带来的增益于Internal Covariate Shift无关，在某种意义上Batch　Normalization甚至可能不会减少Internal Covariate Shift。相反，作者发现了Batch Norm对训练过程有着根本的影响：它能使优化问题的解空间更加平滑，而这种平滑性确保了梯度更具有预测性和稳定性，因此可以使用更大范围的学习速率并获得更快的网络收敛。</p>
+<h6 id="参考论文"><a href="#参考论文" class="headerlink" title="参考论文"></a>参考论文</h6><p>【1】<a href="https://arxiv.org/pdf/1805.11604.pdf" target="_blank" rel="external"><strong>How Does Batch Norm Help Optimization</strong></a> </p>
+<p>【2】<a href="https://arxiv.org/pdf/1806.10779.pdf" target="_blank" rel="external"><strong>DIFFERENTIABLE LEARNING-TO-NORMALIZE VIA SWITCHABLE NORMALIZATION</strong></a> </p>
 
       
 
@@ -205,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
       		
 		</ul>
@@ -261,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/25/2019-07-25算法职位面试经01---LR相关/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/04/01/Group Normalization/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/27/介绍一下 BN 层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/27/olos/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          算法记录02---BN层
+          《Only Learn One Sample: Fine-Grained Visual Categorization with One Sample Training》论文阅读
         
       </div>
     </a>
   
   
-    <a href="/2019/07/24/2019-07-24-Leecode---二叉搜索树的后序遍历序列/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leecode---二叉搜索树的后序遍历序列</div>
+    <a href="/2019/02/21/DANET/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《DANET》《CCNet》</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -314,7 +340,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-07-25算法职位面试经01---LR相关" data-title="算法记录01---LR相关" data-url="xhw205.github.io/2019/07/25/2019-07-25算法职位面试经01---LR相关/"></div>
+	<div class="ds-thread" data-thread-key="Group Normalization" data-title="Feature Selective Anchor-Free Module for Single-Shot Object Detection 笔记" data-url="xhw205.github.io/2019/04/01/Group Normalization/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -337,8 +363,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "xhw205.github.io/2019/07/25/2019-07-25算法职位面试经01---LR相关/", 
-    sourceId: "2019-07-25算法职位面试经01---LR相关",
+    url: "xhw205.github.io/2019/04/01/Group Normalization/", 
+    sourceId: "Group Normalization",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
