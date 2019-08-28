@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>算法记录02---BN层 | 勤奋的懒猫</title>
+  <title>Archives: 2019/8 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
-<meta name="keywords" content="记录">
-<meta property="og:type" content="article">
-<meta property="og:title" content="算法记录02---BN层">
-<meta property="og:url" content="xhw205.github.io/2019/07/27/2019-08-01算法记录03---softmax/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="勤奋的懒猫">
+<meta property="og:url" content="xhw205.github.io/archives/2019/08/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-19T06:43:32.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法记录02---BN层">
-<meta name="twitter:description" content="介绍一下 BN 层BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题">
+<meta name="twitter:title" content="勤奋的懒猫">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -151,203 +146,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-08-01算法记录03---softmax" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      算法记录02---BN层
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/08/01/2019-centernet/" class="archive-article-date">
+  	<time datetime="2019-08-01T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/01/2019-centernet/">CenterNet :Objects as Points</a>
     </h1>
   
 
-        
-        <a href="/2019/07/27/2019-08-01算法记录03---softmax/" class="archive-article-date">
-  	<time datetime="2019-07-27T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="介绍一下-BN-层"><a href="#介绍一下-BN-层" class="headerlink" title="介绍一下 BN 层"></a>介绍一下 BN 层</h4><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题</p>
-<a id="more"></a>
-<blockquote>
-<p>ICS 宏观上看正是源域与目标域的数据分布不一致，也就是说网络每一层输入数据都不再是 “独立同分布”了。每一层的参数更新会导致上层的输入数据分布发生变化，通过层层叠加，高层的输入分布变化会非常剧烈，<strong>这就使得高层需要不断去适应底层的参数更新。</strong> </p>
-</blockquote>
-<p>BN流程：</p>
-<p>输入： $B={x_1,…,x_m}$, 参数 $\gamma$ 和 $\beta$.</p>
-<p>均值：$u = \frac{1}{m}\sum x_i$</p>
-<p>方差：$\sigma^2 = \frac{1}{m} \sum{(x_i-u)^2}$</p>
-<p>norm到均值 0 方差 1：$\hat{x_i} = \frac{x_i - u}{\sqrt{\sigma^2 + \epsilon }}$</p>
-<p>缩放偏移：$y_i = \gamma \hat{x_i}  + \beta$</p>
-<ul>
-<li><p>BN 在每一层输入的时候，先做一个归一化层（均值为 0, 方差为 1 的）高斯分布。（解决同分布）</p>
-<blockquote>
-<p>灵感来源于 PCA 白化。但是白化计算复杂度高，特别是我们还希望白化操作是可微的，</p>
-</blockquote>
-</li>
-<li><p>每一层都是标准正太分布，导致完全学习不到输入数据的真实特征分布。因此我们引入可学习重构参数 $\gamma$ 和 $\beta$</p>
-</li>
-<li><p>当 $\gamma = \sqrt{\sigma^2 + \epsilon}$ , $\beta = u$ 时候重构出 原始输入$x_i$ 保留原始输入的分布 ，提升了我们模型的 capacity。</p>
-</li>
-</ul>
-<h4 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h4><ul>
-<li>解决了梯度消失，爆炸问题</li>
-<li>对模型中参数不那么敏感，加快网络训练</li>
-<li>对一些饱和函数（sigmoid，tanh）改变他们分布，使得输入落在非饱和区域</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/07/27/2019-08-01算法记录03---softmax/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2019/07/27/2019-07-27算法记录02---BN层/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法记录02---BN层</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-08-01算法记录03---softmax" data-title="算法记录02---BN层" data-url="xhw205.github.io/2019/07/27/2019-08-01算法记录03---softmax/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "xhw205.github.io/2019/07/27/2019-08-01算法记录03---softmax/", 
-    sourceId: "2019-08-01算法记录03---softmax",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -368,8 +220,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -460,10 +312,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">leecode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
