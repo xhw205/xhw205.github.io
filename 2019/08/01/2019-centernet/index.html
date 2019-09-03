@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="勤奋的懒猫">
 <meta property="og:description" content="这是来自 CVPR 2019 的一篇关于目标检测的论文， detector  采用关键点估计的方法来找到中心点，并进行 bbox 回归。是一篇真正实现 anchor-free 的文章。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T12:09:21.119Z">
+<meta property="og:updated_time" content="2019-08-28T13:55:46.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CenterNet :Objects as Points">
 <meta name="twitter:description" content="这是来自 CVPR 2019 的一篇关于目标检测的论文， detector  采用关键点估计的方法来找到中心点，并进行 bbox 回归。是一篇真正实现 anchor-free 的文章。">
@@ -173,6 +173,13 @@
       
         <p>这是来自 CVPR 2019 的一篇关于目标检测的论文， detector  采用关键点估计的方法来找到中心点，并进行 bbox 回归。是一篇真正实现 anchor-free 的文章。</p>
 <a id="more"></a>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
+<li><p>one-stage detector 在 feature map 上以每一像素点滑动不同尺度的 anchor ，然后直接对框进行分类</p>
+</li>
+<li><p>two-stage detector 先训练一个二分类器判断 anchors 属于前景还是背景，粗略的做 proposal 的回归，然后再进行后续的分类和再回归。</p>
+<p>单阶段精度略低速度快，双阶段则相反。两者本质都不是 end-to-end 的训练测试模型，因为我们需要用 NMS 来做后处理，去掉同一目标的重复检测框。所以目前没有任何一款检测器是完全端到端可训练检测的。</p>
+</li>
+</ul>
 
       
 
@@ -447,6 +454,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CNNs</a>
               </li>
             
             <div class="clearfix"></div>

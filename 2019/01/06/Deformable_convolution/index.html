@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>Tag: 日常学习 | 勤奋的懒猫</title>
+  <title>Deformable Convolutional Networks | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="勤奋的懒猫">
-<meta property="og:url" content="xhw205.github.io/tags/日常学习/page/2/index.html">
+  <meta name="description" content="Author: Crystal 卷积神经网络（CNN）由于其建筑模块中固定的几何结构而固有地局限于模型几何变换。 在这项工作中，我们引入了两个新的模块来增强CNN的转换建模能力，即可变形卷积和可变形RoI池。 两者都基于这样的想法：增加模块中的空间采样位置以及额外的偏移并学习目标任务的偏移，而无需额外的监督。 新模块可以很容易地取代现有CNN中的普通模块，并且可以通过标准的反向传播轻松地进行端到端">
+<meta name="keywords" content="CNNs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deformable Convolutional Networks">
+<meta property="og:url" content="xhw205.github.io/2019/01/06/Deformable_convolution/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
+<meta property="og:description" content="Author: Crystal 卷积神经网络（CNN）由于其建筑模块中固定的几何结构而固有地局限于模型几何变换。 在这项工作中，我们引入了两个新的模块来增强CNN的转换建模能力，即可变形卷积和可变形RoI池。 两者都基于这样的想法：增加模块中的空间采样位置以及额外的偏移并学习目标任务的偏移，而无需额外的监督。 新模块可以很容易地取代现有CNN中的普通模块，并且可以通过标准的反向传播轻松地进行端到端">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/01/07/5c32e4d3ad292.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/07/5c32e5cf2e47c.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/07/5c32e60cba667.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/07/5c32e645e2c14.png">
+<meta property="og:image" content="https://i.loli.net/2019/01/07/5c32e6aa80ce0.png">
+<meta property="og:updated_time" content="2019-09-03T11:30:38.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="勤奋的懒猫">
+<meta name="twitter:title" content="Deformable Convolutional Networks">
+<meta name="twitter:description" content="Author: Crystal 卷积神经网络（CNN）由于其建筑模块中固定的几何结构而固有地局限于模型几何变换。 在这项工作中，我们引入了两个新的模块来增强CNN的转换建模能力，即可变形卷积和可变形RoI池。 两者都基于这样的想法：增加模块中的空间采样位置以及额外的偏移并学习目标任务的偏移，而无需额外的监督。 新模块可以很容易地取代现有CNN中的普通模块，并且可以通过标准的反向传播轻松地进行端到端">
+<meta name="twitter:image" content="https://i.loli.net/2019/01/07/5c32e4d3ad292.png">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -146,197 +157,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Deformable_convolution" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/" class="archive-article-date">
-  	<time datetime="2019-02-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/">Weighted Channel Dropout for Regularization of CNN</a>
+    <h1 class="article-title" itemprop="name">
+      Deformable Convolutional Networks
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/01/06/Deformable_convolution/" class="archive-article-date">
+  	<time datetime="2019-01-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Author: Crystal</em></p>
+<p>卷积神经网络（CNN）由于其建筑模块中固定的几何结构而固有地局限于模型几何变换。 在这项工作中，我们引入了两个新的模块来增强CNN的转换建模能力，即可变形卷积和可变形RoI池。 两者都基于这样的想法：增加模块中的空间采样位置以及额外的偏移并学习目标任务的偏移，而无需额外的监督。 新模块可以很容易地取代现有CNN中的普通模块，并且可以通过标准的反向传播轻松地进行端到端的训练，从而产生可变形的卷积网络。 大量实验验证了我们方法的性能。 我们首次表明，在深度CNN中学习密集空间变换对于复杂的视觉任务（如对象检测和语义分割）是有效的。</p>
+<a id="more"></a>
+<p>一、简介：</p>
+<p>视觉识别的一个关键挑战是如何适应对象比例，姿势，视点和部分变形的几何变化或模型几何变换。一般来说，有两种方法。 首先是构建具有足够所需变化的训练数据集。 这通常通过增加现有数据样本来实现，可以从数据中学习鲁棒性的表示，但通常以昂贵的训练和复杂的模型参数为代价。第二种是使用变换不变性特征和算法。<br>卷积神经网络（CNN）已经在视觉识别任务中取得了显着的成功，例如图像分类，语义分割和目标检测。缺点：对几何变换进行建模的能力主要来自广泛的数据增强，大型模型容量和手工标记。<br>简而言之，CNN本质上受限于大型模型和未知转换。 这些限制源于CNN模块的固定几何结构：①卷积单元在固定位置对输入特征图进行采样; 池化层以固定比率降低分辨率 ②RoI pooling层将感兴趣的区域分成固定的空间区间。<br>由于不同的位置可能对应于具有不同尺度或变形的物体，因此对于具有精细定位的视觉识别，需要自适应地确定尺度或接收尺寸：语义分割使用全卷积网络<br>随着目标检测越来越重要和取得的巨大进步，所有方法仍然依赖于基于原始bounding box的特征提取。 这显然不是最优的，特别是对于边界不是十分明显的物体。<br>    在这项工作中，我们引入了两个新的模块，大大增强了CNN的几何变换建模能力：第一个就是可变形的卷积，在标准的卷积中，它将2D偏移添加到通常的网格采样位置。 它可以使采样网格自由变形。</p>
+<p><img src="https://i.loli.net/2019/01/07/5c32e4d3ad292.png" alt="图1"></p>
+<p>图1 (b)在可变形卷积中具有增强偏移（浅蓝色箭头）的变形采样位置（深蓝色点）(c)(d)表明可变形卷积产生了各种变换的尺度，纵横比和旋转。<br>通过附加的卷积层从前面的特征图中学习偏移。 因此，变形以局部，密集和自适应方式对输入特征进行调节。<br>第二个就是可变形的RoI pooling，它为前一个RoI pooling的常规bin分区中的每个bin位置添加了一个偏移量, 类似地，从前面的特征图和RoI中学习偏移，从而实现具有不同形状的对象的自适应定位。<br>这两个模块都是轻量级的，增加的复杂度十分小，它们为偏移学习添加了少量参数和计算。 他们可以很容易地deep CNN中替换他们的普通对应物，并且可以通过标准的反向传播轻松地进行端到端的训练。这就使得卷积神经网络称为可变形的卷积神经网络<br>我们的方法与空间变换网络和可变形零件模型具有高度相似的原理。 它们都具有内部转换参数，并且仅从数据中学习这些参数。 可变形ConvNets的一个关键区别在于它们以简单，高效，深入和端到端的方式处理密集的空间变换。 在3.1节中，我们详细讨论了我们的工作与以前的工作之间的关系，并分析了可变形ConvNets的优越性。</p>
+<p>二、可变形的卷积神经网络</p>
+<p>Feature maps 和卷积操作在CNN中是三维的，变形的卷积和RoI pooling 模块的操作是在二维空间区域，整个通道维度的操作保持不变。 在不失一般性的情况下，为了清楚起见，这里以2D描述模块，扩展到3D非常简单。</p>
+<p>1、    变形卷积</p>
+<p>2维卷积包括两个步骤：1）在输入的feather map x上使用规则网格R进行采样; 2）w衡量加权的采样值的总和，网格R定义了接收区域的大小和扩张<br>数学理论支持：<br>对于在输出的feature map y 上的每个位置p0， 我们有表达式1 ：<br>pn是R中任意位置的一个表示。在可变形卷积中，规则网格R增加了偏移{Δpn|n = 1, …, N}<br>等式1变为等式2，现在采样位于不规则和偏移的位置上(双线性插值的内容)</p>
+<p><img src="https://i.loli.net/2019/01/07/5c32e5cf2e47c.png" alt="图2"></p>
+<p>如图2所示，通过在相同的输入feature map上应用卷积层来获得偏移。卷积核具有与当前卷积层相同的空间分辨率和扩张（例如，图3中的扩张1也是3×3），输出偏移字段与输入feature map具有相同的空间分辨率。 通道尺寸2N对应于N个 2D偏移。 在训练期间，同时学习用于生成输出特征和偏移的卷积核。<a href="https://www.jianshu.com/p/940d21c79aa3" target="_blank" rel="external">https://www.jianshu.com/p/940d21c79aa3</a><br>图的理解：对于输入的一张feature map，假设原来的卷积操作是3<em>3的，那么为了学习offset，我们定义另外一个3</em>3的卷积层，输出的offset field其实就是原来feature map大小，channel数等于2（分别表示x,y方向的偏移）。这样的话，有了输入的feature map，有了和feature map一样大小的offset field，我们就可以进行deformable卷积运算。所有的参数都可以通过反向传播学习得到。</p>
+<p>2、    RoI pooling </p>
+<p>给定输入feature map x大小为w×h和左上角p0的RoI，RoI pooling将RoI划分为k×k区间并输出k×k feature map y 。对于 k×k 中第i行和j列个小块，我们有等式5<br>nij<br>是这一小块中像素的数量。类似于可变形的卷积，等式5可变为等式6 </p>
+<p><img src="https://i.loli.net/2019/01/07/5c32e60cba667.png" alt="图3"></p>
+<p>图3左边的feature map 由等式5产生，经过全连接层产生归一化的偏移量Δpij<br>偏移量归一化对于使RoI大小的不变是必要的。</p>
+<p>3、可变形的卷积网络</p>
+<p>可变形卷积和RoI pooling模块具有尺度相同的输入和输出，因此，他们可以很容易地取代现有CNN中的别的处理方式。在训练的过程中，增加的卷积和全连接层对于偏移学习来说用零权重初始化。为了将可变形ConvNets与最先进的CNN架构集成，我们注意到这些架构包括两个阶段。 首先，深度完全卷积网络在整个输入图像上生成feature map。 其次，浅层任务特定网络从feature map中生成结果。<br>我们采用两种最先进的架构进行特征提取：resnet101 和修订版 inception-resnet 都在imagenet的数据集上做了预训练。最初的 inception-resnet  是用来做图像识别。<br>Imagenet中两个模型都包含了一些卷积块，一个平均池化层和一个全连接层。 平均池化层和全连接层被移除。最后添加随机初始化的1×1卷积以将通道维数减小到1024，与通常的做法一样，最后一个卷积块的有效步幅从32像素减少到16像素，以增加特征图分辨率。 具体而言，在最后一个块的开头，步幅从2变为1，为了弥合上述操作，该块中的所有卷积滤波器（内核大小&gt; 1）的扩张从1变为2。可选地，可变形卷积应用于最后几个卷积层（内核大小&gt; 1）。 我们尝试了不同数量的这种层，并发现3作为不同任务的良好权衡，如表1所示。</p>
+<p><img src="https://i.loli.net/2019/01/07/5c32e645e2c14.png" alt="表1"></p>
+<p>Deeplab是语义分割中最好的方法，在feature map 上增加了1*1的卷积生成类别数+1的map 来表示每个像素的分类得分，然后紧接一个softmax层输出每个像素的概率。<br>Category-Aware RPN和RPN很像，就是把二分类卷及分类器换成了C+1类的分类器，可以看成是简化版的SSD<br>Faster R-CNN是最先进的探测器，在conv4块的顶部添加了RPN分支，在ResNet-101中的conv4和conv5块之间插入RoI池化层，为每个RoI留下10层。 该设计实现了良好的精度，但具有高的每RoI计算，相反，在last1添加了RoI池层。 在合并的RoI特征之上，添加了两个尺寸为1024的fc层，然后是边界框回归和分类分支。 尽管这样的简化（从10层conv5块到2个fc层）会略微降低精度，但它仍然能够提供足够强的基线并且在这项工作中不是一个问题。可选地，可以将RoI池化层改变为可变形的RoI池。这项工作建立在增加卷积和RoI pooling的空间采样位置以及额外的偏移和学习目标任务的偏移的基础上。当可变形卷积堆叠时，效果是非常好的。<br>三、In Context of Related Works</p>
+<p>Spatial Transform Networks<br>空间变换网络，STN，这是在深度学习框架中从数据中学习空间转换的第一项工作。 它通过全局参数变换（例如自然变换）来扭曲特征图。STN在小规模图像分类问题上取得了成功。 逆STN方法通过有效的变换参数传播取代了高代价的特征变形。<br>可变形卷积中的偏移学习可以被认为是STN中的极轻量级空间变换器。 但是，可变形卷积不采用全局参数变换和特征变形。 相反，它以局部和密集的方式对特征图进行采样。 为了生成新的特征图，它具有加权求和步骤，该步骤在STN中不存在。<br>可变形卷积很容易集成到任何CNN架构中。 它的培训很容易。 它被证明对于需要密集（例如，语义分割）或半密集（例如，对象检测）预测的复杂视觉任务是有效的。 这些任务对于STN来说是困难的。<br>Active convolution<br>这项工作是现代的。 它还通过偏移增加卷积中的采样位置，并通过端到端的反向传播学习偏移。 它在图像分类任务中显示出有效性。<br>与可变形卷积的两个关键差异使得这项工作不那么通用和适应性。 首先，它在不同的空间位置共享偏移量。 其次，偏移是每个任务或每次训练学习的静态模型参数。 相反，可变形卷积中的偏移是动态模型输出，其根据图像位置而变化。 它们模拟图像中的密集空间变换，并且对于（半）密集预测任务（例如对象检测和语义分割）是有效的。<br>Effective Receptive Field<br>它发现并非所有接收场中的像素对输出响应的贡献相等。 中心附近的像素影响更大。 有效的接收场仅占理论接收场的一小部分，并具有高斯分布。 虽然理论上的接收场尺寸随着卷积层的数量线性增加，但令人惊讶的结果是，有效的接收场尺寸随着数字的平方根线性增加，因此速度比我们预期的要慢得多。<br>这一发现表明即使是深层CNN中的顶层单元也可能没有足够大的接收场。 这部分解释了为什么萎缩卷积被广泛用于视觉任务（见下文）。 它表明了自适应接收领域学习的需求。<br>Atrous convolution<br>它将正常过滤器的步幅增加到大于1并将原始重量保持在稀疏采样位置。 这增加了接收场的大小并且在参数和计算中保持相同的复杂性。 它已被广泛用于语义分割。<br>可变形卷积是一种空洞卷积的推广，如图1（c）所示。 表3列出了与空洞卷积的广泛比较。<br>Deformable Part Models (DPM)<br>可变形RoI pooling 与DPM类似，因为两种方法都学习了对象子部分的空间变形以最大化分类得分。 可变形的RoI pooling更简单，因为不考虑子部分之间的空间关系。<br>DPM是一种浅层模型，其变形建模能力有限。 虽然通过将距离变换视为特殊的池化操作，其推理算法可以转换为CNN，但其训练不是端到端的，而是涉及启发式选择，例如组件的选择和子部分尺寸。 相比之下，可变形的ConvNets很深，并且可以进行端到端的培训。 当堆叠多个可变形模块时，建模变形的能力变得更强。<br>DeepID-Net<br>它引入了一个变形约束池化层，它也考虑了物体检测的子部分变形。 因此，它与可变形的RoI池有着相似的原理，但要复杂得多。<br>这项工作经过精心设计，基于RCNN。 目前尚不清楚如何以端到端的方式使其适应最近最先进的对象检测方法。<br>Spatial manipulation in RoI pooling<br>空间金字塔池化使用手工制作的pooling区域。 它是计算机视觉中的主要方法，也用于基于深度学习的物体检测.<br>可变形的RoI池是第一个在CNN中端到端学习汇集区域的方法。 虽然这些区域目前具有相同的大小，但在空间金字塔池pooling中扩展到多个大小是很简单的。<br>Transformation invariant features and their learning<br>如第1部分所述，在这些工作中，转换是先验已知的。 知识（例如参数化）用于手工制作特征提取算法的结构，或者固定在诸如SIFT中，或者具有可学习的参数，例如基于CNN的参数。 他们无法处理新任务中的未知转换。<br>相比之下，我们的可变形模块概括了各种变换（见图1）。 转换不变性是从目标任务中学习的。<br>Dynamic Filter<br>与可变形卷积类似，动态滤波器也取决于输入特征和样本变化。 不同的是，只学习滤波器的权重，而不是像我们这样的采样位置。 这项工作适用于视频和立体声预测。<br>Combination of low level ﬁlters<br>高斯滤波器及其光滑导数[30]被广泛用于提取低水平图像结构，如角落，边缘，T型接头等。在某些条件下，这种滤波器形成一组基础，它们的线性组合在其中形成新的滤波器。 同一组几何变换，例如可控滤波器中的多个方向和[45]中的多个尺度。 我们注意到虽然在[45]中使用了可变形内核这个术语，但它的含义与我们的工作不同。<br>大多数CNN从头开始学习所有卷积滤波器。 最近的工作[25]表明它可能是不必要的。 它通过低阶滤波器（高斯导数高达4阶）的加权组合替换自由形式滤波器，并学习权重系数。 过滤函数空间的正则化表明，当训练数据较小时，可以提高泛化能力。<br>以上工作与我们的相关，因为当多个过滤器（特别是具有不同尺度的过滤器）组合在一起时，所得到的过滤器可能具有复杂的重量并且类似于我们的可变形卷积滤波器。 然而，可变形卷积学习采样位置而不是滤波器权重。</p>
+<p>四、实验</p>
+<p>1、    实验设置和实施</p>
+<p>语义分割：我们使用PASCAL VOC和CityScapes。 对于PASCAL VOC，有20种语义类别。 遵循[19,41,4]中的协议，我们使用VOC 2012数据集和[18]中的附加掩码注释。 训练集包括10,582个图像。 对验证集中的1,449个图像执行评估。 对于CityScapes，按照[5]中的协议，分别对列车组中的2,975个图像和验证集中的500个图像执行训练和评估。 有19种语义类别加上背景类别。<br>为了评估，我们使用按照标准协议[10,6]在图像像素上定义的平均交叉结合（mIoU）度量。 我们分别使用mIoU @ V和mIoU @ C来表示PASCAl VOC和Cityscapes。<br>在训练和推理中，对于PASCAL VOC的短边来说，图像的大小调整为为360像素，Cityscapes的边长为1,024像素。 在SGD训练中，每个小批量中随机抽取一个图像。 PASCAL VOC和Cityscapes分别进行了30k和45k的迭代，每个都有8个GPU和一个小批量。 在前2/3和后1/3个中，学习率分别为10-3和10-4。<br>目标检测：我们使用PASCAL VOC和COCO数据集。 对于PASCAL VOC，遵循[15]中的方案，对VOC 2007 trainval和VOC 2012 trainval的联合进行训练。 评估是在VOC 2007测试。 对于COCO，遵循标准协议[39]，分别对trainval中的120k图像和test-dev中的20k图像进行训练和评估。<br>为了评估，我们使用标准平均精度（mAP）分数。 对于PASCAL VOC，我们使用IoU阈值0.5和0.7报告mAP分数。 对于COCO，我们使用mAP @ [0.5：0.95]的标准COCO度量标准以及mAP@0.5。<br>在训练和推理中，图像被调整大小以具有600像素的短边。 在SGD训练中，在每个小批量中随机采样一个图像。 对于类感知RPN，从图像中采样256个RoI。 对于faster R-CNN和R-FCN，分别对区域提议和对象检测网络采样256和128个RoI。 RoI池中采用7×7。 为了促进关于VOC的消融实验，我们遵循[38]并利用预训练和固定的RPN提议来训练faster R-CNN和R-FCN，而不需要区域提议和物体检测网络之间的特征共享。 RPN网络与[47]中程序的第一阶段分开训练。 对于COCO，执行[48]中的联合培训，并启用功能共享进行培训。 在8个GPU上分别对PASCAL VOC和COCO进行了30k和240k的迭代迭代。在前2/3和后1/3个中，学习率分别为10-3和10-4。</p>
+<p>2、Ablation Study</p>
+<p>进行了广泛的消融研究，以验证我们的方法的效率和效率。<br>Deformable convolution 表1使用ResNet-101特征提取网络评估可变形卷积的影响。 当使用更多可变形卷积层时，精度会稳步提高，特别是对于DeepLab和类感知RPN。 当DeepLab使用3个可变形层时，达到饱和，而其他层使用6个可变形层。 在剩下的实验中，我们在特征提取网络中使用3个。<br>我们凭经验观察到可变形卷积层中的学习偏移对图像内容具有高度自适应性，如图5和图6所示。为了更好地理解可变形卷积的机制，我们为可变形卷积滤波器定义了一种称为有效扩张的度量。它是滤波器中所有相邻采样位置对之间距离的平均值。 它是对滤波器接收场尺寸的粗略测量。<br>我们在VOC 2007测试图像上应用具有3个可变形层（如表1所示）的R-FCN网络。 我们groundtruth的bounding box注释和滤波器中心的位置将可变形卷积滤波器分为四类：小型，中型，大型和背景。 表2报告了有效扩张值的统计数据（平均值和标准差）。 它清楚地表明：1）可变形过滤器的接收场尺寸与物体尺寸相关，表明变形是从图像内容中有效地学习的; 2）背景区域上的滤波器尺寸介于中型和大型物体之间，表明识别背景区域需要相对较大的接收场。 这些观察结果在不同层中是一致的。<br>Deformable RoI pooling 适用于faster R-CNN和R-FCN。 如表3所示，单独使用它已经产生了显着的性能提升，特别是在严格的mAP@0.7度量下。 当使用可变形卷积和RoI池化时，获得了显着的精度改进。<br>Model complexity and runtime 表4报告了所提出的可变形ConvNets及其普通版本的模型复杂性和运行时间。 可变形ConvNets仅增加了模型参数和计算的小开销。 这表明，除了增加模型参数之外，显着的性能改进来自几何变换建模的能力。</p>
+<p>3、    Object Detection on COCO</p>
+<p><img src="https://i.loli.net/2019/01/07/5c32e6aa80ce0.png" alt="表5"></p>
+<p>在表5中，我们在可变形ConvNets和普通ConvNets之间进行广泛比较，以便在COCO test-dev集上进行对象检测。我们首先使用ResNet-101模型进行实验。类感知RPN，快速R-CNN和R-FCN的可变形版本分别达到25.8％，33.1％和34.5％的mAP @ [0.5：0.95]分数，相对分别为11％，13％和12％分别高于普通的ConvNets同行。通过更快的R-CNN和R-FCN中的Aligned-Inception-ResNet替换ResNet-101，由于更强大的功能表示，它们的简单ConvNet基线都得到了改进。可变形的ConvNets带来的有效性能提升也很有用。通过在多个图像尺度上进一步测试（图像短边在[480,576,688,864,1200,1400]中）并执行迭代边界框平均值[14]，mAP @ [0.5：0.95]得分增加到可变形版本的R-FCN为37.5％。请注意，可变形ConvNets的性能增益是对这些花哨的补充。<br>Conclusion<br>本文介绍了可变形的ConvNets，它是一种简单，高效，深入，端到端的解决方案，用于模拟密集的空间变换。 我们首次表明，对于复杂的视觉任务，如物体检测和语义分割，学习CNN中的密集空间变换是可行和有效的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CNNs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/02/find_similarity_area/" class="archive-article-date">
-  	<time datetime="2018-09-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/02/find_similarity_area/">Visualizing Deep Similarity Networks</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
+        			<a href="/categories/Seminar//" class="article-tag-list-link color3">Seminar</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:xhw205.github.io/2019/01/06/Deformable_convolution/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/08/fewshot-learning/" class="archive-article-date">
-  	<time datetime="2018-04-08T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/02/02/Weighted Channel Dropout for Regularization of CNN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Weighted Channel Dropout for Regularization of CNN
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/02/find_similarity_area/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Visualizing Deep Similarity Networks</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/08/fewshot-learning/">few shot learning</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/Autoencoder by Forest/" class="archive-article-date">
-  	<time datetime="2017-11-27T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Deformable_convolution" data-title="Deformable Convolutional Networks" data-url="xhw205.github.io/2019/01/06/Deformable_convolution/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/Autoencoder by Forest/">《Autoencoder by Forest》论文阅读</a>
-    </h1>
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "xhw205.github.io/2019/01/06/Deformable_convolution/", 
+    sourceId: "Deformable_convolution",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/日常学习/">&laquo; Prev</a><a class="page-number" href="/tags/日常学习/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -358,9 +410,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
