@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/09/02/orDtQU2mRwOgZvG.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/02/vQOwKsIMREt7rGC.png">
-<meta property="og:updated_time" content="2019-09-07T14:54:31.971Z">
+<meta property="og:updated_time" content="2019-09-07T15:02:23.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" CNN 知识快问快达-01">
 <meta name="twitter:description" content="CNN 各个领域中一些常见问题 （1）">
@@ -206,11 +206,11 @@
 <li><p>输入门：更新单元状态，先决定哪些数据需要更新。决定放什么信息到“细胞状态”中</p>
 <p>$i_t = \sigma(W([h_{t-1},x_t] + b)) $  新学的东西哪些要记住</p>
 <p>$\hat{C_t}  = tanh(W([h_{t-1},x_t] + b))$ 新学的东西</p>
-<p>${C_t}  = f_t <em> C_{t-1} + i_t </em> \hat{C_t}$ 更新单元状态</p>
+<p>${C_t}  = f_t \times C_{t-1} + i_t \times \hat{C_t}$ 更新单元状态</p>
 </li>
 <li><p>输出门：先判断细胞状态的哪一部分输出，接着用 tanh 处理细胞状态</p>
 <p>$ o_t = \sigma {(W[h_{t-1},x_t] + b)}$</p>
-<p>$h_t = o_t * tanh(C_T)$</p>
+<p>$h_t = o_t \times tanh(C_T)$</p>
 </li>
 </ul>
 <p>sigmoid 函数 判断重要不重要，tanh 函数映射到 -1 到 1之间，再与</p>
@@ -220,34 +220,34 @@
 <ul>
 <li><p>假设输入 feature map 是 $H \times W \times C $, 将 $C$ 分为 $g$ 组，每组尺寸为 $H \times W \times (C/g)$</p>
 </li>
-<li><p>kernel 分为 $g$ 组，每组尺寸为 $h<em>w</em>(c/g)$</p>
+<li><p>kernel 分为 $g$ 组，每组尺寸为 $h \times w \times (c/g)$</p>
 </li>
-<li>每组的 feature 与 kernel 做卷积，输出 $g$ 组 $H’<em>W’</em>(k/g)$ </li>
+<li>每组的 feature 与 kernel 做卷积，输出 $g$ 组 $H’ \times W’\times(k/g)$ </li>
 </ul>
 <p>第二个问题</p>
 <p>假设输出 $c_1$ 通道输入，$c_2$ 通道输出</p>
 <ul>
-<li><p>传统卷积 参数量为: $h<em>w</em>c_2*c_1$</p>
+<li><p>传统卷积 参数量为: $h \times w \times c_2 \times c_1$</p>
 </li>
-<li><p>$h<em>w</em>(c1/g)<em>(c2/g)</em>g = \frac{1}{g}<em>w</em>c_1*c_2$</p>
+<li><p>$h \times w \times(c1/g) \times (c2/g) \times g = \frac{1}{g} \times w \times c_1 \times c_2$</p>
 </li>
 </ul>
 <h4 id="什么是深度可分离卷积"><a href="#什么是深度可分离卷积" class="headerlink" title="什么是深度可分离卷积"></a>什么是深度可分离卷积</h4><p>普通卷积： </p>
 <ul>
-<li>$N<em>H</em>W<em>C$ 的输入，有 $k$ 个 3</em>3 的 卷积，每个卷积核 $k_i$ 都要对 每个通道的 特征向量 $f_i$ 矩阵相乘后求和 $\sum_i^C (k_i *f_i )$</li>
+<li>$N \times H \times W \times C$ 的输入，有 $k$ 个 3 \times 3 的 卷积，每个卷积核 $k_i$ 都要对 每个通道的 特征向量 $f_i$ 矩阵相乘后求和 $\sum_i^C (k_i  \times f_i )$</li>
 </ul>
 <p>深度可分离卷积：</p>
 <ul>
-<li>$N<em>H</em>W<em>C$ 的输入分为 $C$ 组，每一个通道上都要做 3 </em> 3 的卷积，<strong>收集了每个通道上的空间特征</strong></li>
-<li>然后在做 $k$ 个 1<em>1 的卷积，<em>*收集每个点的特征并进行维度的扩增</em></em></li>
+<li>$N \times H \times W \times C$ 的输入分为 $C$ 组，每一个通道上都要做$ 3 \times 3 $的卷积，<strong>收集了每个通道上的空间特征</strong></li>
+<li>然后在做 $k$ 个 $ 1 \times 1$ 的卷积，<strong>收集每个点的特征并进行维度的扩增</strong></li>
 </ul>
 <p>参数对比 ( 3 通道输入，256 输出)：</p>
 <ul>
 <li><p>普通卷积  3x3 Conv+BN+ReLU</p>
-<p>参数量： 3 <em> 3 </em> 3 * 256 = 6912</p>
+<p>参数量：$ 3  \times 3  \times  3  \times  256 = 6912$</p>
 </li>
 <li><p>Depthwise-pointwise 卷积 3x3 Depthwise Conv+BN+ReLU 和 1x1 Pointwise Conv+BN+ReLU</p>
-<p>参数量：3 <em> 3 </em> 3  + 3 <em> 1 </em> 1 * 256 = 795</p>
+<p>参数量：$3  \times 3  \times  3  + 3  \times  1  \times 1  \times  256 = 795$</p>
 </li>
 </ul>
 
