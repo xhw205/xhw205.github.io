@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="xhw205.github.io">
-  <title>算法记录01---LR相关 | 勤奋的懒猫</title>
+  <title>算法面试记录-01 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
+  <meta name="description" content="逻辑回归，线性回归  BN">
 <meta name="keywords" content="记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法记录01---LR相关">
+<meta property="og:title" content="算法面试记录-01">
 <meta property="og:url" content="xhw205.github.io/2019/07/25/2019-07-25算法记录01---LR相关/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
+<meta property="og:description" content="逻辑回归，线性回归  BN">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T12:01:13.960Z">
+<meta property="og:updated_time" content="2019-09-08T00:34:33.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法记录01---LR相关">
-<meta name="twitter:description" content="介绍下逻辑回归逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。">
+<meta name="twitter:title" content="算法面试记录-01">
+<meta name="twitter:description" content="逻辑回归，线性回归  BN">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法记录01---LR相关
+      算法面试记录-01
     </h1>
   
 
@@ -171,8 +171,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="介绍下逻辑回归"><a href="#介绍下逻辑回归" class="headerlink" title="介绍下逻辑回归"></a>介绍下逻辑回归</h4><p>逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。</p>
+        <ul>
+<li><p>逻辑回归，线性回归</p>
+</li>
+<li><p>BN</p>
+</li>
+</ul>
 <a id="more"></a>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>逻辑回归是用来解决二分类问题的，它假设数据服从伯努利分布，通过极大似然估计得到代价函数，然后使用梯度下降求解最优解。函数表达式就是把线性回归的输出，通过 sigmoid 函数值域限制在（0,1）范围内。</p>
 <h4 id="介绍下线性回归"><a href="#介绍下线性回归" class="headerlink" title="介绍下线性回归"></a>介绍下线性回归</h4><ul>
 <li>线性回归 <strong>拟合样本特征与标记之间的线性关系</strong>， $y = w*x + b$</li>
 <li>求解方式 $w, b$ 是均方误差最小化 (最小二乘法)</li>
@@ -192,6 +198,33 @@
 <p>$L(\theta) = \prod_{i=1}^m h_{\theta}(x_i^{y_{i}}(1-h_\theta(x_{i}))^{1-y_{i}}$ （各个样本假设相互独立）</p>
 <h4 id="为什么逻辑回归不用平方差损失"><a href="#为什么逻辑回归不用平方差损失" class="headerlink" title="为什么逻辑回归不用平方差损失"></a>为什么逻辑回归不用平方差损失</h4><p>$E_{w,b} = \sum(y_i - \frac{1}{1+e^{w^x+b}}) ^2$  非凸，容易局部最优</p>
 <h4 id="为什么要使用sigmoid函数作为假设？"><a href="#为什么要使用sigmoid函数作为假设？" class="headerlink" title="为什么要使用sigmoid函数作为假设？"></a>为什么要使用sigmoid函数作为假设？</h4><p>因为线性回归模型的预测值为实数，而样本的类标记为（0,1），<strong>我们需要将分类任务的真实标记y与线性回归模型的预测值联系起来</strong>。如果选择单位阶跃函数的话，它是不连续的不可微。而如果选择sigmoid函数，它是连续的，而且能够将z转化为一个接近0或1的值</p>
+<h3 id="BN-层"><a href="#BN-层" class="headerlink" title="BN 层"></a>BN 层</h3><p>BN 是为了解决训练过程中，中间层数据分布不断发生改变，导致训练困难的问题。论文中把这个问题称为 ICS 问题</p>
+<!-- more -->
+<blockquote>
+<p>ICS 宏观上看正是源域与目标域的数据分布不一致，也就是说网络每一层输入数据都不再是 “独立同分布”了。每一层的参数更新会导致上层的输入数据分布发生变化，通过层层叠加，高层的输入分布变化会非常剧烈，<strong>这就使得高层需要不断去适应底层的参数更新。</strong> </p>
+</blockquote>
+<p>BN流程：</p>
+<p>输入： $B={x_1,…,x_m}$, 参数 $\gamma$ 和 $\beta$.</p>
+<p>均值：$u = \frac{1}{m}\sum x_i$</p>
+<p>方差：$\sigma^2 = \frac{1}{m} \sum{(x_i-u)^2}$</p>
+<p>norm到均值 0 方差 1：$\hat{x_i} = \frac{x_i - u}{\sqrt{\sigma^2 + \epsilon }}$</p>
+<p>缩放偏移：$y_i = \gamma \hat{x_i}  + \beta$</p>
+<ul>
+<li><p>BN 在每一层输入的时候，先做一个归一化层（均值为 0, 方差为 1 的）高斯分布。（解决同分布）</p>
+<blockquote>
+<p>灵感来源于 PCA 白化。但是白化计算复杂度高，特别是我们还希望白化操作是可微的，</p>
+</blockquote>
+</li>
+<li><p>每一层都是标准正太分布，导致完全学习不到输入数据的真实特征分布。因此我们引入可学习重构参数 $\gamma$ 和 $\beta$</p>
+</li>
+<li><p>当 $\gamma = \sqrt{\sigma^2 + \epsilon}$ , $\beta = u$ 时候重构出 原始输入$x_i$ 保留原始输入的分布 ，提升了我们模型的 capacity。</p>
+</li>
+</ul>
+<h4 id="BN的优势"><a href="#BN的优势" class="headerlink" title="BN的优势"></a>BN的优势</h4><ul>
+<li>解决了梯度消失，爆炸问题</li>
+<li>对模型中参数不那么敏感，加快网络训练</li>
+<li>对一些饱和函数（sigmoid，tanh）改变他们分布，使得输入落在非饱和区域</li>
+</ul>
 
       
 
@@ -275,11 +308,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/27/2019-07-27算法记录02---BN层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/26/2019-07-27算法记录02---Boosting Bag/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          算法记录02---BN层
+          算法面试记录-02
         
       </div>
     </a>
@@ -314,7 +347,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-07-25算法记录01---LR相关" data-title="算法记录01---LR相关" data-url="xhw205.github.io/2019/07/25/2019-07-25算法记录01---LR相关/"></div>
+	<div class="ds-thread" data-thread-key="2019-07-25算法记录01---LR相关" data-title="算法面试记录-01" data-url="xhw205.github.io/2019/07/25/2019-07-25算法记录01---LR相关/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
