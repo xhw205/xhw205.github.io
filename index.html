@@ -172,8 +172,8 @@
 <ul>
 <li>VGG， Resnet</li>
 </ul>
-<h4 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h4><p>vgg 16 相比 AlexNet (11 <em> 11,  7 </em> 7， 5 <em> 5 )， 使用多个 3 </em> 3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。</p>
-<p>结构简单整洁，只有用了同样尺寸的 3  <em>  3 卷积核和 2  </em>  2 的最大池化。BN 层可以选择加在 卷积之后，  激活之前。</p>
+<h4 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h4><p>vgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。</p>
+<p>结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷积核和 2   $\times$   2 的最大池化。BN 层可以选择加在 卷积之后，  激活之前。</p>
 <h4 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h4><p>原来网络加深后，会产生梯度弥散问题，但是使用 参数正则，BN，弃用 Sigmoid 激活函数后是可以解决该问题。</p>
 <p>但是新的问题又出现了，<strong>退化问题</strong>， 训练集上的准确率饱和下降，这个并不能用 过拟合来解释。</p>
 <p>于是 He 想到，如果深层网络的后面那些层是恒等映射，那么模型就退化为一个浅层网络，至少不比浅层网络效果差。</p>
