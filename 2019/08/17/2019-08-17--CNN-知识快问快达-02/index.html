@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="xhw205.github.io">
   <title> CNN 知识快问快达-02 | 勤奋的懒猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet  VGGvgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。 结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷">
+  <meta name="description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet">
 <meta name="keywords" content="记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" CNN 知识快问快达-02">
 <meta property="og:url" content="xhw205.github.io/2019/08/17/2019-08-17--CNN-知识快问快达-02/index.html">
 <meta property="og:site_name" content="勤奋的懒猫">
-<meta property="og:description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet  VGGvgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。 结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷">
+<meta property="og:description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/09/15/XyCKRcZx3EdLgID.png">
-<meta property="og:updated_time" content="2019-09-15T12:17:27.115Z">
+<meta property="og:updated_time" content="2019-09-16T02:05:10.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" CNN 知识快问快达-02">
-<meta name="twitter:description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet  VGGvgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。 结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷">
+<meta name="twitter:description" content="CNN 各个领域中一些常见问题 （2）  VGG， Resnet">
 <meta name="twitter:image" content="https://i.loli.net/2019/09/15/XyCKRcZx3EdLgID.png">
   
     <link rel="alternative" href="/atom.xml" title="勤奋的懒猫" type="application/atom+xml">
@@ -177,6 +177,7 @@
 <ul>
 <li>VGG， Resnet</li>
 </ul>
+<a id="more"></a>
 <h4 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h4><p>vgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。</p>
 <p>结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷积核和 2   $\times$   2 的最大池化。BN 层可以选择加在 卷积之后，  激活之前。</p>
 <h4 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h4><p>原来网络加深后，会产生梯度弥散问题，但是使用 参数正则，BN，弃用 Sigmoid 激活函数后是可以解决该问题。</p>

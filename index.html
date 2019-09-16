@@ -172,24 +172,9 @@
 <ul>
 <li>VGG， Resnet</li>
 </ul>
-<h4 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h4><p>vgg 16 相比 AlexNet (11 $\times$ 11,  7  $\times$  7， 5  $\times$  5 )， 使用多个 3  $\times$  3 卷积核，保证具有相同感受野情况下，多层非线性层增加网络的拟合性，而且参数更少。</p>
-<p>结构简单整洁，只有用了同样尺寸的 3  $\times$  3 卷积核和 2   $\times$   2 的最大池化。BN 层可以选择加在 卷积之后，  激活之前。</p>
-<h4 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h4><p>原来网络加深后，会产生梯度弥散问题，但是使用 参数正则，BN，弃用 Sigmoid 激活函数后是可以解决该问题。</p>
-<p>但是新的问题又出现了，<strong>退化问题</strong>， 训练集上的准确率饱和下降，这个并不能用 过拟合来解释。</p>
-<p>于是 He 想到，如果深层网络的后面那些层是恒等映射，那么模型就退化为一个浅层网络，至少不比浅层网络效果差。</p>
-<p><img src="https://i.loli.net/2019/09/15/XyCKRcZx3EdLgID.png" alt="1568549265_1_.jpg"></p>
-<p>于是就来了如何学习恒等映射这个函数， $x$ 为输入，$F$ 为映射函数，$H(x)$ 为输出:</p>
-<ul>
-<li>普通网络： 需要学习 $x = H(x)$，就必须要学习  $F(x) =x$</li>
-<li>残差网络：需要学习 $x = H(x)$ 而 $H(x) = x + F(x)$，只需要习 $F(x) = 0$</li>
-</ul>
-<p>因此残差学习恒等映射更为容易。</p>
-<p>其他解释:</p>
-<ul>
-<li>梯度角度（个人不认同）</li>
-<li>集成学习</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/08/17/2019-08-17--CNN-知识快问快达-02/#more">more >></a>
+        
       
 
       
